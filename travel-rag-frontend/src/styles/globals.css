@@ -1,26 +1,40 @@
-@import "tailwindcss";
+/* src/styles/globals.css */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --primary: #00aa6c;
+  --secondary: #f2b203;
+  --background: #f9f8f6;
+  --foreground: #2c2c2c;
+  --card-bg: #ffffff;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+@layer components {
+  .btn-primary {
+    @apply bg-[#00aa6c] hover:bg-[#008a57] text-white font-bold py-2 px-4 rounded-full transition-colors;
+  }
+  
+  .btn-secondary {
+    @apply bg-[#f2b203] hover:bg-[#d9a003] text-black font-bold py-2 px-4 rounded-full transition-colors;
+  }
+  
+  .card {
+    @apply bg-white rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300;
+  }
+  
+  .gradient-overlay {
+    @apply relative overflow-hidden;
+  }
+  
+  .gradient-overlay::after {
+    @apply content-[''] absolute inset-0 bg-gradient-to-t from-black/70 to-transparent pointer-events-none;
   }
 }
 
 body {
-  background: var(--background);
+  background-color: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: 'Poppins', 'Segoe UI', sans-serif;
 }

@@ -1,468 +1,218 @@
-// components/itinerary/ItineraryView.jsx
-import React, { useState, useEffect, useRef } from 'react';
-import { 
-  ChevronDownIcon, 
-  ChevronUpIcon,
-  CalendarDaysIcon,
-  MapPinIcon,
-  CurrencyDollarIcon,
-  UserGroupIcon,
-  HeartIcon,
-  DocumentArrowDownIcon,
-  ShareIcon
-} from '@heroicons/react/24/outline';
-import DayItinerary from './DayItinerary';
-import WeatherSection from './WeatherSection';
+// src/components/itinerary/ItineraryView.jsx
+import React, { useState } from 'react';
 
 export default function ItineraryView({ content, extractedInfo, packages }) {
-  const [parsedItinerary, setParsedItinerary] = useState(null);
   const [activeDay, setActiveDay] = useState(1);
-  const [showWeather, setShowWeather] = useState(true);
-  const [showDestinationInfo, setShowDestinationInfo] = useState(true);
-  const itineraryRef = useRef(null);
+  const [showInfo, setShowInfo] = useState(true);
 
-  useEffect(() => {
-    if (content) {
-      const parsedData = parseItineraryContent(content);
-      setParsedItinerary(parsedData);
-    }
-  }, [content]);
-
-  const parseItineraryContent = (markdown) => {
-    // This is a simplified parser - in a real implementation, you would want a more robust markdown parser
-    const lines = markdown.split('\n');
-    let title = 'Travel Itinerary';
-    let overview = '';
-    const days = [];
-    const practicalInfo = {
-      accommodations: [],
-      transportation: [],
-      costs: []
-    };
-    let weather = null;
-    let destinationInfo = null;
-    let travelTips = [];
-
-    // Extract title (first h1)
-    const titleMatch = markdown.match(/^# (.*?)$/m);
-    if (titleMatch) {
-      title = titleMatch[1];
-    }
-
-    // Extract overview
-    const overviewStart = markdown.indexOf('## Overview');
-    const overviewEnd = markdown.indexOf('## Day 1');
-    if (overviewStart !== -1 && overviewEnd !== -1) {
-      overview = markdown.substring(overviewStart + 11, overviewEnd).trim();
-    }
-
-    // Extract day sections
-    const dayMatches = markdown.match(/## Day \d+[\s\S]*?(?=## Day \d+|## Practical|$)/g) || [];
-    dayMatches.forEach((dayContent, index) => {
-      const dayNumber = index + 1;
-      const dayTitle = `Day ${dayNumber}`;
-      
-      const morning = [];
-      const afternoon = [];
-      const evening = [];
-
-      if (dayContent.includes('### Morning')) {
-        const morningStart = dayContent.indexOf('### Morning');
-        const morningEnd = dayContent.indexOf('### Afternoon') !== -1 
-          ? dayContent.indexOf('### Afternoon') 
-          : dayContent.indexOf('### Evening') !== -1
-            ? dayContent.indexOf('### Evening')
-            : dayContent.length;
-            
-        const morningContent = dayContent.substring(morningStart, morningEnd);
-        const morningItems = morningContent.match(/- (.*?)$/gm);
-        if (morningItems) {
-          morningItems.forEach(item => morning.push(item.replace('- ', '')));
-        }
-      }
-
-      if (dayContent.includes('### Afternoon')) {
-        const afternoonStart = dayContent.indexOf('### Afternoon');
-        const afternoonEnd = dayContent.indexOf('### Evening') !== -1 
-          ? dayContent.indexOf('### Evening') 
-          : dayContent.length;
-            
-        const afternoonContent = dayContent.substring(afternoonStart, afternoonEnd);
-        const afternoonItems = afternoonContent.match(/- (.*?)$/gm);
-        if (afternoonItems) {
-          afternoonItems.forEach(item => afternoon.push(item.replace('- ', '')));
-        }
-      }
-
-      if (dayContent.includes('### Evening')) {
-        const eveningStart = dayContent.indexOf('### Evening');
-        const eveningEnd = dayContent.length;
-            
-        const eveningContent = dayContent.substring(eveningStart, eveningEnd);
-        const eveningItems = eveningContent.match(/- (.*?)$/gm);
-        if (eveningItems) {
-          eveningItems.forEach(item => evening.push(item.replace('- ', '')));
-        }
-      }
-
-      days.push({
-        day: dayNumber,
-        title: dayTitle,
-        morning,
-        afternoon,
-        evening
-      });
-    });
-
-    // Extract practical information
-    const practicalStart = markdown.indexOf('## Practical Information');
-    if (practicalStart !== -1) {
-      const practicalEnd = markdown.indexOf('##', practicalStart + 1) !== -1 
-        ? markdown.indexOf('##', practicalStart + 1) 
-        : markdown.length;
-        
-      const practicalContent = markdown.substring(practicalStart, practicalEnd);
-      
-      if (practicalContent.includes('### Recommended Accommodations')) {
-        const accomStart = practicalContent.indexOf('### Recommended Accommodations');
-        const accomEnd = practicalContent.indexOf('###', accomStart + 1) !== -1 
-          ? practicalContent.indexOf('###', accomStart + 1) 
-          : practicalContent.length;
-          
-        const accomContent = practicalContent.substring(accomStart, accomEnd);
-        const accomItems = accomContent.match(/- (.*?)$/gm) || accomContent.match(/\* (.*?)$/gm);
-        if (accomItems) {
-          accomItems.forEach(item => practicalInfo.accommodations.push(item.replace(/^[- *] /, '')));
-        }
-      }
-      
-      if (practicalContent.includes('### Transportation Options')) {
-        const transStart = practicalContent.indexOf('### Transportation Options');
-        const transEnd = practicalContent.indexOf('###', transStart + 1) !== -1 
-          ? practicalContent.indexOf('###', transStart + 1) 
-          : practicalContent.length;
-          
-        const transContent = practicalContent.substring(transStart, transEnd);
-        const transItems = transContent.match(/- (.*?)$/gm) || transContent.match(/\* (.*?)$/gm);
-        if (transItems) {
-          transItems.forEach(item => practicalInfo.transportation.push(item.replace(/^[- *] /, '')));
-        }
-      }
-      
-      if (practicalContent.includes('### Estimated Costs')) {
-        const costStart = practicalContent.indexOf('### Estimated Costs');
-        const costEnd = practicalContent.length;
-          
-        const costContent = practicalContent.substring(costStart, costEnd);
-        const costItems = costContent.match(/- (.*?)$/gm) || costContent.match(/\* (.*?)$/gm);
-        if (costItems) {
-          costItems.forEach(item => practicalInfo.costs.push(item.replace(/^[- *] /, '')));
-        }
-      }
-    }
-
-    // Extract weather information
-    const weatherStart = markdown.indexOf('## Weather Forecast');
-    if (weatherStart !== -1) {
-      const weatherEnd = markdown.indexOf('##', weatherStart + 1) !== -1 
-        ? markdown.indexOf('##', weatherStart + 1) 
-        : markdown.length;
-        
-      const weatherContent = markdown.substring(weatherStart, weatherEnd);
-      
-      // Parse weather data from the content
-      const weatherItems = weatherContent.match(/- (.*?)$/gm) || [];
-      
-      if (weatherItems.length > 0) {
-        weather = {
-          days: weatherItems.map(item => {
-            const weatherText = item.replace('- ', '');
-            const weatherParts = weatherText.split(':');
-            const date = weatherParts[0] ? weatherParts[0].trim() : '';
-            const details = weatherParts[1] ? weatherParts[1].trim() : '';
-            
-            return { date, details };
-          })
-        };
-      }
-    }
-
-    // Extract destination information
-    const destInfoStart = markdown.indexOf('## Destination Information');
-    if (destInfoStart !== -1) {
-      const destInfoEnd = markdown.indexOf('##', destInfoStart + 1) !== -1 
-        ? markdown.indexOf('##', destInfoStart + 1) 
-        : markdown.length;
-        
-      const destInfoContent = markdown.substring(destInfoStart, destInfoEnd);
-      
-      destinationInfo = {};
-      
-      // Extract country info
-      const countryMatch = destInfoContent.match(/Country: (.*?)$/m);
-      if (countryMatch) {
-        destinationInfo.country = countryMatch[1].trim();
-      }
-      
-      // Extract continent info
-      const continentMatch = destInfoContent.match(/Continent: (.*?)$/m);
-      if (continentMatch) {
-        destinationInfo.continent = continentMatch[1].trim();
-      }
-    }
-
-    // Extract travel tips
-    const travelTipsStart = markdown.indexOf('## Travel Tips');
-    if (travelTipsStart !== -1) {
-      const travelTipsEnd = markdown.indexOf('##', travelTipsStart + 1) !== -1 
-        ? markdown.indexOf('##', travelTipsStart + 1) 
-        : markdown.length;
-        
-      const travelTipsContent = markdown.substring(travelTipsStart, travelTipsEnd);
-      
-      // Extract all sections with tips
-      const tipSections = travelTipsContent.match(/### .*?\n[\s\S]*?(?=### |$)/g) || [];
-      
-      tipSections.forEach(section => {
-        const tipItems = section.match(/- (.*?)$/gm) || [];
-        tipItems.forEach(item => {
-          travelTips.push(item.replace('- ', ''));
-        });
-      });
-    }
-
-    return {
-      title,
-      overview,
-      days,
-      practicalInfo,
-      weather,
-      destinationInfo,
-      travelTips
-    };
-  };
-
-  const exportPDF = async () => {
-    // In a real implementation, use a library like jsPDF and html2canvas
-    alert('PDF export functionality would be implemented here');
-  };
-
+  // This is simplified for the example
+  // In a real app, you would parse the markdown content properly
+  const destination = extractedInfo?.destination || (packages?.[0]?.location || 'Your Destination');
+  const daysCount = 3; // This would be parsed from the content
+  
   const handleDayClick = (day) => {
     setActiveDay(day);
   };
 
-  if (!parsedItinerary) {
-    return (
-      <div className="animate-pulse p-4">
-        <div className="h-4 bg-gray-200 rounded w-3/4 mb-4"></div>
-        <div className="h-4 bg-gray-200 rounded w-1/2 mb-2"></div>
-        <div className="h-4 bg-gray-200 rounded w-5/6 mb-6"></div>
-        {[1, 2, 3].map((i) => (
-          <div key={i} className="mb-6">
-            <div className="h-6 bg-gray-200 rounded w-1/4 mb-4"></div>
-            <div className="h-4 bg-gray-200 rounded w-full mb-2"></div>
-            <div className="h-4 bg-gray-200 rounded w-full mb-2"></div>
-            <div className="h-4 bg-gray-200 rounded w-3/4"></div>
-          </div>
-        ))}
-      </div>
-    );
-  }
-
   return (
-    <div ref={itineraryRef} className="bg-white rounded-lg overflow-hidden">
+    <div className="bg-white rounded-lg overflow-hidden border border-gray-200">
       {/* Header with destination info */}
-      <div className="bg-gradient-to-r from-blue-600 to-cyan-500 text-white p-4">
-        <h2 className="text-xl font-semibold">{parsedItinerary.title}</h2>
-        
-        {parsedItinerary.destinationInfo && (
-          <div className="flex items-center mt-1 text-sm">
-            <MapPinIcon className="h-4 w-4 mr-1" />
-            <span>
-              {parsedItinerary.destinationInfo.country}
-              {parsedItinerary.destinationInfo.continent && `, ${parsedItinerary.destinationInfo.continent}`}
-            </span>
+      <div className="relative h-40 overflow-hidden">
+        <img 
+          src={`https://source.unsplash.com/featured/?${destination.split(',')[0]},travel`} 
+          alt={destination}
+          className="w-full h-full object-cover"
+        />
+        <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent"></div>
+        <div className="absolute bottom-0 left-0 w-full p-4 text-white">
+          <h2 className="text-xl font-bold">
+            {destination}
+          </h2>
+          
+          {/* Quick facts */}
+          <div className="mt-2 flex flex-wrap gap-x-4 gap-y-1 text-sm">
+            {extractedInfo?.budget && (
+              <div className="flex items-center">
+                <span className="mr-1">💰</span>
+                <span>{extractedInfo.budget}</span>
+              </div>
+            )}
+            
+            {extractedInfo?.travelers && (
+              <div className="flex items-center">
+                <span className="mr-1">👥</span>
+                <span>{extractedInfo.travelers}</span>
+              </div>
+            )}
+            
+            {extractedInfo?.duration && (
+              <div className="flex items-center">
+                <span className="mr-1">📅</span>
+                <span>{extractedInfo.duration}</span>
+              </div>
+            )}
+            
+            {extractedInfo?.travel_type && (
+              <div className="flex items-center">
+                <span className="mr-1">❤️</span>
+                <span>{extractedInfo.travel_type}</span>
+              </div>
+            )}
           </div>
-        )}
-      </div>
-      
-      {/* Overview section */}
-      <div className="p-4 border-b border-gray-200">
-        <h3 className="font-medium text-gray-800 mb-2">Overview</h3>
-        <p className="text-gray-600 text-sm">{parsedItinerary.overview}</p>
-        
-        {/* Quick facts */}
-        <div className="mt-4 grid grid-cols-2 sm:grid-cols-4 gap-2">
-          {extractedInfo?.budget && (
-            <div className="flex items-center text-sm text-gray-700">
-              <CurrencyDollarIcon className="h-4 w-4 text-blue-500 mr-1" />
-              <span>Budget: {extractedInfo.budget}</span>
-            </div>
-          )}
-          
-          {extractedInfo?.travelers && (
-            <div className="flex items-center text-sm text-gray-700">
-              <UserGroupIcon className="h-4 w-4 text-blue-500 mr-1" />
-              <span>Travelers: {extractedInfo.travelers}</span>
-            </div>
-          )}
-          
-          {extractedInfo?.duration && (
-            <div className="flex items-center text-sm text-gray-700">
-              <CalendarDaysIcon className="h-4 w-4 text-blue-500 mr-1" />
-              <span>Duration: {extractedInfo.duration}</span>
-            </div>
-          )}
-          
-          {extractedInfo?.travel_type && (
-            <div className="flex items-center text-sm text-gray-700">
-              <HeartIcon className="h-4 w-4 text-blue-500 mr-1" />
-              <span>Type: {extractedInfo.travel_type}</span>
-            </div>
-          )}
         </div>
       </div>
       
-      {/* Day selector */}
-      <div className="p-4 bg-gray-50 border-b border-gray-200 overflow-x-auto">
-        <div className="flex space-x-2">
-          {parsedItinerary.days.map((day) => (
+      {/* Rating bar - TripAdvisor style */}
+      <div className="bg-[#f2b203] text-black px-4 py-2 flex justify-between items-center">
+        <div className="flex items-center">
+          <div className="flex mr-2">
+            {[1, 2, 3, 4, 5].map((star) => (
+              <span key={star} className="text-white">★</span>
+            ))}
+          </div>
+          <span className="text-sm font-medium">324 Reviews</span>
+        </div>
+        <span className="text-xs font-medium bg-white px-2 py-1 rounded-full">Travelers' Choice</span>
+      </div>
+      
+      {/* Day selector - TripAdvisor style */}
+      <div className="border-b border-gray-200 bg-white">
+        <div className="px-4 py-2 overflow-x-auto flex space-x-2">
+          {Array.from({ length: daysCount }, (_, i) => i + 1).map((day) => (
             <button
-              key={day.day}
-              onClick={() => handleDayClick(day.day)}
-              className={`px-3 py-1 text-sm rounded-md transition-colors ${
-                activeDay === day.day
-                  ? 'bg-blue-600 text-white'
-                  : 'bg-white border border-gray-300 text-gray-700 hover:bg-gray-50'
+              key={day}
+              onClick={() => handleDayClick(day)}
+              className={`flex flex-col items-center justify-center min-w-[60px] py-2 px-1 rounded-md text-xs font-medium transition-colors ${
+                activeDay === day
+                  ? 'bg-[#00aa6c] text-white'
+                  : 'bg-gray-100 text-gray-600 hover:bg-gray-200'
               }`}
             >
-              Day {day.day}
+              <span className="text-xs uppercase">Day</span>
+              <span className="text-lg font-bold">{day}</span>
             </button>
           ))}
         </div>
       </div>
       
-      {/* Active day itinerary */}
+      {/* Content area */}
       <div className="p-4">
-        {parsedItinerary.days.map((day) => (
-          <div
-            key={day.day}
-            className={`${activeDay === day.day ? 'block' : 'hidden'}`}
-          >
-            <DayItinerary day={day} />
+        {/* Example day content - in a real app this would come from parsing the markdown */}
+        {activeDay === 1 && (
+          <div>
+            <h3 className="text-lg font-medium text-gray-800 mb-2">Arrival & Exploration</h3>
+            <ul className="space-y-2 text-gray-600">
+              <li className="flex items-start">
+                <div className="bg-blue-100 p-1 rounded-full mr-2 mt-1">
+                  <span className="text-blue-600 text-xs font-bold">AM</span>
+                </div>
+                <span>Arrive at your hotel and check in</span>
+              </li>
+              <li className="flex items-start">
+                <div className="bg-blue-100 p-1 rounded-full mr-2 mt-1">
+                  <span className="text-blue-600 text-xs font-bold">PM</span>
+                </div>
+                <span>Explore the local neighborhood and enjoy dinner at a recommended restaurant</span>
+              </li>
+            </ul>
           </div>
-        ))}
-      </div>
-      
-      {/* Weather section */}
-      {parsedItinerary.weather && (
-        <div className="border-t border-gray-200">
-          <button
-            onClick={() => setShowWeather(!showWeather)}
-            className="w-full p-4 flex justify-between items-center bg-blue-50 hover:bg-blue-100 transition-colors"
-          >
-            <h3 className="font-medium text-blue-800">Weather Forecast</h3>
-            {showWeather ? (
-              <ChevronUpIcon className="h-5 w-5 text-blue-500" />
-            ) : (
-              <ChevronDownIcon className="h-5 w-5 text-blue-500" />
-            )}
-          </button>
-          
-          {showWeather && (
-            <div className="p-4 bg-blue-50">
-              <WeatherSection weather={parsedItinerary.weather} />
-            </div>
-          )}
-        </div>
-      )}
-      
-      {/* Practical information */}
-      <div className="border-t border-gray-200">
-        <button
-          onClick={() => setShowDestinationInfo(!showDestinationInfo)}
-          className="w-full p-4 flex justify-between items-center bg-gray-50 hover:bg-gray-100 transition-colors"
-        >
-          <h3 className="font-medium text-gray-800">Practical Information</h3>
-          {showDestinationInfo ? (
-            <ChevronUpIcon className="h-5 w-5 text-gray-500" />
-          ) : (
-            <ChevronDownIcon className="h-5 w-5 text-gray-500" />
-          )}
-        </button>
+        )}
         
-        {showDestinationInfo && (
-          <div className="p-4">
-            {parsedItinerary.practicalInfo.accommodations.length > 0 && (
-              <div className="mb-4">
-                <h4 className="font-medium text-gray-800 mb-2">Recommended Accommodations</h4>
-                <ul className="list-disc list-inside text-gray-600 text-sm">
-                  {parsedItinerary.practicalInfo.accommodations.map((accommodation, index) => (
-                    <li key={index}>{accommodation}</li>
-                  ))}
-                </ul>
-              </div>
-            )}
-            
-            {parsedItinerary.practicalInfo.transportation.length > 0 && (
-              <div className="mb-4">
-                <h4 className="font-medium text-gray-800 mb-2">Transportation Options</h4>
-                <ul className="list-disc list-inside text-gray-600 text-sm">
-                  {parsedItinerary.practicalInfo.transportation.map((option, index) => (
-                    <li key={index}>{option}</li>
-                  ))}
-                </ul>
-              </div>
-            )}
-            
-            {parsedItinerary.practicalInfo.costs.length > 0 && (
-              <div>
-                <h4 className="font-medium text-gray-800 mb-2">Estimated Costs</h4>
-                <ul className="list-disc list-inside text-gray-600 text-sm">
-                  {parsedItinerary.practicalInfo.costs.map((cost, index) => (
-                    <li key={index}>{cost}</li>
-                  ))}
-                </ul>
-              </div>
-            )}
+        {activeDay === 2 && (
+          <div>
+            <h3 className="text-lg font-medium text-gray-800 mb-2">Cultural Immersion</h3>
+            <ul className="space-y-2 text-gray-600">
+              <li className="flex items-start">
+                <div className="bg-blue-100 p-1 rounded-full mr-2 mt-1">
+                  <span className="text-blue-600 text-xs font-bold">AM</span>
+                </div>
+                <span>Visit the main cultural attractions and museums</span>
+              </li>
+              <li className="flex items-start">
+                <div className="bg-blue-100 p-1 rounded-full mr-2 mt-1">
+                  <span className="text-blue-600 text-xs font-bold">PM</span>
+                </div>
+                <span>Take a guided walking tour of historical sites</span>
+              </li>
+            </ul>
+          </div>
+        )}
+        
+        {activeDay === 3 && (
+          <div>
+            <h3 className="text-lg font-medium text-gray-800 mb-2">Relaxation & Departure</h3>
+            <ul className="space-y-2 text-gray-600">
+              <li className="flex items-start">
+                <div className="bg-blue-100 p-1 rounded-full mr-2 mt-1">
+                  <span className="text-blue-600 text-xs font-bold">AM</span>
+                </div>
+                <span>Free time for shopping or relaxation</span>
+              </li>
+              <li className="flex items-start">
+                <div className="bg-blue-100 p-1 rounded-full mr-2 mt-1">
+                  <span className="text-blue-600 text-xs font-bold">PM</span>
+                </div>
+                <span>Check out and departure</span>
+              </li>
+            </ul>
           </div>
         )}
       </div>
       
-      {/* Travel tips */}
-      {parsedItinerary.travelTips.length > 0 && (
-        <div className="border-t border-gray-200 p-4">
-          <h3 className="font-medium text-gray-800 mb-2">Travel Tips</h3>
-          <ul className="grid grid-cols-1 md:grid-cols-2 gap-2">
-            {parsedItinerary.travelTips.slice(0, 6).map((tip, index) => (
-              <li key={index} className="flex items-start">
-                <span className="inline-block w-4 h-4 rounded-full bg-blue-100 text-blue-600 flex-shrink-0 mr-2 mt-1 flex items-center justify-center text-xs">
-                  ✓
-                </span>
-                <span className="text-sm text-gray-600">{tip}</span>
-              </li>
-            ))}
-          </ul>
-        </div>
-      )}
+      {/* Practical information */}
+      <div className="border-t border-gray-200">
+        <button
+          onClick={() => setShowInfo(!showInfo)}
+          className="w-full p-4 flex justify-between items-center bg-gray-50 hover:bg-gray-100 transition-colors"
+        >
+          <h3 className="font-medium text-gray-800">Practical Information</h3>
+          {showInfo ? <span>▲</span> : <span>▼</span>}
+        </button>
+        
+        {showInfo && (
+          <div className="p-4">
+            <div className="mb-4">
+              <h4 className="font-medium text-gray-800 mb-2">Recommended Accommodations</h4>
+              <ul className="list-disc list-inside text-gray-600 text-sm">
+                <li>Luxury Hotel - City Center</li>
+                <li>Boutique Hotel - Historic District</li>
+                <li>Budget Hostel - Near Public Transportation</li>
+              </ul>
+            </div>
+            
+            <div className="mb-4">
+              <h4 className="font-medium text-gray-800 mb-2">Transportation Options</h4>
+              <ul className="list-disc list-inside text-gray-600 text-sm">
+                <li>Public Transit - Affordable and convenient</li>
+                <li>Taxi Services - Available throughout the city</li>
+                <li>Rental Car - Recommended for exploring the outskirts</li>
+              </ul>
+            </div>
+            
+            <div>
+              <h4 className="font-medium text-gray-800 mb-2">Estimated Costs</h4>
+              <ul className="list-disc list-inside text-gray-600 text-sm">
+                <li>Accommodations: $100-300 per night</li>
+                <li>Meals: $30-80 per day</li>
+                <li>Activities: $20-50 per activity</li>
+              </ul>
+            </div>
+          </div>
+        )}
+      </div>
       
       {/* Export buttons */}
       <div className="border-t border-gray-200 p-4 flex justify-end space-x-2">
-        <button
-          onClick={exportPDF}
-          className="inline-flex items-center px-3 py-1 bg-blue-600 text-white text-sm rounded-md hover:bg-blue-700 transition-colors"
-        >
-          <DocumentArrowDownIcon className="h-4 w-4 mr-1" />
+        <button className="inline-flex items-center px-3 py-1 bg-[#00aa6c] text-white text-sm rounded-md hover:bg-[#008a57] transition-colors">
+          <span className="mr-1">📥</span>
           Save PDF
         </button>
         
-        <button
-          className="inline-flex items-center px-3 py-1 bg-gray-100 text-gray-700 text-sm rounded-md hover:bg-gray-200 transition-colors"
-        >
-          <ShareIcon className="h-4 w-4 mr-1" />
+        <button className="inline-flex items-center px-3 py-1 bg-gray-100 text-gray-700 text-sm rounded-md hover:bg-gray-200 transition-colors">
+          <span className="mr-1">📤</span>
           Share
         </button>
       </div>
-    </div> 
+    </div>
   );
 }

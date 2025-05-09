@@ -1,11 +1,7 @@
-// components/chat/ChatInterface.jsx
+// src/components/chat/ChatInterface.jsx
 import React, { useState, useRef, useEffect } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
-import { PaperAirplaneIcon } from '@heroicons/react/24/solid';
-import { ArrowPathIcon } from '@heroicons/react/24/outline';
 import MessageItem from './MessageItem';
 import SuggestedPrompts from './SuggestedPrompts';
-import TypingIndicator from './TypingIndicator';
 
 export default function ChatInterface() {
   const [messages, setMessages] = useState([
@@ -69,7 +65,7 @@ export default function ChatInterface() {
               content: data.proposal,
               timestamp: new Date(),
               extracted_info: data.extracted_info,
-              packages: data.packages,
+              packages: data.recommended_packages,
               timings: data.timings,
             };
           }
@@ -110,67 +106,59 @@ export default function ChatInterface() {
   ];
 
   return (
-    <div className="flex flex-col h-[calc(100vh-120px)] bg-white rounded-xl shadow-lg overflow-hidden">
-      <div className="bg-gradient-to-r from-blue-600 to-cyan-500 text-white py-4 px-6">
-        <h2 className="text-xl font-semibold">AI Travel Assistant</h2>
-        {processingTime && !isProcessing && (
-          <p className="text-xs text-blue-100">
-            Last response generated in {(processingTime / 1000).toFixed(2)} seconds
-          </p>
-        )}
-      </div>
-      
-      <div className="flex-1 overflow-y-auto p-4 bg-gray-50">
-        <AnimatePresence>
-          {messages.map((message, index) => (
-            <motion.div
-              key={index}
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.3 }}
-            >
-              <MessageItem message={message} />
-            </motion.div>
-          ))}
-        </AnimatePresence>
+    <div className="flex flex-col h-[500px] bg-white rounded-b-xl overflow-hidden">
+      <div className="flex-1 overflow-y-auto p-4 bg-gray-50 space-y-4">
+        {messages.map((message, index) => (
+          <div key={index} className="mb-4">
+            <MessageItem message={message} />
+          </div>
+        ))}
         
-        {isProcessing && <TypingIndicator />}
+        {isProcessing && (
+          <div className="flex items-center space-x-2 text-[#00aa6c]">
+            <div className="flex space-x-1">
+              <div className="w-2 h-2 bg-[#00aa6c] rounded-full animate-bounce"></div>
+              <div className="w-2 h-2 bg-[#00aa6c] rounded-full animate-bounce" style={{ animationDelay: "0.2s" }}></div>
+              <div className="w-2 h-2 bg-[#00aa6c] rounded-full animate-bounce" style={{ animationDelay: "0.4s" }}></div>
+            </div>
+            <span className="text-sm">Creating your personalized travel itinerary...</span>
+          </div>
+        )}
         
         <div ref={messagesEndRef} />
       </div>
       
       {messages.length === 1 && (
-        <div className="px-6 py-4 bg-blue-50">
-          <h3 className="text-sm font-medium text-blue-800 mb-2">Try asking about:</h3>
+        <div className="px-6 py-4 bg-blue-50 border-t border-blue-100">
+          <h3 className="text-sm font-medium text-[#00aa6c] mb-2">Popular searches:</h3>
           <SuggestedPrompts prompts={suggestedPrompts} onSelect={handleSuggestionClick} />
         </div>
       )}
       
-      <form onSubmit={handleSubmit} className="p-4 border-t border-gray-200 bg-white">
-        <div className="flex items-center">
+      <div className="p-4 border-t border-gray-200 bg-white">
+        <form onSubmit={handleSubmit} className="flex items-center relative">
           <textarea
             value={inputValue}
             onChange={(e) => setInputValue(e.target.value)}
-            placeholder="Describe your travel plans..."
-            className="flex-1 border border-gray-300 rounded-l-lg py-3 px-4 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-            rows="2"
+            placeholder="Where would you like to travel? (e.g., 'Beach vacation in Bali for 2 weeks')"
+            className="flex-1 border border-gray-300 rounded-full py-3 pl-4 pr-12 focus:outline-none focus:ring-2 focus:ring-[#00aa6c] focus:border-transparent resize-none h-12 overflow-hidden"
+            rows="1"
             disabled={isProcessing}
           />
           <button
             type="submit"
-            className={`bg-blue-600 hover:bg-blue-700 text-white rounded-r-lg py-3 px-4 flex items-center justify-center h-full transition-colors ${
-              isProcessing ? 'opacity-50 cursor-not-allowed' : ''
-            }`}
+            className={`absolute right-2 p-2 rounded-full ${
+              isProcessing ? 'bg-gray-300 cursor-not-allowed' : 'bg-[#00aa6c] hover:bg-[#008a57]'
+            } text-white`}
             disabled={isProcessing}
           >
-            {isProcessing ? (
-              <ArrowPathIcon className="h-5 w-5 animate-spin" />
-            ) : (
-              <PaperAirplaneIcon className="h-5 w-5" />
-            )}
+            🚀
           </button>
-        </div>
-      </form>
+        </form>
+        <p className="mt-2 text-xs text-gray-500 text-center">
+          Ask about destinations, accommodations, activities, or specific travel preferences
+        </p>
+      </div>
     </div>
   );
 }

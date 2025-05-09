@@ -1,7 +1,5 @@
-// components/chat/MessageItem.jsx
+// src/components/chat/MessageItem.jsx
 import React, { useState } from 'react';
-import { ChevronDownIcon, ChevronUpIcon } from '@heroicons/react/24/outline';
-import ReactMarkdown from 'react-markdown';
 import ItineraryView from '../itinerary/ItineraryView';
 
 export default function MessageItem({ message }) {
@@ -10,57 +8,85 @@ export default function MessageItem({ message }) {
   
   // Determine if this is an itinerary response
   const isItinerary = message.role === 'assistant' && 
-                     (message.content.includes('# ') || 
-                      message.content.includes('Itinerary') || 
-                      message.content.includes('Day '));
+                     (message.content?.includes('# ') || 
+                      message.content?.includes('Itinerary') || 
+                      message.content?.includes('Day '));
 
   const toggleDetails = () => {
     setShowDetails(!showDetails);
   };
 
+  // Function to safely render markdown
+  const renderMarkdown = (content) => {
+    if (!content) return '';
+    
+    // Plain text rendering - you can add a Markdown library later if needed
+    return <div className="whitespace-pre-wrap">{content}</div>;
+  };
+
   return (
-    <div
-      className={`mb-4 ${
-        message.role === 'user' ? 'flex justify-end' : 'flex justify-start'
-      }`}
-    >
-      <div
-        className={`rounded-lg px-4 py-3 max-w-[85%] ${
-          message.role === 'user'
-            ? 'bg-gradient-to-r from-blue-500 to-blue-600 text-white rounded-br-none'
-            : message.error
-            ? 'bg-red-50 text-red-800 rounded-bl-none border border-red-200'
-            : 'bg-white shadow-sm border border-gray-200 rounded-bl-none'
-        }`}
-      >
-        {message.role === 'assistant' && isItinerary && !message.error ? (
-          <div>
-            <div className="flex justify-between items-center mb-3">
-              <h3 className="font-medium text-gray-900">Travel Proposal</h3>
+    <>
+      {message.role === 'user' ? (
+        <div className="flex justify-end">
+          <div className="bg-blue-50 text-gray-800 rounded-tl-xl rounded-tr-xl rounded-bl-xl px-4 py-3 max-w-[85%] shadow-sm border border-blue-100">
+            <p className="text-sm">{message.content}</p>
+            <div className="mt-1 text-right">
+              <span className="text-xs text-gray-500">
+                {message.timestamp.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}
+              </span>
+            </div>
+          </div>
+        </div>
+      ) : message.processing ? (
+        <div className="flex justify-start">
+          <div className="bg-white rounded-tr-xl rounded-tl-xl rounded-br-xl px-4 py-3 max-w-[85%] shadow-sm border border-gray-100">
+            <div className="flex space-x-1 items-center">
+              <div className="w-2 h-2 bg-[#00aa6c] rounded-full animate-bounce"></div>
+              <div className="w-2 h-2 bg-[#00aa6c] rounded-full animate-bounce" style={{ animationDelay: "0.2s" }}></div>
+              <div className="w-2 h-2 bg-[#00aa6c] rounded-full animate-bounce" style={{ animationDelay: "0.4s" }}></div>
+            </div>
+          </div>
+        </div>
+      ) : message.error ? (
+        <div className="flex justify-start">
+          <div className="bg-red-50 text-red-800 rounded-tr-xl rounded-tl-xl rounded-br-xl px-4 py-3 max-w-[85%] shadow-sm border border-red-100">
+            <p className="text-sm">{message.content}</p>
+            <div className="mt-1">
+              <span className="text-xs text-red-500">
+                {message.timestamp.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}
+              </span>
+            </div>
+          </div>
+        </div>
+      ) : isItinerary ? (
+        <div className="flex justify-start">
+          <div className="bg-white rounded-tr-xl rounded-tl-xl rounded-br-xl max-w-[85%] shadow-md overflow-hidden border border-gray-200">
+            <div className="bg-[#00aa6c] px-4 py-2 text-white flex justify-between items-center">
+              <h3 className="font-medium">Travel Itinerary</h3>
               
-              <div className="flex space-x-2">
-                <div className="inline-flex rounded-md shadow-sm" role="group">
+              <div className="flex space-x-2 items-center">
+                <div className="inline-flex rounded-md shadow-sm text-xs" role="group">
                   <button
                     type="button"
                     onClick={() => setViewMode('itinerary')}
-                    className={`px-3 py-1 text-xs font-medium rounded-l-lg border ${
+                    className={`px-2 py-1 rounded-l-md ${
                       viewMode === 'itinerary'
-                        ? 'bg-blue-50 text-blue-700 border-blue-200'
-                        : 'bg-white text-gray-700 border-gray-200 hover:bg-gray-50'
+                        ? 'bg-white text-[#00aa6c]'
+                        : 'bg-[#00aa6c] text-white hover:bg-[#008a57]'
                     }`}
                   >
-                    Itinerary View
+                    Pretty
                   </button>
                   <button
                     type="button"
                     onClick={() => setViewMode('raw')}
-                    className={`px-3 py-1 text-xs font-medium rounded-r-lg border ${
+                    className={`px-2 py-1 rounded-r-md ${
                       viewMode === 'raw'
-                        ? 'bg-blue-50 text-blue-700 border-blue-200'
-                        : 'bg-white text-gray-700 border-gray-200 hover:bg-gray-50'
+                        ? 'bg-white text-[#00aa6c]'
+                        : 'bg-[#00aa6c] text-white hover:bg-[#008a57]'
                     }`}
                   >
-                    Raw Markdown
+                    Text
                   </button>
                 </div>
                 
@@ -68,14 +94,9 @@ export default function MessageItem({ message }) {
                   <button
                     type="button"
                     onClick={toggleDetails}
-                    className="inline-flex items-center text-xs text-gray-500 hover:text-gray-700"
+                    className="text-white hover:text-gray-100"
                   >
-                    Details
-                    {showDetails ? (
-                      <ChevronUpIcon className="ml-1 h-4 w-4" />
-                    ) : (
-                      <ChevronDownIcon className="ml-1 h-4 w-4" />
-                    )}
+                    {showDetails ? '▲' : '▼'}
                   </button>
                 )}
               </div>
@@ -88,49 +109,57 @@ export default function MessageItem({ message }) {
                 packages={message.packages} 
               />
             ) : (
-              <div className="prose prose-sm max-w-none overflow-auto text-gray-800">
-                <ReactMarkdown>{message.content}</ReactMarkdown>
+              <div className="p-4 max-h-[400px] overflow-y-auto text-sm text-gray-800">
+                {renderMarkdown(message.content)}
               </div>
             )}
 
             {showDetails && message.timings && (
-              <div className="mt-4 border-t border-gray-200 pt-3 text-xs text-gray-500">
-                <h4 className="font-medium text-gray-700 mb-1">Processing Details</h4>
+              <div className="px-4 py-2 border-t border-gray-200 bg-gray-50 text-xs text-gray-600">
                 <div className="grid grid-cols-3 gap-2">
                   <div>
-                    <p className="font-medium">Extraction</p>
+                    <p className="font-medium text-[#00aa6c]">Extraction:</p>
                     <p>{(message.timings.extraction_ms / 1000).toFixed(2)}s</p>
                   </div>
                   <div>
-                    <p className="font-medium">Generation</p>
+                    <p className="font-medium text-[#00aa6c]">Generation:</p>
                     <p>{(message.timings.generation_ms / 1000).toFixed(2)}s</p>
                   </div>
                   <div>
-                    <p className="font-medium">Total Time</p>
+                    <p className="font-medium text-[#00aa6c]">Total:</p>
                     <p>{(message.timings.total_ms / 1000).toFixed(2)}s</p>
                   </div>
                 </div>
-                {message.extracted_info && (
-                  <div className="mt-2">
-                    <p className="font-medium">Extracted Information</p>
-                    <pre className="mt-1 bg-gray-100 p-2 rounded text-xs overflow-auto max-h-32">
-                      {JSON.stringify(message.extracted_info, null, 2)}
-                    </pre>
-                  </div>
-                )}
               </div>
             )}
+            
+            <div className="px-4 py-2 border-t border-gray-200 bg-gray-50 flex justify-between items-center">
+              <div className="flex space-x-2">
+                <button className="text-[#00aa6c] hover:text-[#008a57] text-xs font-medium">
+                  Save
+                </button>
+                <button className="text-[#00aa6c] hover:text-[#008a57] text-xs font-medium">
+                  Share
+                </button>
+              </div>
+              <span className="text-xs text-gray-500">
+                {message.timestamp.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}
+              </span>
+            </div>
           </div>
-        ) : (
-          <div className="prose prose-sm max-w-none">
-            {message.content}
-          </div>
-        )}
-        
-        <div className="mt-1 text-xs opacity-70 text-right">
-          {message.timestamp.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}
         </div>
-      </div>
-    </div>
+      ) : (
+        <div className="flex justify-start">
+          <div className="bg-white rounded-tr-xl rounded-tl-xl rounded-br-xl px-4 py-3 max-w-[85%] shadow-sm border border-gray-200">
+            <p className="text-sm">{message.content}</p>
+            <div className="mt-1">
+              <span className="text-xs text-gray-500">
+                {message.timestamp.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}
+              </span>
+            </div>
+          </div>
+        </div>
+      )}
+    </>
   );
 }

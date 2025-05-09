@@ -1,4 +1,4 @@
-// components/chat/SuggestedPrompts.jsx
+// src/components/chat/SuggestedPrompts.jsx
 import React from 'react';
 
 export default function SuggestedPrompts({ prompts, onSelect }) {
@@ -8,7 +8,7 @@ export default function SuggestedPrompts({ prompts, onSelect }) {
         <button
           key={index}
           onClick={() => onSelect(prompt)}
-          className="bg-white border border-blue-200 rounded-full px-3 py-1 text-sm text-blue-700 hover:bg-blue-100 transition-colors"
+          className="bg-white border border-[#00aa6c] text-[#00aa6c] rounded-full px-3 py-1 text-sm hover:bg-[#00aa6c] hover:text-white transition-colors duration-200 shadow-sm"
         >
           {prompt.length > 40 ? prompt.substring(0, 37) + '...' : prompt}
         </button>
