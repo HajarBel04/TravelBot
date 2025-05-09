@@ -1,0 +1,2944 @@
+{
+  "packages": [
+    {
+      "id": "fc5823e1-3dee-4c0b-bf5f-2d4fa458f68a",
+      "name": "Explore Miami",
+      "description": "Experience the charm and beauty of Miami, one of the most fascinating destinations in USA.",
+      "destination": "Miami, USA",
+      "country": "USA",
+      "continent": "Unknown",
+      "price": {
+        "amount": 0,
+        "currency": "USD",
+        "per_person": true
+      },
+      "duration": "4 days",
+      "activities": [
+        {
+          "name": "Museum of the Americas",
+          "description": "Enjoy Museum of the Americas in Miami, USA",
+          "duration": "4 hours",
+          "included_in_package": true
+        },
+        {
+          "name": "Tour Boat Boarding",
+          "description": "Enjoy Tour Boat Boarding in Miami, USA",
+          "duration": "2 hours",
+          "included_in_package": true
+        },
+        {
+          "name": "Dropped Bowl with Scattered Slices and Peels",
+          "description": "Enjoy Dropped Bowl with Scattered Slices and Peels in Miami, USA",
+          "duration": "1 hours",
+          "included_in_package": true
+        },
+        {
+          "name": "Slide Mantra",
+          "description": "Enjoy Slide Mantra in Miami, USA",
+          "duration": "2 hours",
+          "included_in_package": true
+        },
+        {
+          "name": "The Light Tower",
+          "description": "Enjoy The Light Tower in Miami, USA",
+          "duration": "4 hours",
+          "included_in_package": true
+        },
+        {
+          "name": "Tour Boat Boarding",
+          "description": "Visit Tour Boat Boarding, a local attraction",
+          "duration": "2 hours",
+          "included_in_package": false,
+          "coordinates": {
+            "latitude": 25.7782099,
+            "longitude": -80.1861767
+          }
+        },
+        {
+          "name": "Dropped Bowl with Scattered Slices and Peels",
+          "description": "Visit Dropped Bowl with Scattered Slices and Peels, a local artwork",
+          "duration": "2 hours",
+          "included_in_package": false,
+          "coordinates": {
+            "latitude": 25.7752802,
+            "longitude": -80.1973615
+          }
+        },
+        {
+          "name": "Slide Mantra",
+          "description": "Visit Slide Mantra, a local artwork",
+          "duration": "2 hours",
+          "included_in_package": false,
+          "coordinates": {
+            "latitude": 25.7740902,
+            "longitude": -80.1867719
+          }
+        },
+        {
+          "name": "The Light Tower",
+          "description": "Visit The Light Tower, a local artwork",
+          "duration": "2 hours",
+          "included_in_package": false,
+          "coordinates": {
+            "latitude": 25.7756236,
+            "longitude": -80.186744
+          }
+        },
+        {
+          "name": "Residences at Bayside - by Elite City Stays",
+          "description": "Visit Residences at Bayside - by Elite City Stays, a local hotel",
+          "duration": "2 hours",
+          "included_in_package": false,
+          "coordinates": {
+            "latitude": 25.776957,
+            "longitude": -80.1886936
+          }
+        }
+      ],
+      "last_updated": "2025-05-08T21:05:49.414484",
+      "coordinates": {
+        "latitude": 25.7741728,
+        "longitude": -80.19362
+      },
+      "weather_data": {
+        "latitude": 25.772915,
+        "longitude": -80.198326,
+        "generationtime_ms": 0.06091594696044922,
+        "utc_offset_seconds": -14400,
+        "timezone": "America/New_York",
+        "timezone_abbreviation": "GMT-4",
+        "elevation": 6.0,
+        "daily_units": {
+          "time": "iso8601",
+          "temperature_2m_max": "\u00b0C",
+          "temperature_2m_min": "\u00b0C",
+          "precipitation_sum": "mm"
+        },
+        "daily": {
+          "time": [
+            "2025-05-08",
+            "2025-05-09",
+            "2025-05-10",
+            "2025-05-11",
+            "2025-05-12",
+            "2025-05-13",
+            "2025-05-14"
+          ],
+          "temperature_2m_max": [
+            28.9,
+            29.4,
+            28.3,
+            28.0,
+            28.9,
+            29.1,
+            29.3
+          ],
+          "temperature_2m_min": [
+            22.4,
+            23.0,
+            24.0,
+            26.0,
+            26.4,
+            25.9,
+            26.6
+          ],
+          "precipitation_sum": [
+            0.0,
+            0.0,
+            0.0,
+            0.4,
+            0.1,
+            14.7,
+            0.3
+          ]
+        }
+      }
+    },
+    {
+      "id": "eb6f4608-f849-469d-beb9-d0e05a88317e",
+      "name": "Explore Santiago",
+      "description": "Experience the charm and beauty of Santiago, one of the most fascinating destinations in Chile.",
+      "destination": "Santiago, Chile",
+      "country": "Chile",
+      "continent": "Unknown",
+      "price": {
+        "amount": 0,
+        "currency": "USD",
+        "per_person": true
+      },
+      "duration": "3 days",
+      "activities": [
+        {
+          "name": "Le Meridien Hotel",
+          "description": "Enjoy Le Meridien Hotel in Santiago, Chile",
+          "duration": "4 hours",
+          "included_in_package": true
+        },
+        {
+          "name": "Centro Cultural Palacio de La Moneda",
+          "description": "Enjoy Centro Cultural Palacio de La Moneda in Santiago, Chile",
+          "duration": "4 hours",
+          "included_in_package": true
+        },
+        {
+          "name": "Hotel Plaza San Francisco",
+          "description": "Enjoy Hotel Plaza San Francisco in Santiago, Chile",
+          "duration": "2 hours",
+          "included_in_package": true
+        },
+        {
+          "name": "Andes Hostel",
+          "description": "Enjoy Andes Hostel in Santiago, Chile",
+          "duration": "2 hours",
+          "included_in_package": true
+        },
+        {
+          "name": "Apart Hotel Bellas Artes",
+          "description": "Enjoy Apart Hotel Bellas Artes in Santiago, Chile",
+          "duration": "2 hours",
+          "included_in_package": true
+        },
+        {
+          "name": "Centro Cultural Palacio de La Moneda",
+          "description": "Visit Centro Cultural Palacio de La Moneda, a local gallery",
+          "duration": "2 hours",
+          "included_in_package": false,
+          "coordinates": {
+            "latitude": -33.4435026,
+            "longitude": -70.6536464
+          }
+        },
+        {
+          "name": "Hotel Plaza San Francisco",
+          "description": "Visit Hotel Plaza San Francisco, a local hotel",
+          "duration": "2 hours",
+          "included_in_package": false,
+          "coordinates": {
+            "latitude": -33.4436981,
+            "longitude": -70.6483016
+          }
+        },
+        {
+          "name": "Andes Hostel",
+          "description": "Visit Andes Hostel, a local hotel",
+          "duration": "2 hours",
+          "included_in_package": false,
+          "coordinates": {
+            "latitude": -33.4367839,
+            "longitude": -70.6445287
+          }
+        },
+        {
+          "name": "Apart Hotel Bellas Artes",
+          "description": "Visit Apart Hotel Bellas Artes, a local hotel",
+          "duration": "2 hours",
+          "included_in_package": false,
+          "coordinates": {
+            "latitude": -33.4373696,
+            "longitude": -70.6441589
+          }
+        },
+        {
+          "name": "Hotel Diego de Almagro",
+          "description": "Visit Hotel Diego de Almagro, a local hotel",
+          "duration": "2 hours",
+          "included_in_package": false,
+          "coordinates": {
+            "latitude": -33.4447623,
+            "longitude": -70.6571593
+          }
+        }
+      ],
+      "last_updated": "2025-05-08T21:05:53.042775",
+      "coordinates": {
+        "latitude": -33.4377756,
+        "longitude": -70.6504502
+      },
+      "weather_data": {
+        "latitude": -33.5,
+        "longitude": -70.625,
+        "generationtime_ms": 0.029206275939941406,
+        "utc_offset_seconds": -14400,
+        "timezone": "America/Santiago",
+        "timezone_abbreviation": "GMT-4",
+        "elevation": 563.0,
+        "daily_units": {
+          "time": "iso8601",
+          "temperature_2m_max": "\u00b0C",
+          "temperature_2m_min": "\u00b0C",
+          "precipitation_sum": "mm"
+        },
+        "daily": {
+          "time": [
+            "2025-05-08",
+            "2025-05-09",
+            "2025-05-10",
+            "2025-05-11",
+            "2025-05-12",
+            "2025-05-13",
+            "2025-05-14"
+          ],
+          "temperature_2m_max": [
+            13.4,
+            19.3,
+            25.0,
+            19.5,
+            20.8,
+            17.0,
+            17.9
+          ],
+          "temperature_2m_min": [
+            9.8,
+            7.3,
+            9.7,
+            10.3,
+            10.7,
+            10.1,
+            10.1
+          ],
+          "precipitation_sum": [
+            13.1,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        }
+      }
+    },
+    {
+      "id": "88a6cc87-aa75-4206-a61a-adea85e14a86",
+      "name": "Explore Auckland",
+      "description": "Experience the charm and beauty of Auckland, one of the most fascinating destinations in New Zealand.",
+      "destination": "Auckland, New Zealand",
+      "country": "New Zealand",
+      "continent": "Oceania",
+      "price": {
+        "amount": 0,
+        "currency": "USD",
+        "per_person": true
+      },
+      "duration": "6 days",
+      "activities": [
+        {
+          "name": "Kaitiaki",
+          "description": "Enjoy Kaitiaki in Auckland, New Zealand",
+          "duration": "1 hours",
+          "included_in_package": true
+        },
+        {
+          "name": "Unnamed Attraction",
+          "description": "Enjoy Unnamed Attraction in Auckland, New Zealand",
+          "duration": "3 hours",
+          "included_in_package": true
+        },
+        {
+          "name": "Base Backpackers",
+          "description": "Enjoy Base Backpackers in Auckland, New Zealand",
+          "duration": "3 hours",
+          "included_in_package": true
+        },
+        {
+          "name": "Fat Camel",
+          "description": "Enjoy Fat Camel in Auckland, New Zealand",
+          "duration": "1 hours",
+          "included_in_package": true
+        },
+        {
+          "name": "Fort Street Hostel",
+          "description": "Enjoy Fort Street Hostel in Auckland, New Zealand",
+          "duration": "3 hours",
+          "included_in_package": true
+        },
+        {
+          "name": "Unnamed Attraction",
+          "description": "Visit Unnamed Attraction, a local viewpoint",
+          "duration": "2 hours",
+          "included_in_package": false,
+          "coordinates": {
+            "latitude": -36.8484706,
+            "longitude": 174.762185
+          }
+        },
+        {
+          "name": "Base Backpackers",
+          "description": "Visit Base Backpackers, a local hostel",
+          "duration": "2 hours",
+          "included_in_package": false,
+          "coordinates": {
+            "latitude": -36.8496619,
+            "longitude": 174.764636
+          }
+        },
+        {
+          "name": "Fat Camel",
+          "description": "Visit Fat Camel, a local hostel",
+          "duration": "2 hours",
+          "included_in_package": false,
+          "coordinates": {
+            "latitude": -36.8461105,
+            "longitude": 174.7683736
+          }
+        },
+        {
+          "name": "Fort Street Hostel",
+          "description": "Visit Fort Street Hostel, a local hostel",
+          "duration": "2 hours",
+          "included_in_package": false,
+          "coordinates": {
+            "latitude": -36.8459529,
+            "longitude": 174.7673554
+          }
+        },
+        {
+          "name": "Surf 'n Snow Backpackers",
+          "description": "Visit Surf 'n Snow Backpackers, a local hostel",
+          "duration": "2 hours",
+          "included_in_package": false,
+          "coordinates": {
+            "latitude": -36.8483735,
+            "longitude": 174.7637945
+          }
+        }
+      ],
+      "last_updated": "2025-05-08T21:05:57.048888",
+      "coordinates": {
+        "latitude": -36.852095,
+        "longitude": 174.7631803
+      },
+      "weather_data": {
+        "latitude": -36.875,
+        "longitude": 174.75,
+        "generationtime_ms": 0.029802322387695312,
+        "utc_offset_seconds": 43200,
+        "timezone": "Pacific/Auckland",
+        "timezone_abbreviation": "GMT+12",
+        "elevation": 26.0,
+        "daily_units": {
+          "time": "iso8601",
+          "temperature_2m_max": "\u00b0C",
+          "temperature_2m_min": "\u00b0C",
+          "precipitation_sum": "mm"
+        },
+        "daily": {
+          "time": [
+            "2025-05-09",
+            "2025-05-10",
+            "2025-05-11",
+            "2025-05-12",
+            "2025-05-13",
+            "2025-05-14",
+            "2025-05-15"
+          ],
+          "temperature_2m_max": [
+            19.3,
+            16.9,
+            18.5,
+            18.6,
+            18.2,
+            18.3,
+            18.1
+          ],
+          "temperature_2m_min": [
+            16.1,
+            13.6,
+            12.6,
+            12.3,
+            10.9,
+            9.7,
+            10.5
+          ],
+          "precipitation_sum": [
+            27.2,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.6
+          ]
+        }
+      }
+    },
+    {
+      "id": "56898c25-22e7-4ba8-b29b-9211dfd12930",
+      "name": "Explore Gold Coast",
+      "description": "Experience the charm and beauty of Gold Coast, one of the most fascinating destinations in Australia.",
+      "destination": "Gold Coast, Australia",
+      "country": "Australia",
+      "continent": "Oceania",
+      "price": {
+        "amount": 0,
+        "currency": "USD",
+        "per_person": true
+      },
+      "duration": "5 days",
+      "activities": [
+        {
+          "name": "Mantra on View",
+          "description": "Enjoy Mantra on View in Gold Coast, Australia",
+          "duration": "3 hours",
+          "included_in_package": true
+        },
+        {
+          "name": "Q1 Resort & Spa",
+          "description": "Enjoy Q1 Resort & Spa in Gold Coast, Australia",
+          "duration": "4 hours",
+          "included_in_package": true
+        },
+        {
+          "name": "Paradise Resort",
+          "description": "Enjoy Paradise Resort in Gold Coast, Australia",
+          "duration": "2 hours",
+          "included_in_package": true
+        },
+        {
+          "name": "Sleeping Inn",
+          "description": "Enjoy Sleeping Inn in Gold Coast, Australia",
+          "duration": "4 hours",
+          "included_in_package": true
+        },
+        {
+          "name": "Surfers International",
+          "description": "Enjoy Surfers International in Gold Coast, Australia",
+          "duration": "1 hours",
+          "included_in_package": true
+        },
+        {
+          "name": "Sleeping Inn",
+          "description": "Visit Sleeping Inn, a local hostel",
+          "duration": "2 hours",
+          "included_in_package": false,
+          "coordinates": {
+            "latitude": -28.0044996,
+            "longitude": 153.4234284
+          }
+        },
+        {
+          "name": "Bacpackers in Paradise",
+          "description": "Visit Bacpackers in Paradise, a local guest_house",
+          "duration": "2 hours",
+          "included_in_package": false,
+          "coordinates": {
+            "latitude": -28.0038356,
+            "longitude": 153.4243385
+          }
+        },
+        {
+          "name": "The Emerald Surfers Paradise",
+          "description": "Visit The Emerald Surfers Paradise, a local hotel",
+          "duration": "2 hours",
+          "included_in_package": false,
+          "coordinates": {
+            "latitude": -28.0060497,
+            "longitude": 153.4237589
+          }
+        },
+        {
+          "name": "Keeper of Light",
+          "description": "Visit Keeper of Light, a local artwork",
+          "duration": "2 hours",
+          "included_in_package": false,
+          "coordinates": {
+            "latitude": -28.0008581,
+            "longitude": 153.4203538
+          }
+        },
+        {
+          "name": "Couple O' Days Backpackers",
+          "description": "Visit Couple O' Days Backpackers, a local hostel",
+          "duration": "2 hours",
+          "included_in_package": false,
+          "coordinates": {
+            "latitude": -28.0049723,
+            "longitude": 153.4231704
+          }
+        }
+      ],
+      "last_updated": "2025-05-08T21:06:00.833259",
+      "coordinates": {
+        "latitude": -28.0023731,
+        "longitude": 153.4145987
+      },
+      "weather_data": {
+        "latitude": -28.0,
+        "longitude": 153.375,
+        "generationtime_ms": 0.02682209014892578,
+        "utc_offset_seconds": 36000,
+        "timezone": "Australia/Brisbane",
+        "timezone_abbreviation": "GMT+10",
+        "elevation": 7.0,
+        "daily_units": {
+          "time": "iso8601",
+          "temperature_2m_max": "\u00b0C",
+          "temperature_2m_min": "\u00b0C",
+          "precipitation_sum": "mm"
+        },
+        "daily": {
+          "time": [
+            "2025-05-09",
+            "2025-05-10",
+            "2025-05-11",
+            "2025-05-12",
+            "2025-05-13",
+            "2025-05-14",
+            "2025-05-15"
+          ],
+          "temperature_2m_max": [
+            21.7,
+            22.7,
+            23.0,
+            21.4,
+            23.5,
+            22.9,
+            20.4
+          ],
+          "temperature_2m_min": [
+            18.3,
+            17.7,
+            18.6,
+            18.3,
+            18.6,
+            19.0,
+            18.7
+          ],
+          "precipitation_sum": [
+            0.0,
+            1.5,
+            2.7,
+            1.2,
+            0.0,
+            0.7,
+            12.1
+          ]
+        }
+      }
+    },
+    {
+      "id": "a79bb17b-d405-49d4-b69c-25bddf1f5c6e",
+      "name": "Explore Florence",
+      "description": "Experience the charm and beauty of Florence, one of the most fascinating destinations in Italy.",
+      "destination": "Florence, Italy",
+      "country": "Italy",
+      "continent": "Europe",
+      "price": {
+        "amount": 0,
+        "currency": "USD",
+        "per_person": true
+      },
+      "duration": "3 days",
+      "activities": [
+        {
+          "name": "Hotel Ariston",
+          "description": "Enjoy Hotel Ariston in Florence, Italy",
+          "duration": "1 hours",
+          "included_in_package": true
+        },
+        {
+          "name": "Savoy",
+          "description": "Enjoy Savoy in Florence, Italy",
+          "duration": "1 hours",
+          "included_in_package": true
+        },
+        {
+          "name": "Pendini",
+          "description": "Enjoy Pendini in Florence, Italy",
+          "duration": "2 hours",
+          "included_in_package": true
+        },
+        {
+          "name": "Majestic",
+          "description": "Enjoy Majestic in Florence, Italy",
+          "duration": "1 hours",
+          "included_in_package": true
+        },
+        {
+          "name": "Berchielli",
+          "description": "Enjoy Berchielli in Florence, Italy",
+          "duration": "2 hours",
+          "included_in_package": true
+        },
+        {
+          "name": "Hotel Ariston",
+          "description": "Visit Hotel Ariston, a local hotel",
+          "duration": "2 hours",
+          "included_in_package": false,
+          "coordinates": {
+            "latitude": 43.7730923,
+            "longitude": 11.2637081
+          }
+        },
+        {
+          "name": "Savoy",
+          "description": "Visit Savoy, a local hotel",
+          "duration": "2 hours",
+          "included_in_package": false,
+          "coordinates": {
+            "latitude": 43.7717214,
+            "longitude": 11.2545542
+          }
+        },
+        {
+          "name": "Pendini",
+          "description": "Visit Pendini, a local hotel",
+          "duration": "2 hours",
+          "included_in_package": false,
+          "coordinates": {
+            "latitude": 43.7715204,
+            "longitude": 11.2533292
+          }
+        },
+        {
+          "name": "Majestic",
+          "description": "Visit Majestic, a local hotel",
+          "duration": "2 hours",
+          "included_in_package": false,
+          "coordinates": {
+            "latitude": 43.7749404,
+            "longitude": 11.2512282
+          }
+        },
+        {
+          "name": "Berchielli",
+          "description": "Visit Berchielli, a local hotel",
+          "duration": "2 hours",
+          "included_in_package": false,
+          "coordinates": {
+            "latitude": 43.7691327,
+            "longitude": 11.2516971
+          }
+        }
+      ],
+      "last_updated": "2025-05-08T21:06:04.406425",
+      "coordinates": {
+        "latitude": 43.7697955,
+        "longitude": 11.2556404
+      },
+      "weather_data": {
+        "latitude": 43.760002,
+        "longitude": 11.26,
+        "generationtime_ms": 0.1004934310913086,
+        "utc_offset_seconds": 7200,
+        "timezone": "Europe/Rome",
+        "timezone_abbreviation": "GMT+2",
+        "elevation": 65.0,
+        "daily_units": {
+          "time": "iso8601",
+          "temperature_2m_max": "\u00b0C",
+          "temperature_2m_min": "\u00b0C",
+          "precipitation_sum": "mm"
+        },
+        "daily": {
+          "time": [
+            "2025-05-08",
+            "2025-05-09",
+            "2025-05-10",
+            "2025-05-11",
+            "2025-05-12",
+            "2025-05-13",
+            "2025-05-14"
+          ],
+          "temperature_2m_max": [
+            17.9,
+            21.7,
+            23.1,
+            22.6,
+            21.1,
+            19.5,
+            21.3
+          ],
+          "temperature_2m_min": [
+            10.2,
+            8.8,
+            9.0,
+            10.2,
+            12.7,
+            13.9,
+            10.2
+          ],
+          "precipitation_sum": [
+            0.0,
+            0.0,
+            0.0,
+            1.9,
+            3.9,
+            2.7,
+            0.6
+          ]
+        }
+      }
+    },
+    {
+      "id": "1f7a7cb6-3170-437d-987a-70db1bd8837c",
+      "name": "Explore Kathmandu",
+      "description": "Experience the charm and beauty of Kathmandu, one of the most fascinating destinations in Nepal.",
+      "destination": "Kathmandu, Nepal",
+      "country": "Nepal",
+      "continent": "Unknown",
+      "price": {
+        "amount": 0,
+        "currency": "USD",
+        "per_person": true
+      },
+      "duration": "3 days",
+      "activities": [
+        {
+          "name": "Nirvana Garden Hotel",
+          "description": "Enjoy Nirvana Garden Hotel in Kathmandu, Nepal",
+          "duration": "3 hours",
+          "included_in_package": true
+        },
+        {
+          "name": "Hotel Shanker",
+          "description": "Enjoy Hotel Shanker in Kathmandu, Nepal",
+          "duration": "3 hours",
+          "included_in_package": true
+        },
+        {
+          "name": "Tibet Peace Guest House",
+          "description": "Enjoy Tibet Peace Guest House in Kathmandu, Nepal",
+          "duration": "4 hours",
+          "included_in_package": true
+        },
+        {
+          "name": "International Guesthouse",
+          "description": "Enjoy International Guesthouse in Kathmandu, Nepal",
+          "duration": "3 hours",
+          "included_in_package": true
+        },
+        {
+          "name": "Taishan Hotel",
+          "description": "Enjoy Taishan Hotel in Kathmandu, Nepal",
+          "duration": "2 hours",
+          "included_in_package": true
+        },
+        {
+          "name": "Taishan Hotel",
+          "description": "Visit Taishan Hotel, a local hotel",
+          "duration": "2 hours",
+          "included_in_package": false,
+          "coordinates": {
+            "latitude": 27.7113111,
+            "longitude": 85.3117495
+          }
+        },
+        {
+          "name": "Hotel Blue Diamond",
+          "description": "Visit Hotel Blue Diamond, a local hotel",
+          "duration": "2 hours",
+          "included_in_package": false,
+          "coordinates": {
+            "latitude": 27.7123764,
+            "longitude": 85.3120896
+          }
+        },
+        {
+          "name": "Lhasa",
+          "description": "Visit Lhasa, a local guest_house",
+          "duration": "2 hours",
+          "included_in_package": false,
+          "coordinates": {
+            "latitude": 27.7118221,
+            "longitude": 85.3120405
+          }
+        },
+        {
+          "name": "Utse",
+          "description": "Visit Utse, a local hotel",
+          "duration": "2 hours",
+          "included_in_package": false,
+          "coordinates": {
+            "latitude": 27.7121432,
+            "longitude": 85.3122725
+          }
+        },
+        {
+          "name": "Norling Guesthouse",
+          "description": "Visit Norling Guesthouse, a local guest_house",
+          "duration": "2 hours",
+          "included_in_package": false,
+          "coordinates": {
+            "latitude": 27.7104358,
+            "longitude": 85.3111012
+          }
+        }
+      ],
+      "last_updated": "2025-05-08T21:06:08.103874",
+      "coordinates": {
+        "latitude": 27.708317,
+        "longitude": 85.3205817
+      },
+      "weather_data": {
+        "latitude": 27.75,
+        "longitude": 85.5,
+        "generationtime_ms": 0.02562999725341797,
+        "utc_offset_seconds": 20700,
+        "timezone": "Asia/Kathmandu",
+        "timezone_abbreviation": "GMT+5:45",
+        "elevation": 1296.0,
+        "daily_units": {
+          "time": "iso8601",
+          "temperature_2m_max": "\u00b0C",
+          "temperature_2m_min": "\u00b0C",
+          "precipitation_sum": "mm"
+        },
+        "daily": {
+          "time": [
+            "2025-05-09",
+            "2025-05-10",
+            "2025-05-11",
+            "2025-05-12",
+            "2025-05-13",
+            "2025-05-14",
+            "2025-05-15"
+          ],
+          "temperature_2m_max": [
+            29.8,
+            31.2,
+            29.5,
+            28.7,
+            29.4,
+            31.6,
+            31.7
+          ],
+          "temperature_2m_min": [
+            17.2,
+            17.2,
+            17.0,
+            17.6,
+            18.5,
+            17.2,
+            16.5
+          ],
+          "precipitation_sum": [
+            0.2,
+            0.0,
+            1.0,
+            0.6,
+            0.0,
+            0.0,
+            0.6
+          ]
+        }
+      }
+    },
+    {
+      "id": "96d8be6e-a7af-4ea2-aed5-235abbf0e4cd",
+      "name": "Explore Venice",
+      "description": "Experience the charm and beauty of Venice, one of the most fascinating destinations in Italy.",
+      "destination": "Venice, Italy",
+      "country": "Italy",
+      "continent": "Europe",
+      "price": {
+        "amount": 0,
+        "currency": "USD",
+        "per_person": true
+      },
+      "duration": "8 days",
+      "activities": [
+        {
+          "name": "Albergo Locanda Silva",
+          "description": "Enjoy Albergo Locanda Silva in Venice, Italy",
+          "duration": "4 hours",
+          "included_in_package": true
+        },
+        {
+          "name": "Museo Ebraico",
+          "description": "Enjoy Museo Ebraico in Venice, Italy",
+          "duration": "1 hours",
+          "included_in_package": true
+        },
+        {
+          "name": "Teatro La Fenice",
+          "description": "Enjoy Teatro La Fenice in Venice, Italy",
+          "duration": "1 hours",
+          "included_in_package": true
+        },
+        {
+          "name": "Residenza Cannaregio",
+          "description": "Enjoy Residenza Cannaregio in Venice, Italy",
+          "duration": "1 hours",
+          "included_in_package": true
+        },
+        {
+          "name": "Belle Arti",
+          "description": "Enjoy Belle Arti in Venice, Italy",
+          "duration": "1 hours",
+          "included_in_package": true
+        },
+        {
+          "name": "Albergo Locanda Silva",
+          "description": "Visit Albergo Locanda Silva, a local guest_house",
+          "duration": "2 hours",
+          "included_in_package": false,
+          "coordinates": {
+            "latitude": 45.4362702,
+            "longitude": 12.3407469
+          }
+        },
+        {
+          "name": "Teatro La Fenice",
+          "description": "Visit Teatro La Fenice, a local attraction",
+          "duration": "2 hours",
+          "included_in_package": false,
+          "coordinates": {
+            "latitude": 45.4337096,
+            "longitude": 12.3338572
+          }
+        },
+        {
+          "name": "Belle Arti",
+          "description": "Visit Belle Arti, a local hotel",
+          "duration": "2 hours",
+          "included_in_package": false,
+          "coordinates": {
+            "latitude": 45.4302305,
+            "longitude": 12.3277725
+          }
+        },
+        {
+          "name": "Gambero",
+          "description": "Visit Gambero, a local hotel",
+          "duration": "2 hours",
+          "included_in_package": false,
+          "coordinates": {
+            "latitude": 45.4355623,
+            "longitude": 12.336608
+          }
+        },
+        {
+          "name": "Hotel al Piave",
+          "description": "Visit Hotel al Piave, a local hotel",
+          "duration": "2 hours",
+          "included_in_package": false,
+          "coordinates": {
+            "latitude": 45.4365785,
+            "longitude": 12.3420422
+          }
+        }
+      ],
+      "last_updated": "2025-05-08T21:06:12.141316",
+      "coordinates": {
+        "latitude": 45.4371908,
+        "longitude": 12.3345898
+      },
+      "weather_data": {
+        "latitude": 45.44,
+        "longitude": 12.339998,
+        "generationtime_ms": 0.072479248046875,
+        "utc_offset_seconds": 7200,
+        "timezone": "Europe/Rome",
+        "timezone_abbreviation": "GMT+2",
+        "elevation": 10.0,
+        "daily_units": {
+          "time": "iso8601",
+          "temperature_2m_max": "\u00b0C",
+          "temperature_2m_min": "\u00b0C",
+          "precipitation_sum": "mm"
+        },
+        "daily": {
+          "time": [
+            "2025-05-08",
+            "2025-05-09",
+            "2025-05-10",
+            "2025-05-11",
+            "2025-05-12",
+            "2025-05-13",
+            "2025-05-14"
+          ],
+          "temperature_2m_max": [
+            17.5,
+            18.6,
+            19.6,
+            21.5,
+            21.1,
+            17.1,
+            18.9
+          ],
+          "temperature_2m_min": [
+            13.0,
+            14.0,
+            14.4,
+            11.5,
+            12.5,
+            14.2,
+            12.5
+          ],
+          "precipitation_sum": [
+            28.3,
+            2.2,
+            0.0,
+            0.0,
+            1.8,
+            17.1,
+            0.6
+          ]
+        }
+      },
+      "destination_guide": {
+        "title": "Venice, Italy",
+        "extract": ""
+      }
+    },
+    {
+      "id": "6a07c837-f4fb-490f-a2c2-2e3c5417cdd2",
+      "name": "Explore Casablanca",
+      "description": "Experience the charm and beauty of Casablanca, one of the most fascinating destinations in Morocco.",
+      "destination": "Casablanca, Morocco",
+      "country": "Morocco",
+      "continent": "Africa",
+      "price": {
+        "amount": 0,
+        "currency": "USD",
+        "per_person": true
+      },
+      "duration": "9 days",
+      "activities": [
+        {
+          "name": "Novotel Casablanca City Centre",
+          "description": "Enjoy Novotel Casablanca City Centre in Casablanca, Morocco",
+          "duration": "2 hours",
+          "included_in_package": true
+        },
+        {
+          "name": "H\u00f4tel Galia",
+          "description": "Enjoy H\u00f4tel Galia in Casablanca, Morocco",
+          "duration": "4 hours",
+          "included_in_package": true
+        },
+        {
+          "name": "Twin Center",
+          "description": "Enjoy Twin Center in Casablanca, Morocco",
+          "duration": "3 hours",
+          "included_in_package": true
+        },
+        {
+          "name": "H\u00f4tel Divan",
+          "description": "Enjoy H\u00f4tel Divan in Casablanca, Morocco",
+          "duration": "3 hours",
+          "included_in_package": true
+        },
+        {
+          "name": "East West Hotel",
+          "description": "Enjoy East West Hotel in Casablanca, Morocco",
+          "duration": "3 hours",
+          "included_in_package": true
+        },
+        {
+          "name": "Novotel Casablanca City Centre",
+          "description": "Visit Novotel Casablanca City Centre, a local hotel",
+          "duration": "2 hours",
+          "included_in_package": false,
+          "coordinates": {
+            "latitude": 33.5984192,
+            "longitude": -7.6137821
+          }
+        },
+        {
+          "name": "H\u00f4tel Galia",
+          "description": "Visit H\u00f4tel Galia, a local hotel",
+          "duration": "2 hours",
+          "included_in_package": false,
+          "coordinates": {
+            "latitude": 33.5939334,
+            "longitude": -7.6125481
+          }
+        },
+        {
+          "name": "H\u00f4tel Divan",
+          "description": "Visit H\u00f4tel Divan, a local hotel",
+          "duration": "2 hours",
+          "included_in_package": false,
+          "coordinates": {
+            "latitude": 33.5960268,
+            "longitude": -7.6096273
+          }
+        },
+        {
+          "name": "East West Hotel",
+          "description": "Visit East West Hotel, a local hotel",
+          "duration": "2 hours",
+          "included_in_package": false,
+          "coordinates": {
+            "latitude": 33.5925751,
+            "longitude": -7.6299633
+          }
+        },
+        {
+          "name": "H\u00f4tel central",
+          "description": "Visit H\u00f4tel central, a local hotel",
+          "duration": "2 hours",
+          "included_in_package": false,
+          "coordinates": {
+            "latitude": 33.6000885,
+            "longitude": -7.6173257
+          }
+        }
+      ],
+      "last_updated": "2025-05-08T21:06:16.007373",
+      "coordinates": {
+        "latitude": 33.5945144,
+        "longitude": -7.6200284
+      },
+      "weather_data": {
+        "latitude": 33.5625,
+        "longitude": -7.6875,
+        "generationtime_ms": 0.07271766662597656,
+        "utc_offset_seconds": 3600,
+        "timezone": "Africa/Casablanca",
+        "timezone_abbreviation": "GMT+1",
+        "elevation": 17.0,
+        "daily_units": {
+          "time": "iso8601",
+          "temperature_2m_max": "\u00b0C",
+          "temperature_2m_min": "\u00b0C",
+          "precipitation_sum": "mm"
+        },
+        "daily": {
+          "time": [
+            "2025-05-08",
+            "2025-05-09",
+            "2025-05-10",
+            "2025-05-11",
+            "2025-05-12",
+            "2025-05-13",
+            "2025-05-14"
+          ],
+          "temperature_2m_max": [
+            22.6,
+            21.3,
+            21.1,
+            21.5,
+            20.7,
+            20.4,
+            19.4
+          ],
+          "temperature_2m_min": [
+            15.5,
+            15.6,
+            16.4,
+            15.5,
+            16.4,
+            16.5,
+            15.4
+          ],
+          "precipitation_sum": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.4,
+            2.9
+          ]
+        }
+      }
+    },
+    {
+      "id": "416d5edc-9d9a-4a63-8305-69caaba52ba7",
+      "name": "Explore Cancun",
+      "description": "Experience the charm and beauty of Cancun, one of the most fascinating destinations in Mexico.",
+      "destination": "Cancun, Mexico",
+      "country": "Mexico",
+      "continent": "North America",
+      "price": {
+        "amount": 0,
+        "currency": "USD",
+        "per_person": true
+      },
+      "duration": "7 days",
+      "activities": [
+        {
+          "name": "Ramada",
+          "description": "Enjoy Ramada in Cancun, Mexico",
+          "duration": "1 hours",
+          "included_in_package": true
+        },
+        {
+          "name": "Ka'beh",
+          "description": "Enjoy Ka'beh in Cancun, Mexico",
+          "duration": "4 hours",
+          "included_in_package": true
+        },
+        {
+          "name": "Unnamed Attraction",
+          "description": "Enjoy Unnamed Attraction in Cancun, Mexico",
+          "duration": "3 hours",
+          "included_in_package": true
+        },
+        {
+          "name": "Hotel Xbalamque",
+          "description": "Enjoy Hotel Xbalamque in Cancun, Mexico",
+          "duration": "4 hours",
+          "included_in_package": true
+        },
+        {
+          "name": "Unnamed Attraction",
+          "description": "Enjoy Unnamed Attraction in Cancun, Mexico",
+          "duration": "4 hours",
+          "included_in_package": true
+        },
+        {
+          "name": "Suite sirenas",
+          "description": "Visit Suite sirenas, a local guest_house",
+          "duration": "2 hours",
+          "included_in_package": false,
+          "coordinates": {
+            "latitude": 21.1562373,
+            "longitude": -86.8402463
+          }
+        },
+        {
+          "name": "Casa Roja",
+          "description": "Visit Casa Roja, a local hostel",
+          "duration": "2 hours",
+          "included_in_package": false,
+          "coordinates": {
+            "latitude": 21.1592604,
+            "longitude": -86.8457127
+          }
+        },
+        {
+          "name": "Habitalia Para\u00edso",
+          "description": "Visit Habitalia Para\u00edso, a local guest_house",
+          "duration": "2 hours",
+          "included_in_package": false,
+          "coordinates": {
+            "latitude": 21.1511501,
+            "longitude": -86.8518921
+          }
+        },
+        {
+          "name": "Casa Lopez Cancun",
+          "description": "Visit Casa Lopez Cancun, a local apartment",
+          "duration": "2 hours",
+          "included_in_package": false,
+          "coordinates": {
+            "latitude": 21.1566536,
+            "longitude": -86.8343453
+          }
+        },
+        {
+          "name": "renta viaje abril",
+          "description": "Visit renta viaje abril, a local apartment",
+          "duration": "2 hours",
+          "included_in_package": false,
+          "coordinates": {
+            "latitude": 21.1559169,
+            "longitude": -86.8378706
+          }
+        }
+      ],
+      "last_updated": "2025-05-08T21:06:19.503683",
+      "coordinates": {
+        "latitude": 21.1527467,
+        "longitude": -86.8425761
+      },
+      "weather_data": {
+        "latitude": 21.125,
+        "longitude": -86.875,
+        "generationtime_ms": 0.04410743713378906,
+        "utc_offset_seconds": -18000,
+        "timezone": "America/Cancun",
+        "timezone_abbreviation": "GMT-5",
+        "elevation": 7.0,
+        "daily_units": {
+          "time": "iso8601",
+          "temperature_2m_max": "\u00b0C",
+          "temperature_2m_min": "\u00b0C",
+          "precipitation_sum": "mm"
+        },
+        "daily": {
+          "time": [
+            "2025-05-08",
+            "2025-05-09",
+            "2025-05-10",
+            "2025-05-11",
+            "2025-05-12",
+            "2025-05-13",
+            "2025-05-14"
+          ],
+          "temperature_2m_max": [
+            31.2,
+            30.9,
+            31.6,
+            28.6,
+            29.6,
+            29.5,
+            31.1
+          ],
+          "temperature_2m_min": [
+            26.1,
+            26.1,
+            25.7,
+            23.3,
+            22.4,
+            23.3,
+            25.4
+          ],
+          "precipitation_sum": [
+            0.0,
+            0.0,
+            0.8,
+            33.0,
+            2.6,
+            2.7,
+            0.0
+          ]
+        }
+      }
+    },
+    {
+      "id": "d701b7cc-20fa-4642-8c57-d995baaa0ab1",
+      "name": "Explore Mumbai",
+      "description": "Experience the charm and beauty of Mumbai, one of the most fascinating destinations in India.",
+      "destination": "Mumbai, India",
+      "country": "India",
+      "continent": "Asia",
+      "price": {
+        "amount": 0,
+        "currency": "USD",
+        "per_person": true
+      },
+      "duration": "7 days",
+      "activities": [
+        {
+          "name": "Kala Qila",
+          "description": "Enjoy Kala Qila in Mumbai, India",
+          "duration": "4 hours",
+          "included_in_package": true
+        },
+        {
+          "name": "Shangrila",
+          "description": "Enjoy Shangrila in Mumbai, India",
+          "duration": "4 hours",
+          "included_in_package": true
+        },
+        {
+          "name": "triveni bar",
+          "description": "Enjoy triveni bar in Mumbai, India",
+          "duration": "2 hours",
+          "included_in_package": true
+        },
+        {
+          "name": "Unnamed Attraction",
+          "description": "Enjoy Unnamed Attraction in Mumbai, India",
+          "duration": "4 hours",
+          "included_in_package": true
+        },
+        {
+          "name": "BEST Museum",
+          "description": "Enjoy BEST Museum in Mumbai, India",
+          "duration": "4 hours",
+          "included_in_package": true
+        },
+        {
+          "name": "Maitri Classic Bldg",
+          "description": "Visit Maitri Classic Bldg, a local apartment",
+          "duration": "2 hours",
+          "included_in_package": false,
+          "coordinates": {
+            "latitude": 19.0523835,
+            "longitude": 72.8761836
+          }
+        },
+        {
+          "name": "Nature Education Centre",
+          "description": "Visit Nature Education Centre, a local museum",
+          "duration": "2 hours",
+          "included_in_package": false,
+          "coordinates": {
+            "latitude": 19.0524841,
+            "longitude": 72.8626505
+          }
+        },
+        {
+          "name": "Hotel home town",
+          "description": "Visit Hotel home town, a local hotel",
+          "duration": "2 hours",
+          "included_in_package": false,
+          "coordinates": {
+            "latitude": 19.0523856,
+            "longitude": 72.8666168
+          }
+        }
+      ],
+      "last_updated": "2025-05-08T21:06:23.167797",
+      "coordinates": {
+        "latitude": 19.054999,
+        "longitude": 72.8692035
+      },
+      "weather_data": {
+        "latitude": 19.125,
+        "longitude": 72.875,
+        "generationtime_ms": 0.0362396240234375,
+        "utc_offset_seconds": 19800,
+        "timezone": "Asia/Kolkata",
+        "timezone_abbreviation": "GMT+5:30",
+        "elevation": 4.0,
+        "daily_units": {
+          "time": "iso8601",
+          "temperature_2m_max": "\u00b0C",
+          "temperature_2m_min": "\u00b0C",
+          "precipitation_sum": "mm"
+        },
+        "daily": {
+          "time": [
+            "2025-05-09",
+            "2025-05-10",
+            "2025-05-11",
+            "2025-05-12",
+            "2025-05-13",
+            "2025-05-14",
+            "2025-05-15"
+          ],
+          "temperature_2m_max": [
+            31.1,
+            32.2,
+            32.4,
+            32.4,
+            32.4,
+            33.4,
+            33.9
+          ],
+          "temperature_2m_min": [
+            26.2,
+            27.2,
+            27.3,
+            27.1,
+            28.2,
+            28.8,
+            28.7
+          ],
+          "precipitation_sum": [
+            2.9,
+            0.5,
+            4.1,
+            1.2,
+            0.3,
+            0.0,
+            0.0
+          ]
+        }
+      }
+    },
+    {
+      "id": "a8db77d4-b218-407f-a091-ac19d18578df",
+      "name": "Explore Nairobi",
+      "description": "Experience the charm and beauty of Nairobi, one of the most fascinating destinations in Kenya.",
+      "destination": "Nairobi, Kenya",
+      "country": "Kenya",
+      "continent": "Africa",
+      "price": {
+        "amount": 0,
+        "currency": "USD",
+        "per_person": true
+      },
+      "duration": "10 days",
+      "activities": [
+        {
+          "name": "High Point Hotel",
+          "description": "Enjoy High Point Hotel in Nairobi, Kenya",
+          "duration": "4 hours",
+          "included_in_package": true
+        },
+        {
+          "name": "Samra Hotel",
+          "description": "Enjoy Samra Hotel in Nairobi, Kenya",
+          "duration": "3 hours",
+          "included_in_package": true
+        },
+        {
+          "name": "Presbyterian Guest House and Conference Center",
+          "description": "Enjoy Presbyterian Guest House and Conference Center in Nairobi, Kenya",
+          "duration": "3 hours",
+          "included_in_package": true
+        },
+        {
+          "name": "PCEA YMCA Hostels",
+          "description": "Enjoy PCEA YMCA Hostels in Nairobi, Kenya",
+          "duration": "2 hours",
+          "included_in_package": true
+        },
+        {
+          "name": "Ambassador Hotel",
+          "description": "Enjoy Ambassador Hotel in Nairobi, Kenya",
+          "duration": "3 hours",
+          "included_in_package": true
+        },
+        {
+          "name": "KIMC Film Department",
+          "description": "Visit KIMC Film Department, a local viewpoint",
+          "duration": "2 hours",
+          "included_in_package": false,
+          "coordinates": {
+            "latitude": -1.3101174,
+            "longitude": 36.8315386
+          }
+        },
+        {
+          "name": "Kenya Institute of Mass Communication Mens Hostels",
+          "description": "Visit Kenya Institute of Mass Communication Mens Hostels, a local hostel",
+          "duration": "2 hours",
+          "included_in_package": false,
+          "coordinates": {
+            "latitude": -1.3106785,
+            "longitude": 36.8319603
+          }
+        },
+        {
+          "name": "Kenya Institute of Mass Communication Ladies Hostels",
+          "description": "Visit Kenya Institute of Mass Communication Ladies Hostels, a local hostel",
+          "duration": "2 hours",
+          "included_in_package": false,
+          "coordinates": {
+            "latitude": -1.3110593,
+            "longitude": 36.8299808
+          }
+        },
+        {
+          "name": "KIMC Female Hostels",
+          "description": "Visit KIMC Female Hostels, a local hostel",
+          "duration": "2 hours",
+          "included_in_package": false,
+          "coordinates": {
+            "latitude": -1.3103505,
+            "longitude": 36.8298232
+          }
+        },
+        {
+          "name": "Athletics Museum",
+          "description": "Visit Athletics Museum, a local museum",
+          "duration": "2 hours",
+          "included_in_package": false,
+          "coordinates": {
+            "latitude": -1.3002891,
+            "longitude": 36.8236504
+          }
+        }
+      ],
+      "last_updated": "2025-05-08T21:06:27.179315",
+      "coordinates": {
+        "latitude": -1.3026148,
+        "longitude": 36.828842
+      },
+      "weather_data": {
+        "latitude": -1.25,
+        "longitude": 36.875,
+        "generationtime_ms": 0.041484832763671875,
+        "utc_offset_seconds": 10800,
+        "timezone": "Africa/Nairobi",
+        "timezone_abbreviation": "GMT+3",
+        "elevation": 1653.0,
+        "daily_units": {
+          "time": "iso8601",
+          "temperature_2m_max": "\u00b0C",
+          "temperature_2m_min": "\u00b0C",
+          "precipitation_sum": "mm"
+        },
+        "daily": {
+          "time": [
+            "2025-05-08",
+            "2025-05-09",
+            "2025-05-10",
+            "2025-05-11",
+            "2025-05-12",
+            "2025-05-13",
+            "2025-05-14"
+          ],
+          "temperature_2m_max": [
+            23.8,
+            23.8,
+            23.7,
+            24.3,
+            25.2,
+            23.2,
+            23.8
+          ],
+          "temperature_2m_min": [
+            16.1,
+            15.5,
+            16.3,
+            16.0,
+            17.3,
+            17.6,
+            16.8
+          ],
+          "precipitation_sum": [
+            4.5,
+            8.6,
+            8.5,
+            1.5,
+            7.3,
+            17.7,
+            0.5
+          ]
+        }
+      }
+    },
+    {
+      "id": "0677aa83-cfb0-43d8-a20b-18443135b355",
+      "name": "Explore New Delhi",
+      "description": "Experience the charm and beauty of New Delhi, one of the most fascinating destinations in India.",
+      "destination": "New Delhi, India",
+      "country": "India",
+      "continent": "Asia",
+      "price": {
+        "amount": 0,
+        "currency": "USD",
+        "per_person": true
+      },
+      "duration": "9 days",
+      "activities": [
+        {
+          "name": "Yatri Guesthouse",
+          "description": "Enjoy Yatri Guesthouse in New Delhi, India",
+          "duration": "2 hours",
+          "included_in_package": true
+        },
+        {
+          "name": "Hotel Metropolis",
+          "description": "Enjoy Hotel Metropolis in New Delhi, India",
+          "duration": "4 hours",
+          "included_in_package": true
+        },
+        {
+          "name": "Hotel Tara Palace",
+          "description": "Enjoy Hotel Tara Palace in New Delhi, India",
+          "duration": "3 hours",
+          "included_in_package": true
+        },
+        {
+          "name": "Star Paradise",
+          "description": "Enjoy Star Paradise in New Delhi, India",
+          "duration": "3 hours",
+          "included_in_package": true
+        },
+        {
+          "name": "Vivek",
+          "description": "Enjoy Vivek in New Delhi, India",
+          "duration": "1 hours",
+          "included_in_package": true
+        },
+        {
+          "name": "Hotel Metropolis",
+          "description": "Visit Hotel Metropolis, a local hotel",
+          "duration": "2 hours",
+          "included_in_package": false,
+          "coordinates": {
+            "latitude": 28.6407045,
+            "longitude": 77.2105994
+          }
+        },
+        {
+          "name": "Star Paradise",
+          "description": "Visit Star Paradise, a local hotel",
+          "duration": "2 hours",
+          "included_in_package": false,
+          "coordinates": {
+            "latitude": 28.6410897,
+            "longitude": 77.2156719
+          }
+        },
+        {
+          "name": "Vivek",
+          "description": "Visit Vivek, a local hotel",
+          "duration": "2 hours",
+          "included_in_package": false,
+          "coordinates": {
+            "latitude": 28.6410436,
+            "longitude": 77.212675
+          }
+        },
+        {
+          "name": "Arjun Guesthouse",
+          "description": "Visit Arjun Guesthouse, a local guest_house",
+          "duration": "2 hours",
+          "included_in_package": false,
+          "coordinates": {
+            "latitude": 28.6408235,
+            "longitude": 77.2121133
+          }
+        },
+        {
+          "name": "Vishal",
+          "description": "Visit Vishal, a local hotel",
+          "duration": "2 hours",
+          "included_in_package": false,
+          "coordinates": {
+            "latitude": 28.6409016,
+            "longitude": 77.2118997
+          }
+        }
+      ],
+      "last_updated": "2025-05-08T21:06:31.135031",
+      "coordinates": {
+        "latitude": 28.6430858,
+        "longitude": 77.2192671
+      },
+      "weather_data": {
+        "latitude": 28.625,
+        "longitude": 77.25,
+        "generationtime_ms": 0.03504753112792969,
+        "utc_offset_seconds": 19800,
+        "timezone": "Asia/Kolkata",
+        "timezone_abbreviation": "GMT+5:30",
+        "elevation": 219.0,
+        "daily_units": {
+          "time": "iso8601",
+          "temperature_2m_max": "\u00b0C",
+          "temperature_2m_min": "\u00b0C",
+          "precipitation_sum": "mm"
+        },
+        "daily": {
+          "time": [
+            "2025-05-09",
+            "2025-05-10",
+            "2025-05-11",
+            "2025-05-12",
+            "2025-05-13",
+            "2025-05-14",
+            "2025-05-15"
+          ],
+          "temperature_2m_max": [
+            34.7,
+            35.8,
+            38.0,
+            40.1,
+            42.2,
+            43.4,
+            44.2
+          ],
+          "temperature_2m_min": [
+            24.5,
+            25.6,
+            25.7,
+            27.5,
+            27.6,
+            28.0,
+            29.3
+          ],
+          "precipitation_sum": [
+            3.4,
+            1.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        }
+      }
+    },
+    {
+      "id": "04c6b787-4d90-47b7-9a19-73703e079c55",
+      "name": "Explore Hawaii",
+      "description": "Experience the charm and beauty of Hawaii, one of the most fascinating destinations in USA.",
+      "destination": "Hawaii, USA",
+      "country": "USA",
+      "continent": "Unknown",
+      "price": {
+        "amount": 0,
+        "currency": "USD",
+        "per_person": true
+      },
+      "duration": "4 days",
+      "activities": [
+        {
+          "name": "Guided tour of Hawaii",
+          "description": "Enjoy Guided tour of Hawaii in Hawaii, USA",
+          "duration": "2 hours",
+          "included_in_package": true
+        },
+        {
+          "name": "Local cuisine experience in Hawaii",
+          "description": "Enjoy Local cuisine experience in Hawaii in Hawaii, USA",
+          "duration": "3 hours",
+          "included_in_package": true
+        },
+        {
+          "name": "Cultural show in Hawaii",
+          "description": "Enjoy Cultural show in Hawaii in Hawaii, USA",
+          "duration": "2 hours",
+          "included_in_package": true
+        },
+        {
+          "name": "Shopping experience in Hawaii",
+          "description": "Enjoy Shopping experience in Hawaii in Hawaii, USA",
+          "duration": "2 hours",
+          "included_in_package": true
+        },
+        {
+          "name": "Historical sites visit in Hawaii",
+          "description": "Enjoy Historical sites visit in Hawaii in Hawaii, USA",
+          "duration": "4 hours",
+          "included_in_package": true
+        }
+      ],
+      "last_updated": "2025-05-08T21:06:34.824755",
+      "coordinates": {
+        "latitude": 19.5938015,
+        "longitude": -155.4283701
+      },
+      "weather_data": {
+        "latitude": 19.75,
+        "longitude": -155.375,
+        "generationtime_ms": 0.04684925079345703,
+        "utc_offset_seconds": -36000,
+        "timezone": "Pacific/Honolulu",
+        "timezone_abbreviation": "GMT-10",
+        "elevation": 2282.0,
+        "daily_units": {
+          "time": "iso8601",
+          "temperature_2m_max": "\u00b0C",
+          "temperature_2m_min": "\u00b0C",
+          "precipitation_sum": "mm"
+        },
+        "daily": {
+          "time": [
+            "2025-05-08",
+            "2025-05-09",
+            "2025-05-10",
+            "2025-05-11",
+            "2025-05-12",
+            "2025-05-13",
+            "2025-05-14"
+          ],
+          "temperature_2m_max": [
+            14.3,
+            14.5,
+            14.2,
+            14.4,
+            14.0,
+            13.8,
+            14.6
+          ],
+          "temperature_2m_min": [
+            7.2,
+            6.6,
+            6.1,
+            6.8,
+            6.8,
+            7.7,
+            6.7
+          ],
+          "precipitation_sum": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.3,
+            0.6,
+            0.0
+          ]
+        }
+      }
+    },
+    {
+      "id": "9c25ab7a-99eb-4aee-b5ab-af01c42e37e4",
+      "name": "Explore Dublin",
+      "description": "Experience the charm and beauty of Dublin, one of the most fascinating destinations in Ireland.",
+      "destination": "Dublin, Ireland",
+      "country": "Ireland",
+      "continent": "Unknown",
+      "price": {
+        "amount": 0,
+        "currency": "USD",
+        "per_person": true
+      },
+      "duration": "9 days",
+      "activities": [
+        {
+          "name": "The Lombard Townhouse",
+          "description": "Enjoy The Lombard Townhouse in Dublin, Ireland",
+          "duration": "3 hours",
+          "included_in_package": true
+        },
+        {
+          "name": "General Post Office",
+          "description": "Enjoy General Post Office in Dublin, Ireland",
+          "duration": "4 hours",
+          "included_in_package": true
+        },
+        {
+          "name": "National Museum of Ireland, Collins' Barracks",
+          "description": "Enjoy National Museum of Ireland, Collins' Barracks in Dublin, Ireland",
+          "duration": "2 hours",
+          "included_in_package": true
+        },
+        {
+          "name": "Clifton Court Hotel",
+          "description": "Enjoy Clifton Court Hotel in Dublin, Ireland",
+          "duration": "2 hours",
+          "included_in_package": true
+        },
+        {
+          "name": "Patrick Kavanagh",
+          "description": "Enjoy Patrick Kavanagh in Dublin, Ireland",
+          "duration": "2 hours",
+          "included_in_package": true
+        },
+        {
+          "name": "The Lombard Townhouse",
+          "description": "Visit The Lombard Townhouse, a local guest_house",
+          "duration": "2 hours",
+          "included_in_package": false,
+          "coordinates": {
+            "latitude": 53.3442017,
+            "longitude": -6.2490045
+          }
+        },
+        {
+          "name": "General Post Office",
+          "description": "Visit General Post Office, a local attraction",
+          "duration": "2 hours",
+          "included_in_package": false,
+          "coordinates": {
+            "latitude": 53.3492426,
+            "longitude": -6.2604887
+          }
+        },
+        {
+          "name": "Clifton Court Hotel",
+          "description": "Visit Clifton Court Hotel, a local hotel",
+          "duration": "2 hours",
+          "included_in_package": false,
+          "coordinates": {
+            "latitude": 53.3480011,
+            "longitude": -6.2579869
+          }
+        },
+        {
+          "name": "Discover Ireland Centre",
+          "description": "Visit Discover Ireland Centre, a local information",
+          "duration": "2 hours",
+          "included_in_package": false,
+          "coordinates": {
+            "latitude": 53.3509496,
+            "longitude": -6.2603275
+          }
+        },
+        {
+          "name": "Science Gallery",
+          "description": "Visit Science Gallery, a local museum",
+          "duration": "2 hours",
+          "included_in_package": false,
+          "coordinates": {
+            "latitude": 53.3441672,
+            "longitude": -6.2505382
+          }
+        }
+      ],
+      "last_updated": "2025-05-08T21:06:38.070603",
+      "coordinates": {
+        "latitude": 53.3493795,
+        "longitude": -6.2605593
+      },
+      "weather_data": {
+        "latitude": 53.34086,
+        "longitude": -6.2466736,
+        "generationtime_ms": 0.039577484130859375,
+        "utc_offset_seconds": 3600,
+        "timezone": "Europe/Dublin",
+        "timezone_abbreviation": "GMT+1",
+        "elevation": 11.0,
+        "daily_units": {
+          "time": "iso8601",
+          "temperature_2m_max": "\u00b0C",
+          "temperature_2m_min": "\u00b0C",
+          "precipitation_sum": "mm"
+        },
+        "daily": {
+          "time": [
+            "2025-05-08",
+            "2025-05-09",
+            "2025-05-10",
+            "2025-05-11",
+            "2025-05-12",
+            "2025-05-13",
+            "2025-05-14"
+          ],
+          "temperature_2m_max": [
+            14.9,
+            17.1,
+            18.4,
+            15.8,
+            16.8,
+            15.5,
+            13.2
+          ],
+          "temperature_2m_min": [
+            10.4,
+            9.1,
+            11.0,
+            9.5,
+            11.9,
+            11.2,
+            10.9
+          ],
+          "precipitation_sum": [
+            0.0,
+            0.0,
+            0.0,
+            4.4,
+            3.4,
+            0.0,
+            0.0
+          ]
+        }
+      }
+    },
+    {
+      "id": "7c31697a-8856-47ff-bba0-0f5b6aa17150",
+      "name": "Explore Dubai",
+      "description": "Experience the charm and beauty of Dubai, one of the most fascinating destinations in UAE.",
+      "destination": "Dubai, UAE",
+      "country": "UAE",
+      "continent": "Unknown",
+      "price": {
+        "amount": 0,
+        "currency": "USD",
+        "per_person": true
+      },
+      "duration": "9 days",
+      "activities": [
+        {
+          "name": "ajmal race course",
+          "description": "Enjoy ajmal race course in Dubai, UAE",
+          "duration": "4 hours",
+          "included_in_package": true
+        },
+        {
+          "name": "L 9",
+          "description": "Enjoy L 9 in Dubai, UAE",
+          "duration": "1 hours",
+          "included_in_package": true
+        }
+      ],
+      "last_updated": "2025-05-08T21:06:42.315546",
+      "coordinates": {
+        "latitude": 25.0742823,
+        "longitude": 55.1885387
+      },
+      "weather_data": {
+        "latitude": 25.125,
+        "longitude": 55.25,
+        "generationtime_ms": 0.029802322387695312,
+        "utc_offset_seconds": 14400,
+        "timezone": "Asia/Dubai",
+        "timezone_abbreviation": "GMT+4",
+        "elevation": 3.0,
+        "daily_units": {
+          "time": "iso8601",
+          "temperature_2m_max": "\u00b0C",
+          "temperature_2m_min": "\u00b0C",
+          "precipitation_sum": "mm"
+        },
+        "daily": {
+          "time": [
+            "2025-05-09",
+            "2025-05-10",
+            "2025-05-11",
+            "2025-05-12",
+            "2025-05-13",
+            "2025-05-14",
+            "2025-05-15"
+          ],
+          "temperature_2m_max": [
+            35.6,
+            36.1,
+            36.1,
+            37.3,
+            43.1,
+            40.3,
+            38.5
+          ],
+          "temperature_2m_min": [
+            24.0,
+            24.4,
+            24.9,
+            26.6,
+            27.0,
+            24.9,
+            27.0
+          ],
+          "precipitation_sum": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        }
+      }
+    },
+    {
+      "id": "17a97c2c-d1e3-4729-8b07-c02cc7cad176",
+      "name": "Explore Istanbul",
+      "description": "Experience the charm and beauty of Istanbul, one of the most fascinating destinations in Turkey.",
+      "destination": "Istanbul, Turkey",
+      "country": "Turkey",
+      "continent": "Unknown",
+      "price": {
+        "amount": 0,
+        "currency": "USD",
+        "per_person": true
+      },
+      "duration": "7 days",
+      "activities": [
+        {
+          "name": "Yi\u011fitalp Oteli",
+          "description": "Enjoy Yi\u011fitalp Oteli in Istanbul, Turkey",
+          "duration": "1 hours",
+          "included_in_package": true
+        },
+        {
+          "name": "Hotel Grand Yavuz",
+          "description": "Enjoy Hotel Grand Yavuz in Istanbul, Turkey",
+          "duration": "2 hours",
+          "included_in_package": true
+        },
+        {
+          "name": "Senator Hotel",
+          "description": "Enjoy Senator Hotel in Istanbul, Turkey",
+          "duration": "4 hours",
+          "included_in_package": true
+        },
+        {
+          "name": "Mavi Guesthouse",
+          "description": "Enjoy Mavi Guesthouse in Istanbul, Turkey",
+          "duration": "2 hours",
+          "included_in_package": true
+        },
+        {
+          "name": "A\u015fkin Hotel",
+          "description": "Enjoy A\u015fkin Hotel in Istanbul, Turkey",
+          "duration": "1 hours",
+          "included_in_package": true
+        },
+        {
+          "name": "Hotel Grand Yavuz",
+          "description": "Visit Hotel Grand Yavuz, a local hotel",
+          "duration": "2 hours",
+          "included_in_package": false,
+          "coordinates": {
+            "latitude": 41.0059174,
+            "longitude": 28.9691511
+          }
+        },
+        {
+          "name": "Mavi Guesthouse",
+          "description": "Visit Mavi Guesthouse, a local hotel",
+          "duration": "2 hours",
+          "included_in_package": false,
+          "coordinates": {
+            "latitude": 41.0069969,
+            "longitude": 28.9813746
+          }
+        },
+        {
+          "name": "A\u015fkin Hotel",
+          "description": "Visit A\u015fkin Hotel, a local hotel",
+          "duration": "2 hours",
+          "included_in_package": false,
+          "coordinates": {
+            "latitude": 41.0057,
+            "longitude": 28.9791309
+          }
+        },
+        {
+          "name": "Blue House Hotel",
+          "description": "Visit Blue House Hotel, a local hotel",
+          "duration": "2 hours",
+          "included_in_package": false,
+          "coordinates": {
+            "latitude": 41.005534,
+            "longitude": 28.9790454
+          }
+        },
+        {
+          "name": "Unnamed Attraction",
+          "description": "Visit Unnamed Attraction, a local information",
+          "duration": "2 hours",
+          "included_in_package": false,
+          "coordinates": {
+            "latitude": 41.0077027,
+            "longitude": 28.9775749
+          }
+        }
+      ],
+      "last_updated": "2025-05-08T21:06:45.733980",
+      "coordinates": {
+        "latitude": 41.006381,
+        "longitude": 28.9758715
+      },
+      "weather_data": {
+        "latitude": 41.0,
+        "longitude": 29.0,
+        "generationtime_ms": 0.04303455352783203,
+        "utc_offset_seconds": 10800,
+        "timezone": "Europe/Istanbul",
+        "timezone_abbreviation": "GMT+3",
+        "elevation": 41.0,
+        "daily_units": {
+          "time": "iso8601",
+          "temperature_2m_max": "\u00b0C",
+          "temperature_2m_min": "\u00b0C",
+          "precipitation_sum": "mm"
+        },
+        "daily": {
+          "time": [
+            "2025-05-08",
+            "2025-05-09",
+            "2025-05-10",
+            "2025-05-11",
+            "2025-05-12",
+            "2025-05-13",
+            "2025-05-14"
+          ],
+          "temperature_2m_max": [
+            24.1,
+            22.7,
+            16.9,
+            18.8,
+            22.4,
+            21.3,
+            21.1
+          ],
+          "temperature_2m_min": [
+            14.2,
+            15.0,
+            12.6,
+            11.6,
+            10.3,
+            12.5,
+            12.2
+          ],
+          "precipitation_sum": [
+            0.0,
+            0.0,
+            0.7,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        }
+      }
+    },
+    {
+      "id": "dc386ac0-aa7c-4e98-b0f0-9cea1e3139de",
+      "name": "Explore Budapest",
+      "description": "Experience the charm and beauty of Budapest, one of the most fascinating destinations in Hungary.",
+      "destination": "Budapest, Hungary",
+      "country": "Hungary",
+      "continent": "Unknown",
+      "price": {
+        "amount": 0,
+        "currency": "USD",
+        "per_person": true
+      },
+      "duration": "8 days",
+      "activities": [
+        {
+          "name": "Katasztr\u00f3fav\u00e9delem K\u00f6zponti M\u00fazeuma",
+          "description": "Enjoy Katasztr\u00f3fav\u00e9delem K\u00f6zponti M\u00fazeuma in Budapest, Hungary",
+          "duration": "1 hours",
+          "included_in_package": true
+        },
+        {
+          "name": "Dreher S\u00f6rm\u00fazeum",
+          "description": "Enjoy Dreher S\u00f6rm\u00fazeum in Budapest, Hungary",
+          "duration": "1 hours",
+          "included_in_package": true
+        },
+        {
+          "name": "Lengyel M\u00fazeum",
+          "description": "Enjoy Lengyel M\u00fazeum in Budapest, Hungary",
+          "duration": "1 hours",
+          "included_in_package": true
+        },
+        {
+          "name": "K\u0151r\u00f6si Gal\u00e9ria",
+          "description": "Enjoy K\u0151r\u00f6si Gal\u00e9ria in Budapest, Hungary",
+          "duration": "1 hours",
+          "included_in_package": true
+        },
+        {
+          "name": "Magyar Olt\u00e1r",
+          "description": "Enjoy Magyar Olt\u00e1r in Budapest, Hungary",
+          "duration": "2 hours",
+          "included_in_package": true
+        },
+        {
+          "name": "Katasztr\u00f3fav\u00e9delem K\u00f6zponti M\u00fazeuma",
+          "description": "Visit Katasztr\u00f3fav\u00e9delem K\u00f6zponti M\u00fazeuma, a local museum",
+          "duration": "2 hours",
+          "included_in_package": false,
+          "coordinates": {
+            "latitude": 47.4813569,
+            "longitude": 19.1341457
+          }
+        },
+        {
+          "name": "\u00d3hegy park",
+          "description": "Visit \u00d3hegy park, a local information",
+          "duration": "2 hours",
+          "included_in_package": false,
+          "coordinates": {
+            "latitude": 47.478435,
+            "longitude": 19.1466719
+          }
+        },
+        {
+          "name": "\u00d3hegy park",
+          "description": "Visit \u00d3hegy park, a local information",
+          "duration": "2 hours",
+          "included_in_package": false,
+          "coordinates": {
+            "latitude": 47.4799033,
+            "longitude": 19.1483045
+          }
+        },
+        {
+          "name": "Unnamed Attraction",
+          "description": "Visit Unnamed Attraction, a local artwork",
+          "duration": "2 hours",
+          "included_in_package": false,
+          "coordinates": {
+            "latitude": 47.4840247,
+            "longitude": 19.1442575
+          }
+        }
+      ],
+      "last_updated": "2025-05-08T21:06:49.937009",
+      "coordinates": {
+        "latitude": 47.4813896,
+        "longitude": 19.1460941
+      },
+      "weather_data": {
+        "latitude": 47.490635,
+        "longitude": 19.142944,
+        "generationtime_ms": 0.0476837158203125,
+        "utc_offset_seconds": 7200,
+        "timezone": "Europe/Budapest",
+        "timezone_abbreviation": "GMT+2",
+        "elevation": 150.0,
+        "daily_units": {
+          "time": "iso8601",
+          "temperature_2m_max": "\u00b0C",
+          "temperature_2m_min": "\u00b0C",
+          "precipitation_sum": "mm"
+        },
+        "daily": {
+          "time": [
+            "2025-05-08",
+            "2025-05-09",
+            "2025-05-10",
+            "2025-05-11",
+            "2025-05-12",
+            "2025-05-13",
+            "2025-05-14"
+          ],
+          "temperature_2m_max": [
+            16.9,
+            18.9,
+            20.6,
+            15.6,
+            16.1,
+            16.5,
+            17.0
+          ],
+          "temperature_2m_min": [
+            9.7,
+            7.2,
+            8.6,
+            7.9,
+            5.1,
+            6.1,
+            7.3
+          ],
+          "precipitation_sum": [
+            0.0,
+            0.0,
+            0.0,
+            1.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        }
+      },
+      "destination_guide": {
+        "title": "Budapest, Hungary",
+        "extract": ""
+      }
+    },
+    {
+      "id": "c6c9158f-f66f-4673-81aa-1ac24ecc507b",
+      "name": "Explore Hanoi",
+      "description": "Experience the charm and beauty of Hanoi, one of the most fascinating destinations in Vietnam.",
+      "destination": "Hanoi, Vietnam",
+      "country": "Vietnam",
+      "continent": "Asia",
+      "price": {
+        "amount": 0,
+        "currency": "USD",
+        "per_person": true
+      },
+      "duration": "5 days",
+      "activities": [
+        {
+          "name": "Kh\u00e1ch S\u1ea1n \u0110\u1ee9c Th\u00e1i",
+          "description": "Enjoy Kh\u00e1ch S\u1ea1n \u0110\u1ee9c Th\u00e1i in Hanoi, Vietnam",
+          "duration": "2 hours",
+          "included_in_package": true
+        },
+        {
+          "name": "Kh\u00e1ch S\u1ea1n Prince",
+          "description": "Enjoy Kh\u00e1ch S\u1ea1n Prince in Hanoi, Vietnam",
+          "duration": "4 hours",
+          "included_in_package": true
+        },
+        {
+          "name": "Somerset Grand Hanoi",
+          "description": "Enjoy Somerset Grand Hanoi in Hanoi, Vietnam",
+          "duration": "3 hours",
+          "included_in_package": true
+        },
+        {
+          "name": "Nh\u00e0 48 ph\u1ed1 H\u00e0ng Ngang",
+          "description": "Enjoy Nh\u00e0 48 ph\u1ed1 H\u00e0ng Ngang in Hanoi, Vietnam",
+          "duration": "1 hours",
+          "included_in_package": true
+        },
+        {
+          "name": "Kh\u00e1ch S\u1ea1n \u0110\u00f4ng \u00c1",
+          "description": "Enjoy Kh\u00e1ch S\u1ea1n \u0110\u00f4ng \u00c1 in Hanoi, Vietnam",
+          "duration": "3 hours",
+          "included_in_package": true
+        },
+        {
+          "name": "Kh\u00e1ch S\u1ea1n \u0110\u1ee9c Th\u00e1i",
+          "description": "Visit Kh\u00e1ch S\u1ea1n \u0110\u1ee9c Th\u00e1i, a local hotel",
+          "duration": "2 hours",
+          "included_in_package": false,
+          "coordinates": {
+            "latitude": 21.0340035,
+            "longitude": 105.8471444
+          }
+        },
+        {
+          "name": "Somerset Grand Hanoi",
+          "description": "Visit Somerset Grand Hanoi, a local hotel",
+          "duration": "2 hours",
+          "included_in_package": false,
+          "coordinates": {
+            "latitude": 21.0258326,
+            "longitude": 105.8463672
+          }
+        },
+        {
+          "name": "Nh\u00e0 48 ph\u1ed1 H\u00e0ng Ngang",
+          "description": "Visit Nh\u00e0 48 ph\u1ed1 H\u00e0ng Ngang, a local attraction",
+          "duration": "2 hours",
+          "included_in_package": false,
+          "coordinates": {
+            "latitude": 21.0343278,
+            "longitude": 105.8504388
+          }
+        },
+        {
+          "name": "Kh\u00e1ch S\u1ea1n \u0110\u00f4ng \u00c1",
+          "description": "Visit Kh\u00e1ch S\u1ea1n \u0110\u00f4ng \u00c1, a local hotel",
+          "duration": "2 hours",
+          "included_in_package": false,
+          "coordinates": {
+            "latitude": 21.0353948,
+            "longitude": 105.8533211
+          }
+        },
+        {
+          "name": "Thu Giang Guest House",
+          "description": "Visit Thu Giang Guest House, a local hotel",
+          "duration": "2 hours",
+          "included_in_package": false,
+          "coordinates": {
+            "latitude": 21.0316783,
+            "longitude": 105.8479749
+          }
+        }
+      ],
+      "last_updated": "2025-05-08T21:06:54.201908",
+      "coordinates": {
+        "latitude": 21.0283334,
+        "longitude": 105.854041
+      },
+      "weather_data": {
+        "latitude": 21.0,
+        "longitude": 105.875,
+        "generationtime_ms": 0.029087066650390625,
+        "utc_offset_seconds": 25200,
+        "timezone": "Asia/Bangkok",
+        "timezone_abbreviation": "GMT+7",
+        "elevation": 11.0,
+        "daily_units": {
+          "time": "iso8601",
+          "temperature_2m_max": "\u00b0C",
+          "temperature_2m_min": "\u00b0C",
+          "precipitation_sum": "mm"
+        },
+        "daily": {
+          "time": [
+            "2025-05-09",
+            "2025-05-10",
+            "2025-05-11",
+            "2025-05-12",
+            "2025-05-13",
+            "2025-05-14",
+            "2025-05-15"
+          ],
+          "temperature_2m_max": [
+            34.5,
+            31.2,
+            26.3,
+            30.2,
+            31.7,
+            32.1,
+            29.3
+          ],
+          "temperature_2m_min": [
+            26.7,
+            25.5,
+            21.5,
+            21.9,
+            22.7,
+            24.9,
+            25.5
+          ],
+          "precipitation_sum": [
+            8.2,
+            23.8,
+            12.2,
+            0.0,
+            0.0,
+            7.9,
+            5.9
+          ]
+        }
+      }
+    },
+    {
+      "id": "07797178-fec1-416e-b739-8d9fc4b42b33",
+      "name": "Explore Bangkok",
+      "description": "Experience the charm and beauty of Bangkok, one of the most fascinating destinations in Thailand.",
+      "destination": "Bangkok, Thailand",
+      "country": "Thailand",
+      "continent": "Asia",
+      "price": {
+        "amount": 0,
+        "currency": "USD",
+        "per_person": true
+      },
+      "duration": "10 days",
+      "activities": [
+        {
+          "name": "\u0e1c\u0e48\u0e32\u0e19\u0e1f\u0e49\u0e32\u0e25\u0e35\u0e25\u0e32\u0e28",
+          "description": "Enjoy \u0e1c\u0e48\u0e32\u0e19\u0e1f\u0e49\u0e32\u0e25\u0e35\u0e25\u0e32\u0e28 in Bangkok, Thailand",
+          "duration": "4 hours",
+          "included_in_package": true
+        },
+        {
+          "name": "D&D Inn",
+          "description": "Enjoy D&D Inn in Bangkok, Thailand",
+          "duration": "3 hours",
+          "included_in_package": true
+        },
+        {
+          "name": "The Family",
+          "description": "Enjoy The Family in Bangkok, Thailand",
+          "duration": "2 hours",
+          "included_in_package": true
+        },
+        {
+          "name": "\u0e19\u0e34\u0e17\u0e23\u0e23\u0e28\u0e19\u0e4c\u0e23\u0e31\u0e15\u0e19\u0e42\u0e01\u0e2a\u0e34\u0e19\u0e17\u0e23\u0e4c",
+          "description": "Enjoy \u0e19\u0e34\u0e17\u0e23\u0e23\u0e28\u0e19\u0e4c\u0e23\u0e31\u0e15\u0e19\u0e42\u0e01\u0e2a\u0e34\u0e19\u0e17\u0e23\u0e4c in Bangkok, Thailand",
+          "duration": "1 hours",
+          "included_in_package": true
+        },
+        {
+          "name": "Bangkok House",
+          "description": "Enjoy Bangkok House in Bangkok, Thailand",
+          "duration": "4 hours",
+          "included_in_package": true
+        },
+        {
+          "name": "D&D Inn",
+          "description": "Visit D&D Inn, a local hotel",
+          "duration": "2 hours",
+          "included_in_package": false,
+          "coordinates": {
+            "latitude": 13.7591917,
+            "longitude": 100.4964315
+          }
+        },
+        {
+          "name": "\u0e1e\u0e23\u0e30\u0e41\u0e21\u0e48\u0e18\u0e23\u0e13\u0e35\u0e1a\u0e35\u0e1a\u0e21\u0e27\u0e22\u0e1c\u0e21",
+          "description": "Visit \u0e1e\u0e23\u0e30\u0e41\u0e21\u0e48\u0e18\u0e23\u0e13\u0e35\u0e1a\u0e35\u0e1a\u0e21\u0e27\u0e22\u0e1c\u0e21, a local artwork",
+          "duration": "2 hours",
+          "included_in_package": false,
+          "coordinates": {
+            "latitude": 13.7565665,
+            "longitude": 100.4947914
+          }
+        },
+        {
+          "name": "Arun Residence",
+          "description": "Visit Arun Residence, a local hotel",
+          "duration": "2 hours",
+          "included_in_package": false,
+          "coordinates": {
+            "latitude": 13.7448277,
+            "longitude": 100.4912739
+          }
+        },
+        {
+          "name": "MOM's hostel",
+          "description": "Visit MOM's hostel, a local guest_house",
+          "duration": "2 hours",
+          "included_in_package": false,
+          "coordinates": {
+            "latitude": 13.7587259,
+            "longitude": 100.4970296
+          }
+        },
+        {
+          "name": "Nat",
+          "description": "Visit Nat, a local guest_house",
+          "duration": "2 hours",
+          "included_in_package": false,
+          "coordinates": {
+            "latitude": 13.7586904,
+            "longitude": 100.4979415
+          }
+        }
+      ],
+      "last_updated": "2025-05-08T21:06:58.262667",
+      "coordinates": {
+        "latitude": 13.7524938,
+        "longitude": 100.4935089
+      },
+      "weather_data": {
+        "latitude": 13.75,
+        "longitude": 100.5,
+        "generationtime_ms": 0.02944469451904297,
+        "utc_offset_seconds": 25200,
+        "timezone": "Asia/Bangkok",
+        "timezone_abbreviation": "GMT+7",
+        "elevation": 3.0,
+        "daily_units": {
+          "time": "iso8601",
+          "temperature_2m_max": "\u00b0C",
+          "temperature_2m_min": "\u00b0C",
+          "precipitation_sum": "mm"
+        },
+        "daily": {
+          "time": [
+            "2025-05-09",
+            "2025-05-10",
+            "2025-05-11",
+            "2025-05-12",
+            "2025-05-13",
+            "2025-05-14",
+            "2025-05-15"
+          ],
+          "temperature_2m_max": [
+            35.4,
+            34.1,
+            30.7,
+            29.8,
+            31.3,
+            31.6,
+            31.4
+          ],
+          "temperature_2m_min": [
+            28.5,
+            28.5,
+            27.7,
+            26.4,
+            26.1,
+            27.2,
+            27.5
+          ],
+          "precipitation_sum": [
+            0.0,
+            9.8,
+            16.3,
+            20.3,
+            11.0,
+            11.3,
+            16.1
+          ]
+        }
+      }
+    },
+    {
+      "id": "d298c5dc-f896-4c04-8930-d5b2884bed31",
+      "name": "Explore Vancouver",
+      "description": "Experience the charm and beauty of Vancouver, one of the most fascinating destinations in Canada.",
+      "destination": "Vancouver, Canada",
+      "country": "Canada",
+      "continent": "North America",
+      "price": {
+        "amount": 0,
+        "currency": "USD",
+        "per_person": true
+      },
+      "duration": "6 days",
+      "activities": [
+        {
+          "name": "YWCA Hotel / Residence",
+          "description": "Enjoy YWCA Hotel / Residence in Vancouver, Canada",
+          "duration": "1 hours",
+          "included_in_package": true
+        },
+        {
+          "name": "Georgian Court Hotel",
+          "description": "Enjoy Georgian Court Hotel in Vancouver, Canada",
+          "duration": "1 hours",
+          "included_in_package": true
+        },
+        {
+          "name": "Hampton Inn & Suites by Hilton Vancouver-Downtown",
+          "description": "Enjoy Hampton Inn & Suites by Hilton Vancouver-Downtown in Vancouver, Canada",
+          "duration": "3 hours",
+          "included_in_package": true
+        },
+        {
+          "name": "Rosedale on Robson Suite Hotel",
+          "description": "Enjoy Rosedale on Robson Suite Hotel in Vancouver, Canada",
+          "duration": "4 hours",
+          "included_in_package": true
+        },
+        {
+          "name": "Unnamed Attraction",
+          "description": "Enjoy Unnamed Attraction in Vancouver, Canada",
+          "duration": "1 hours",
+          "included_in_package": true
+        },
+        {
+          "name": "Douglas House",
+          "description": "Visit Douglas House, a local guest_house",
+          "duration": "2 hours",
+          "included_in_package": false,
+          "coordinates": {
+            "latitude": 49.2592236,
+            "longitude": -123.1143268
+          }
+        },
+        {
+          "name": "Rick Hansen",
+          "description": "Visit Rick Hansen, a local artwork",
+          "duration": "2 hours",
+          "included_in_package": false,
+          "coordinates": {
+            "latitude": 49.2620491,
+            "longitude": -123.120905
+          }
+        },
+        {
+          "name": "Unnamed Attraction",
+          "description": "Visit Unnamed Attraction, a local artwork",
+          "duration": "2 hours",
+          "included_in_package": false,
+          "coordinates": {
+            "latitude": 49.2607438,
+            "longitude": -123.1143694
+          }
+        },
+        {
+          "name": "Sounds We No Longer Hear",
+          "description": "Visit Sounds We No Longer Hear, a local artwork",
+          "duration": "2 hours",
+          "included_in_package": false,
+          "coordinates": {
+            "latitude": 49.2616112,
+            "longitude": -123.1140507
+          }
+        },
+        {
+          "name": "Cambie Lodge",
+          "description": "Visit Cambie Lodge, a local guest_house",
+          "duration": "2 hours",
+          "included_in_package": false,
+          "coordinates": {
+            "latitude": 49.2592361,
+            "longitude": -123.1141402
+          }
+        }
+      ],
+      "last_updated": "2025-05-08T21:07:02.479264",
+      "coordinates": {
+        "latitude": 49.2608724,
+        "longitude": -123.113952
+      },
+      "weather_data": {
+        "latitude": 49.268272,
+        "longitude": -123.11624,
+        "generationtime_ms": 0.04982948303222656,
+        "utc_offset_seconds": -25200,
+        "timezone": "America/Vancouver",
+        "timezone_abbreviation": "GMT-7",
+        "elevation": 40.0,
+        "daily_units": {
+          "time": "iso8601",
+          "temperature_2m_max": "\u00b0C",
+          "temperature_2m_min": "\u00b0C",
+          "precipitation_sum": "mm"
+        },
+        "daily": {
+          "time": [
+            "2025-05-08",
+            "2025-05-09",
+            "2025-05-10",
+            "2025-05-11",
+            "2025-05-12",
+            "2025-05-13",
+            "2025-05-14"
+          ],
+          "temperature_2m_max": [
+            15.4,
+            16.7,
+            14.0,
+            13.6,
+            15.2,
+            14.7,
+            13.4
+          ],
+          "temperature_2m_min": [
+            6.1,
+            8.1,
+            10.3,
+            9.5,
+            9.9,
+            10.5,
+            10.6
+          ],
+          "precipitation_sum": [
+            0.0,
+            0.0,
+            0.6,
+            0.6,
+            0.1,
+            0.0,
+            0.6
+          ]
+        }
+      }
+    }
+  ]
+}

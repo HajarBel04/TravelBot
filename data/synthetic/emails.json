@@ -1,0 +1,42 @@
+[
+    {
+        "id": 1,
+        "subject": "Looking for a family vacation",
+        "body": "Hi, I'm planning a family vacation for next summer. We are interested in beach destinations and would like to know about packages that include activities for kids. Our budget is around $3000. Please send me some options.",
+        "from": "customer1@example.com",
+        "to": "travelagency@example.com",
+        "date": "2023-10-01"
+    },
+    {
+        "id": 2,
+        "subject": "Honeymoon trip inquiry",
+        "body": "Hello, my partner and I are looking for a romantic getaway for our honeymoon. We are considering destinations in Europe and would like to know about all-inclusive packages. Our budget is flexible, but we prefer to keep it under $5000. Thank you!",
+        "from": "customer2@example.com",
+        "to": "travelagency@example.com",
+        "date": "2023-10-02"
+    },
+    {
+        "id": 3,
+        "subject": "Adventure trip for friends",
+        "body": "Hey there! A group of friends and I are planning an adventure trip. We are interested in hiking and outdoor activities. We would like to know about packages that cater to adventure seekers. Our budget is around $2000 per person. Looking forward to your suggestions!",
+        "from": "customer3@example.com",
+        "to": "travelagency@example.com",
+        "date": "2023-10-03"
+    },
+    {
+        "id": 4,
+        "subject": "Business trip arrangements",
+        "body": "Dear Travel Agency, I need assistance in arranging a business trip to New York next month. The trip will last for a week, and I need accommodation and transportation. Please provide me with the best options available.",
+        "from": "customer4@example.com",
+        "to": "travelagency@example.com",
+        "date": "2023-10-04"
+    },
+    {
+        "id": 5,
+        "subject": "Group tour inquiry",
+        "body": "Hi, I am organizing a group tour for a school trip. We are looking for educational packages that include museum visits and historical sites. The group consists of 30 students, and we have a budget of $1500 per student. Please let me know what you can offer.",
+        "from": "customer5@example.com",
+        "to": "travelagency@example.com",
+        "date": "2023-10-05"
+    }
+]

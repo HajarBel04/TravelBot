@@ -1,0 +1,16 @@
+# Create a new requirements file with updated versions
+Flask>=2.1.1,<3.0.0
+numpy>=1.22.0
+pandas>=1.3.3
+scikit-learn>=0.24.2
+transformers>=4.11.3
+torch>=1.10.0
+faiss-cpu>=1.7.1
+requests>=2.26.0
+python-dotenv>=0.19.2
+langchain>=0.1.2
+sentence-transformers>=2.2.2
+pydantic>=1.10.8,<2.0.0
+hnswlib>=0.7.0
+fastapi>=0.109.0
+uvicorn>=0.27.0

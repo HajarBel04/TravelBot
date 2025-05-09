@@ -1,0 +1,69 @@
+{
+  "packages": [
+    {
+      "id": 1,
+      "name": "Beach Getaway",
+      "description": "A relaxing beach vacation with sun, sand, and sea.",
+      "price": 499.99,
+      "duration": "5 days",
+      "activities": [
+        "Beach lounging",
+        "Snorkeling",
+        "Sunset cruise"
+      ],
+      "location": "Maldives"
+    },
+    {
+      "id": 2,
+      "name": "Mountain Adventure",
+      "description": "An adventurous trip to the mountains with hiking and climbing.",
+      "price": 799.99,
+      "duration": "7 days",
+      "activities": [
+        "Hiking",
+        "Rock climbing",
+        "Camping"
+      ],
+      "location": "Swiss Alps"
+    },
+    {
+      "id": 3,
+      "name": "Cultural Exploration",
+      "description": "Explore the rich culture and history of ancient cities.",
+      "price": 599.99,
+      "duration": "6 days",
+      "activities": [
+        "Museum tours",
+        "Culinary classes",
+        "Historical site visits"
+      ],
+      "location": "Rome, Italy"
+    },
+    {
+      "id": 4,
+      "name": "Safari Experience",
+      "description": "Experience the thrill of a safari in the wild.",
+      "price": 1299.99,
+      "duration": "10 days",
+      "activities": [
+        "Wildlife watching",
+        "Guided tours",
+        "Photography sessions"
+      ],
+      "location": "Kenya"
+    },
+    {
+      "id": 5,
+      "name": "City Break",
+      "description": "A short trip to explore the vibrant city life.",
+      "price": 299.99,
+      "duration": "3 days",
+      "activities": [
+        "Sightseeing",
+        "Shopping",
+        "Dining"
+      ],
+      "location": "New York City"
+    }
+  ]
+}

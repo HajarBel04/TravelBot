@@ -1,0 +1,42 @@
+{
+  "extraction": {
+    "extraction_completeness": 0.5714285714285714,
+    "process_time_ms": 0.5509853363037109,
+    "fields_extracted": 4.0,
+    "query_length": 272.0
+  },
+  "retrieval": {
+    "location_diversity": 1.0,
+    "price_range_width": 500.0,
+    "packages_count": 3.0,
+    "theme_diversity": 1.0,
+    "process_time_ms": 0.06604194641113281,
+    "query_length": 109.0
+  },
+  "generation": {
+    "quality_score": 0.8995073891625616,
+    "package_info_usage": 1.0,
+    "day_structure": 5.0,
+    "process_time_ms": 6.4067840576171875,
+    "structure_score": 1.0,
+    "coherence_score": 0.0,
+    "information_density": 0.4975369458128079,
+    "headings_count": 41.0,
+    "customer_info_usage": 1.0,
+    "proposal_length": 8473.0
+  },
+  "end_to_end": {
+    "word_count": 1358.0,
+    "content_richness": 1.0,
+    "process_time_ms": 0.5371570587158203,
+    "efficiency_ratio": 33.35359140279062,
+    "paragraph_count": 45.0,
+    "words_per_sentence": 39.94117647058823,
+    "response_length": 8473.0,
+    "total_processing_time": 254.03561186790466,
+    "sentence_count": 34.0,
+    "query_length": 272.0
+  },
+  "timestamp": "2025-05-09T01:39:19.933415",
+  "session_id": "20250509_013505"
+}
