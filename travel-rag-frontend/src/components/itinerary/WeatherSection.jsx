@@ -1,4 +1,4 @@
-// frontend/src/components/itinerary/WeatherSection.tsx
+// components/itinerary/WeatherSection.jsx
 import React from 'react';
 import { 
   SunIcon, 
@@ -6,17 +6,8 @@ import {
   CloudRainIcon 
 } from '@heroicons/react/24/outline';
 
-interface WeatherSectionProps {
-  weather: {
-    days: Array<{
-      date: string;
-      details: string;
-    }>;
-  };
-}
-
-export default function WeatherSection({ weather }: WeatherSectionProps) {
-  const getWeatherIcon = (details: string) => {
+export default function WeatherSection({ weather }) {
+  const getWeatherIcon = (details) => {
     if (details.toLowerCase().includes('rain') || details.toLowerCase().includes('precipitation')) {
       return <CloudRainIcon className="h-6 w-6 text-blue-500" />;
     } else if (details.toLowerCase().includes('cloud')) {
@@ -26,7 +17,7 @@ export default function WeatherSection({ weather }: WeatherSectionProps) {
     }
   };
 
-  const getTemperatureRange = (details: string) => {
+  const getTemperatureRange = (details) => {
     // Extract temperature range from details (e.g., "26.5°C to 32.1°C, Precipitation: 0.0mm")
     const tempMatch = details.match(/(\d+\.?\d*)°C to (\d+\.?\d*)°C/);
     if (tempMatch) {
@@ -35,7 +26,7 @@ export default function WeatherSection({ weather }: WeatherSectionProps) {
     return null;
   };
 
-  const getPrecipitation = (details: string) => {
+  const getPrecipitation = (details) => {
     // Extract precipitation from details
     const precipMatch = details.match(/Precipitation: (\d+\.?\d*)mm/);
     if (precipMatch) {

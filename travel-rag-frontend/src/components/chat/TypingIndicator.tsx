@@ -1,4 +1,4 @@
-// frontend/src/components/chat/TypingIndicator.tsx
+// components/chat/TypingIndicator.jsx
 import React from 'react';
 
 export default function TypingIndicator() {

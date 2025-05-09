@@ -1,12 +1,8 @@
-// frontend/src/components/common/Layout.tsx
-import React, { ReactNode } from 'react';
+// components/layout/Layout.jsx
+import React from 'react';
 import Link from 'next/link';
 import { Disclosure } from '@headlessui/react';
 import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline';
-
-interface LayoutProps {
-  children: ReactNode;
-}
 
 const navigation = [
   { name: 'Travel Assistant', href: '/', current: true },
@@ -14,11 +10,11 @@ const navigation = [
   { name: 'Dashboard', href: '/dashboard', current: false },
 ];
 
-function classNames(...classes: string[]) {
+function classNames(...classes) {
   return classes.filter(Boolean).join(' ');
 }
 
-export default function Layout({ children }: LayoutProps) {
+export default function Layout({ children }) {
   return (
     <div className="min-h-screen bg-gradient-to-b from-blue-50 to-white">
       <Disclosure as="nav" className="bg-gradient-to-r from-cyan-600 to-blue-700 shadow-md">

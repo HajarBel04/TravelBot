@@ -1,34 +1,14 @@
-// frontend/src/components/chat/ChatInterface.tsx
+// components/chat/ChatInterface.jsx
 import React, { useState, useRef, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import axios from 'axios';
 import { PaperAirplaneIcon } from '@heroicons/react/24/solid';
-import { ExclamationCircleIcon, ArrowPathIcon } from '@heroicons/react/24/outline';
+import { ArrowPathIcon } from '@heroicons/react/24/outline';
 import MessageItem from './MessageItem';
 import SuggestedPrompts from './SuggestedPrompts';
 import TypingIndicator from './TypingIndicator';
 
-interface Message {
-  role: 'user' | 'assistant';
-  content: string;
-  timestamp: Date;
-  processing?: boolean;
-  error?: boolean;
-}
-
-interface ProcessedResponse {
-  extracted_info: Record<string, any>;
-  packages: Array<any>;
-  proposal: string;
-  timings?: {
-    extraction_ms: number;
-    generation_ms: number;
-    total_ms: number;
-  };
-}
-
 export default function ChatInterface() {
-  const [messages, setMessages] = useState<Message[]>([
+  const [messages, setMessages] = useState([
     {
       role: 'assistant',
       content: 'Hello! I\'m your AI travel assistant. Tell me about the trip you\'re planning, and I\'ll help you create the perfect travel itinerary.',
@@ -37,25 +17,25 @@ export default function ChatInterface() {
   ]);
   const [inputValue, setInputValue] = useState('');
   const [isProcessing, setIsProcessing] = useState(false);
-  const [processingTime, setProcessingTime] = useState<number | null>(null);
-  const messagesEndRef = useRef<HTMLDivElement>(null);
+  const [processingTime, setProcessingTime] = useState(null);
+  const messagesEndRef = useRef(null);
 
   // Scroll to bottom whenever messages change
   useEffect(() => {
     messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' });
   }, [messages]);
 
-  const handleSubmit = async (e: React.FormEvent) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     if (!inputValue.trim() || isProcessing) return;
 
-    const userMessage: Message = {
+    const userMessage = {
       role: 'user',
       content: inputValue,
       timestamp: new Date(),
     };
 
-    const assistantLoadingMessage: Message = {
+    const assistantLoadingMessage = {
       role: 'assistant',
       content: '',
       timestamp: new Date(),
@@ -70,11 +50,13 @@ export default function ChatInterface() {
 
     try {
       // Call your API endpoint
-      const response = await axios.post('/api/process-email', {
-        email: userMessage.content,
+      const response = await fetch('/api/process-email', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ email: userMessage.content }),
       });
 
-      const data: ProcessedResponse = response.data;
+      const data = await response.json();
       const processingMs = Date.now() - startTime;
       setProcessingTime(processingMs);
 
@@ -89,7 +71,7 @@ export default function ChatInterface() {
               extracted_info: data.extracted_info,
               packages: data.packages,
               timings: data.timings,
-            } as Message & { extracted_info?: any; packages?: any; timings?: any };
+            };
           }
           return msg;
         })
@@ -116,7 +98,7 @@ export default function ChatInterface() {
     }
   };
 
-  const handleSuggestionClick = (suggestion: string) => {
+  const handleSuggestionClick = (suggestion) => {
     setInputValue(suggestion);
   };
 
@@ -128,8 +110,8 @@ export default function ChatInterface() {
   ];
 
   return (
-    <div className="flex flex-col h-[80vh] bg-white rounded-xl shadow-lg overflow-hidden">
-      <div className="bg-blue-600 text-white py-4 px-6">
+    <div className="flex flex-col h-[calc(100vh-120px)] bg-white rounded-xl shadow-lg overflow-hidden">
+      <div className="bg-gradient-to-r from-blue-600 to-cyan-500 text-white py-4 px-6">
         <h2 className="text-xl font-semibold">AI Travel Assistant</h2>
         {processingTime && !isProcessing && (
           <p className="text-xs text-blue-100">
@@ -166,17 +148,17 @@ export default function ChatInterface() {
       
       <form onSubmit={handleSubmit} className="p-4 border-t border-gray-200 bg-white">
         <div className="flex items-center">
-          <input
-            type="text"
+          <textarea
             value={inputValue}
             onChange={(e) => setInputValue(e.target.value)}
             placeholder="Describe your travel plans..."
             className="flex-1 border border-gray-300 rounded-l-lg py-3 px-4 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+            rows="2"
             disabled={isProcessing}
           />
           <button
             type="submit"
-            className={`bg-blue-600 hover:bg-blue-700 text-white rounded-r-lg py-3 px-4 flex items-center transition-colors ${
+            className={`bg-blue-600 hover:bg-blue-700 text-white rounded-r-lg py-3 px-4 flex items-center justify-center h-full transition-colors ${
               isProcessing ? 'opacity-50 cursor-not-allowed' : ''
             }`}
             disabled={isProcessing}

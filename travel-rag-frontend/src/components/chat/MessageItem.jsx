@@ -1,29 +1,12 @@
-// frontend/src/components/chat/MessageItem.tsx
+// components/chat/MessageItem.jsx
 import React, { useState } from 'react';
 import { ChevronDownIcon, ChevronUpIcon } from '@heroicons/react/24/outline';
 import ReactMarkdown from 'react-markdown';
 import ItineraryView from '../itinerary/ItineraryView';
 
-interface MessageProps {
-  message: {
-    role: 'user' | 'assistant';
-    content: string;
-    timestamp: Date;
-    processing?: boolean;
-    error?: boolean;
-    extracted_info?: any;
-    packages?: any[];
-    timings?: {
-      extraction_ms: number;
-      generation_ms: number;
-      total_ms: number;
-    };
-  };
-}
-
-export default function MessageItem({ message }: MessageProps) {
+export default function MessageItem({ message }) {
   const [showDetails, setShowDetails] = useState(false);
-  const [viewMode, setViewMode] = useState<'raw' | 'itinerary'>('itinerary');
+  const [viewMode, setViewMode] = useState('itinerary');
   
   // Determine if this is an itinerary response
   const isItinerary = message.role === 'assistant' && 
@@ -44,7 +27,7 @@ export default function MessageItem({ message }: MessageProps) {
       <div
         className={`rounded-lg px-4 py-3 max-w-[85%] ${
           message.role === 'user'
-            ? 'bg-blue-600 text-white rounded-br-none'
+            ? 'bg-gradient-to-r from-blue-500 to-blue-600 text-white rounded-br-none'
             : message.error
             ? 'bg-red-50 text-red-800 rounded-bl-none border border-red-200'
             : 'bg-white shadow-sm border border-gray-200 rounded-bl-none'

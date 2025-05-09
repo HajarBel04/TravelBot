@@ -1,12 +1,7 @@
-// frontend/src/components/chat/SuggestedPrompts.tsx
+// components/chat/SuggestedPrompts.jsx
 import React from 'react';
 
-interface SuggestedPromptsProps {
-  prompts: string[];
-  onSelect: (prompt: string) => void;
-}
-
-export default function SuggestedPrompts({ prompts, onSelect }: SuggestedPromptsProps) {
+export default function SuggestedPrompts({ prompts, onSelect }) {
   return (
     <div className="flex flex-wrap gap-2">
       {prompts.map((prompt, index) => (

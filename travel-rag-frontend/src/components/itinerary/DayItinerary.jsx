@@ -1,4 +1,4 @@
-// frontend/src/components/itinerary/DayItinerary.tsx
+// components/itinerary/DayItinerary.jsx
 import React from 'react';
 import { 
   SunIcon, 
@@ -6,17 +6,7 @@ import {
   MoonIcon 
 } from '@heroicons/react/24/outline';
 
-interface DayItineraryProps {
-  day: {
-    day: number;
-    title: string;
-    morning: string[];
-    afternoon: string[];
-    evening: string[];
-  };
-}
-
-export default function DayItinerary({ day }: DayItineraryProps) {
+export default function DayItinerary({ day }) {
   return (
     <div>
       <h3 className="text-lg font-medium text-gray-800 mb-4">{day.title}</h3>

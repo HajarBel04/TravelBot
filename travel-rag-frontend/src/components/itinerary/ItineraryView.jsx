@@ -1,4 +1,4 @@
-// frontend/src/components/itinerary/ItineraryView.tsx
+// components/itinerary/ItineraryView.jsx
 import React, { useState, useEffect, useRef } from 'react';
 import { 
   ChevronDownIcon, 
@@ -11,43 +11,15 @@ import {
   DocumentArrowDownIcon,
   ShareIcon
 } from '@heroicons/react/24/outline';
-import { jsPDF } from 'jspdf';
-import { toPng } from 'html-to-image';
 import DayItinerary from './DayItinerary';
 import WeatherSection from './WeatherSection';
 
-interface ItineraryViewProps {
-  content: string;
-  extractedInfo?: any;
-  packages?: any[];
-}
-
-interface ParsedItinerary {
-  title: string;
-  overview: string;
-  days: {
-    day: number;
-    title: string;
-    morning: string[];
-    afternoon: string[];
-    evening: string[];
-  }[];
-  practicalInfo: {
-    accommodations: string[];
-    transportation: string[];
-    costs: string[];
-  };
-  weather?: any;
-  destinationInfo?: any;
-  travelTips?: string[];
-}
-
-export default function ItineraryView({ content, extractedInfo, packages }: ItineraryViewProps) {
-  const [parsedItinerary, setParsedItinerary] = useState<ParsedItinerary | null>(null);
+export default function ItineraryView({ content, extractedInfo, packages }) {
+  const [parsedItinerary, setParsedItinerary] = useState(null);
   const [activeDay, setActiveDay] = useState(1);
   const [showWeather, setShowWeather] = useState(true);
   const [showDestinationInfo, setShowDestinationInfo] = useState(true);
-  const itineraryRef = useRef<HTMLDivElement>(null);
+  const itineraryRef = useRef(null);
 
   useEffect(() => {
     if (content) {
@@ -56,20 +28,20 @@ export default function ItineraryView({ content, extractedInfo, packages }: Itin
     }
   }, [content]);
 
-  const parseItineraryContent = (markdown: string): ParsedItinerary => {
+  const parseItineraryContent = (markdown) => {
     // This is a simplified parser - in a real implementation, you would want a more robust markdown parser
     const lines = markdown.split('\n');
     let title = 'Travel Itinerary';
     let overview = '';
-    const days: any[] = [];
+    const days = [];
     const practicalInfo = {
       accommodations: [],
       transportation: [],
       costs: []
     };
-    let weather: any = null;
-    let destinationInfo: any = null;
-    let travelTips: string[] = [];
+    let weather = null;
+    let destinationInfo = null;
+    let travelTips = [];
 
     // Extract title (first h1)
     const titleMatch = markdown.match(/^# (.*?)$/m);
@@ -90,9 +62,9 @@ export default function ItineraryView({ content, extractedInfo, packages }: Itin
       const dayNumber = index + 1;
       const dayTitle = `Day ${dayNumber}`;
       
-      const morning: string[] = [];
-      const afternoon: string[] = [];
-      const evening: string[] = [];
+      const morning = [];
+      const afternoon = [];
+      const evening = [];
 
       if (dayContent.includes('### Morning')) {
         const morningStart = dayContent.indexOf('### Morning');
@@ -206,7 +178,7 @@ export default function ItineraryView({ content, extractedInfo, packages }: Itin
           days: weatherItems.map(item => {
             const weatherText = item.replace('- ', '');
             const weatherParts = weatherText.split(':');
-            const date = weatherParts[0].trim();
+            const date = weatherParts[0] ? weatherParts[0].trim() : '';
             const details = weatherParts[1] ? weatherParts[1].trim() : '';
             
             return { date, details };
@@ -271,26 +243,11 @@ export default function ItineraryView({ content, extractedInfo, packages }: Itin
   };
 
   const exportPDF = async () => {
-    if (!itineraryRef.current) return;
-    
-    const pdf = new jsPDF('p', 'mm', 'a4');
-    
-    try {
-      const canvas = await toPng(itineraryRef.current, { quality: 0.95 });
-      
-      const imgProps = pdf.getImageProperties(canvas);
-      const pdfWidth = pdf.internal.pageSize.getWidth();
-      const pdfHeight = (imgProps.height * pdfWidth) / imgProps.width;
-      
-      pdf.addImage(canvas, 'PNG', 0, 0, pdfWidth, pdfHeight);
-      
-      pdf.save(`${parsedItinerary?.title || 'travel-itinerary'}.pdf`);
-    } catch (error) {
-      console.error('Error generating PDF:', error);
-    }
+    // In a real implementation, use a library like jsPDF and html2canvas
+    alert('PDF export functionality would be implemented here');
   };
 
-  const handleDayClick = (day: number) => {
+  const handleDayClick = (day) => {
     setActiveDay(day);
   };
 
@@ -506,6 +463,6 @@ export default function ItineraryView({ content, extractedInfo, packages }: Itin
           Share
         </button>
       </div>
-    </div>
+    </div> 
   );
 }
