@@ -17,6 +17,6 @@
       "@/*": ["./src/*"]
     }
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "components/layout/Layout.jsx", "components/itinerary/ItineraryView.jsx", "components/chat/SuggestedPrompts.jsx", "components/chat/MessageItem.jsx", "components/chat/ChatInterface.jsx"],
   "exclude": ["node_modules"]
 }

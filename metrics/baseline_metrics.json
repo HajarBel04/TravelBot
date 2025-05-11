@@ -1,42 +1,42 @@
 {
   "extraction": {
-    "extraction_completeness": 0.42857142857142855,
-    "query_length": 288.0,
-    "fields_extracted": 3.0,
-    "process_time_ms": 1.1410713195800781
+    "extraction_completeness": 1.0,
+    "process_time_ms": 1.2021064758300781,
+    "fields_extracted": 7.0,
+    "query_length": 141.0
   },
   "retrieval": {
+    "query_length": 104.0,
+    "process_time_ms": 0.04601478576660156,
     "price_range_width": 500.0,
-    "query_length": 57.0,
     "packages_count": 3.0,
-    "location_diversity": 1.0,
-    "theme_diversity": 1.0,
-    "process_time_ms": 0.030040740966796875
+    "theme_diversity": 1.6666666666666667,
+    "location_diversity": 1.0
   },
   "generation": {
-    "customer_info_usage": 1.0,
-    "day_structure": 5.0,
-    "package_info_usage": 1.0,
-    "information_density": 0.4439252336448598,
-    "quality_score": 0.888785046728972,
-    "headings_count": 41.0,
-    "process_time_ms": 8.43501091003418,
+    "proposal_length": 11198.0,
+    "quality_score": 0.837119341563786,
+    "information_density": 0.48559670781893005,
+    "headings_count": 52.0,
+    "customer_info_usage": 0.8,
+    "process_time_ms": 8.388280868530273,
     "structure_score": 1.0,
+    "day_structure": 7.0,
     "coherence_score": 0.0,
-    "proposal_length": 7364.0
+    "package_info_usage": 1.0
   },
   "end_to_end": {
-    "paragraph_count": 42.0,
+    "word_count": 1869.0,
+    "words_per_sentence": 51.916666666666664,
+    "total_processing_time": 421.89874362945557,
+    "process_time_ms": 0.32401084899902344,
+    "response_length": 11198.0,
     "content_richness": 1.0,
-    "sentence_count": 33.0,
-    "word_count": 1161.0,
-    "query_length": 288.0,
-    "total_processing_time": 102.78503012657166,
-    "response_length": 7364.0,
-    "efficiency_ratio": 71.64467423837708,
-    "words_per_sentence": 35.18181818181818,
-    "process_time_ms": 0.2570152282714844
+    "sentence_count": 36.0,
+    "query_length": 141.0,
+    "efficiency_ratio": 26.54191359677278,
+    "paragraph_count": 53.0
   },
-  "timestamp": "2025-05-09T16:01:20.454932",
-  "session_id": "20250509_155926"
+  "timestamp": "2025-05-10T21:57:46.527160",
+  "session_id": "20250510_215033"
 }

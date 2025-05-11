@@ -1,136 +1,98 @@
 // services/apiService.js
-import config from '../config';
+const API_URL = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:8000';
 
-/**
- * Service to handle API requests to the RAG backend
- */
-class ApiService {
-  constructor() {
-    this.baseUrl = config.api.baseUrl;
-    this.timeout = config.api.timeout;
-    this.useMocks = config.api.useMocks;
-  }
-
+const apiService = {
   /**
-   * Process an email and generate a travel proposal
-   * 
-   * @param {string} email - The email content
-   * @returns {Promise<Object>} - The processed result with proposal
+   * Process an email with the RAG system
    */
   async processEmail(email) {
-    if (this.useMocks) {
-      // Return from the local Next.js API route
-      return this.fetchWithTimeout('/api/process-email', {
+    try {
+      // FIXED: Added /api/ prefix to match FastAPI endpoint
+      const response = await fetch(`${API_URL}/api/process-email`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
         },
         body: JSON.stringify({ email }),
       });
-    } else {
-      // Make a direct call to the RAG backend
-      return this.fetchWithTimeout(`${this.baseUrl}${config.api.endpoints.processEmail}`, {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({ email }),
-      });
+
+      if (!response.ok) {
+        const error = await response.json();
+        throw new Error(error.message || 'Failed to process email');
+      }
+
+      return await response.json();
+    } catch (error) {
+      console.error('Error processing email:', error);
+      throw error;
     }
-  }
+  },
 
   /**
    * Get system statistics
-   * 
-   * @returns {Promise<Object>} - System statistics
    */
   async getStats() {
-    if (this.useMocks) {
-      return this.fetchWithTimeout('/api/stats');
-    } else {
-      return this.fetchWithTimeout(`${this.baseUrl}${config.api.endpoints.getStats}`);
-    }
-  }
-
-  /**
-   * Get destinations
-   * 
-   * @param {Object} filters - Optional filters for destinations
-   * @returns {Promise<Array>} - List of destinations
-   */
-  async getDestinations(filters = {}) {
-    const params = new URLSearchParams();
-    
-    // Add filters to query params
-    Object.entries(filters).forEach(([key, value]) => {
-      if (value !== undefined && value !== null) {
-        params.append(key, value);
-      }
-    });
-    
-    const queryString = params.toString() ? `?${params.toString()}` : '';
-    
-    if (this.useMocks) {
-      return this.fetchWithTimeout(`/api/destinations${queryString}`);
-    } else {
-      return this.fetchWithTimeout(`${this.baseUrl}${config.api.endpoints.getDestinations}${queryString}`);
-    }
-  }
-
-  /**
-   * Get a single destination by ID
-   * 
-   * @param {string|number} id - Destination ID
-   * @returns {Promise<Object>} - Destination details
-   */
-  async getDestination(id) {
-    if (this.useMocks) {
-      return this.fetchWithTimeout(`/api/destinations/${id}`);
-    } else {
-      return this.fetchWithTimeout(`${this.baseUrl}${config.api.endpoints.getSingleDestination(id)}`);
-    }
-  }
-
-  /**
-   * Helper method to fetch with timeout
-   * 
-   * @param {string} url - URL to fetch
-   * @param {Object} options - Fetch options
-   * @returns {Promise<any>} - Parsed JSON response
-   */
-  async fetchWithTimeout(url, options = {}) {
-    const controller = new AbortController();
-    const { signal } = controller;
-    
-    // Set timeout
-    const timeout = setTimeout(() => {
-      controller.abort();
-    }, this.timeout);
-    
     try {
-      const response = await fetch(url, {
-        ...options,
-        signal,
-      });
-      
-      clearTimeout(timeout);
-      
+      // FIXED: Added /api/ prefix to match FastAPI endpoint
+      const response = await fetch(`${API_URL}/api/stats`);
+
       if (!response.ok) {
-        throw new Error(`HTTP error! Status: ${response.status}`);
+        const error = await response.json();
+        throw new Error(error.message || 'Failed to fetch stats');
       }
-      
+
       return await response.json();
     } catch (error) {
-      clearTimeout(timeout);
-      
-      if (error.name === 'AbortError') {
-        throw new Error(`Request timeout after ${this.timeout}ms`);
+      console.error('Error fetching stats:', error);
+      throw error;
+    }
+  },
+
+  /**
+   * Get destinations with optional filters
+   */
+  async getDestinations(filters = {}) {
+    try {
+      // Create query string from filters
+      const queryParams = new URLSearchParams();
+      Object.entries(filters).forEach(([key, value]) => {
+        if (value) queryParams.append(key, value);
+      });
+
+      // FIXED: Added /api/ prefix to match FastAPI endpoint
+      const response = await fetch(`${API_URL}/api/destinations?${queryParams}`);
+
+      if (!response.ok) {
+        const error = await response.json();
+        throw new Error(error.message || 'Failed to fetch destinations');
       }
-      
+
+      return await response.json();
+    } catch (error) {
+      console.error('Error fetching destinations:', error);
+      throw error;
+    }
+  },
+
+  /**
+   * Get a specific destination by ID
+   */
+  async getDestination(id) {
+    try {
+      // FIXED: Added /api/ prefix to match FastAPI endpoint
+      const response = await fetch(`${API_URL}/api/destinations/${id}`);
+
+      if (!response.ok) {
+        const error = await response.json();
+        throw new Error(error.message || 'Failed to fetch destination');
+      }
+
+      return await response.json();
+    } catch (error) {
+      console.error(`Error fetching destination ${id}:`, error);
       throw error;
     }
   }
-}
+};
 
-// Export as singleton
-export default new ApiService();
+export default apiService;

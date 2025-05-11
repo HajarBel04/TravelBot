@@ -1,163 +1,122 @@
-// src/components/chat/ChatInterface.jsx
+// components/chat/ChatInterface.jsx
 import React, { useState, useRef, useEffect } from 'react';
-import MessageItem from './MessageItem';
+import { useEmailProcessor } from '../../../hooks/useRagApi';
+import MessageList from './MessageList.jsx';
+import TypingIndicator from './TypingIndicator';
 import SuggestedPrompts from './SuggestedPrompts';
 
 export default function ChatInterface() {
   const [messages, setMessages] = useState([
     {
-      role: 'assistant',
-      content: 'Hello! I\'m your AI travel assistant. Tell me about the trip you\'re planning, and I\'ll help you create the perfect travel itinerary.',
-      timestamp: new Date(),
-    },
+      type: 'assistant',
+      content: "Hello! I'm your AI travel assistant. Tell me about your dream vacation, and I'll create a personalized itinerary for you."
+    }
   ]);
   const [inputValue, setInputValue] = useState('');
-  const [isProcessing, setIsProcessing] = useState(false);
-  const [processingTime, setProcessingTime] = useState(null);
+  const { processEmail, loading, result } = useEmailProcessor();
   const messagesEndRef = useRef(null);
 
-  // Scroll to bottom whenever messages change
+  // Scroll to bottom when messages change
   useEffect(() => {
     messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' });
   }, [messages]);
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    if (!inputValue.trim() || isProcessing) return;
+  // Example suggested prompts
+  const suggestedPrompts = [
+    "I want to plan a beach vacation to Maldives for 2 weeks in July. We are a couple with a budget of $5000.",
+    "Looking for a family-friendly trip to Rome for 5 days in August with kids aged 8 and 10. Budget: $3000.",
+    "Planning a hiking adventure in the Swiss Alps for a week in September. I'm a solo traveler with a $2000 budget."
+  ];
 
+  const handleSendMessage = async () => {
+    if (!inputValue.trim()) return;
+
+    // Add user message to chat
     const userMessage = {
-      role: 'user',
-      content: inputValue,
-      timestamp: new Date(),
+      type: 'user',
+      content: inputValue
     };
-
-    const assistantLoadingMessage = {
-      role: 'assistant',
-      content: '',
-      timestamp: new Date(),
-      processing: true,
-    };
-
-    setMessages((prev) => [...prev, userMessage, assistantLoadingMessage]);
+    setMessages(prev => [...prev, userMessage]);
     setInputValue('');
-    setIsProcessing(true);
-    
-    const startTime = Date.now();
 
     try {
-      // Call your API endpoint
-      const response = await fetch('/api/process-email', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ email: userMessage.content }),
-      });
+      // Process the email with RAG system
+      const ragResult = await processEmail(userMessage.content);
 
-      const data = await response.json();
-      const processingMs = Date.now() - startTime;
-      setProcessingTime(processingMs);
-
-      // Update the loading message with the actual response
-      setMessages((prev) =>
-        prev.map((msg, index) => {
-          if (index === prev.length - 1 && msg.processing) {
-            return {
-              role: 'assistant',
-              content: data.proposal,
-              timestamp: new Date(),
-              extracted_info: data.extracted_info,
-              packages: data.recommended_packages,
-              timings: data.timings,
-            };
-          }
-          return msg;
-        })
-      );
+      if (ragResult) {
+        // Add assistant response with the RAG result
+        setMessages(prev => [...prev, {
+          type: 'assistant',
+          content: "I've analyzed your request and created a travel proposal for you:",
+          ragResult: ragResult
+        }]);
+      } else {
+        // Handle error case
+        setMessages(prev => [...prev, {
+          type: 'assistant',
+          content: "I'm sorry, I couldn't process your request. Please try again with more details about your travel plans."
+        }]);
+      }
     } catch (error) {
       console.error('Error processing request:', error);
-      
-      // Update the loading message with an error
-      setMessages((prev) =>
-        prev.map((msg, index) => {
-          if (index === prev.length - 1 && msg.processing) {
-            return {
-              role: 'assistant',
-              content: 'Sorry, I encountered an error while processing your request. Please try again.',
-              timestamp: new Date(),
-              error: true,
-            };
-          }
-          return msg;
-        })
-      );
-    } finally {
-      setIsProcessing(false);
+      setMessages(prev => [...prev, {
+        type: 'assistant',
+        content: "I'm sorry, there was an error processing your request. Please try again later."
+      }]);
     }
   };
 
-  const handleSuggestionClick = (suggestion) => {
-    setInputValue(suggestion);
+  const handleKeyDown = (e) => {
+    if (e.key === 'Enter' && !e.shiftKey) {
+      e.preventDefault();
+      handleSendMessage();
+    }
   };
 
-  const suggestedPrompts = [
-    "I'm planning a beach vacation for my family of 4 in Hawaii next summer.",
-    "I need a 7-day itinerary for Paris with a focus on museums and local cuisine.",
-    "What mountain destinations would you recommend for a hiking trip in October?",
-    "I'm looking for a budget-friendly city break for a long weekend.",
-  ];
+  const handleSuggestedPrompt = (prompt) => {
+    setInputValue(prompt);
+  };
 
   return (
-    <div className="flex flex-col h-[500px] bg-white rounded-b-xl overflow-hidden">
-      <div className="flex-1 overflow-y-auto p-4 bg-gray-50 space-y-4">
-        {messages.map((message, index) => (
-          <div key={index} className="mb-4">
-            <MessageItem message={message} />
-          </div>
-        ))}
-        
-        {isProcessing && (
-          <div className="flex items-center space-x-2 text-[#00aa6c]">
-            <div className="flex space-x-1">
-              <div className="w-2 h-2 bg-[#00aa6c] rounded-full animate-bounce"></div>
-              <div className="w-2 h-2 bg-[#00aa6c] rounded-full animate-bounce" style={{ animationDelay: "0.2s" }}></div>
-              <div className="w-2 h-2 bg-[#00aa6c] rounded-full animate-bounce" style={{ animationDelay: "0.4s" }}></div>
-            </div>
-            <span className="text-sm">Creating your personalized travel itinerary...</span>
-          </div>
-        )}
-        
+    <div className="flex flex-col h-[600px]">
+      <div className="flex-1 overflow-y-auto p-4">
+        <MessageList messages={messages} />
         <div ref={messagesEndRef} />
       </div>
       
-      {messages.length === 1 && (
-        <div className="px-6 py-4 bg-blue-50 border-t border-blue-100">
-          <h3 className="text-sm font-medium text-[#00aa6c] mb-2">Popular searches:</h3>
-          <SuggestedPrompts prompts={suggestedPrompts} onSelect={handleSuggestionClick} />
+      {loading && (
+        <div className="px-4 pb-2">
+          <TypingIndicator />
         </div>
       )}
       
-      <div className="p-4 border-t border-gray-200 bg-white">
-        <form onSubmit={handleSubmit} className="flex items-center relative">
+      <div className="p-4 bg-white border-t border-gray-200">
+        {messages.length === 1 && (
+          <div className="mb-4">
+            <SuggestedPrompts prompts={suggestedPrompts} onSelectPrompt={handleSuggestedPrompt} />
+          </div>
+        )}
+        
+        <div className="flex items-center">
           <textarea
+            className="flex-1 border border-gray-300 rounded-l-lg p-3 focus:outline-none focus:ring-2 focus:ring-[#00aa6c] resize-none"
+            placeholder="Describe your travel plans..."
             value={inputValue}
             onChange={(e) => setInputValue(e.target.value)}
-            placeholder="Where would you like to travel? (e.g., 'Beach vacation in Bali for 2 weeks')"
-            className="flex-1 border border-gray-300 rounded-full py-3 pl-4 pr-12 focus:outline-none focus:ring-2 focus:ring-[#00aa6c] focus:border-transparent resize-none h-12 overflow-hidden"
-            rows="1"
-            disabled={isProcessing}
+            onKeyDown={handleKeyDown}
+            rows="2"
+            disabled={loading}
           />
           <button
-            type="submit"
-            className={`absolute right-2 p-2 rounded-full ${
-              isProcessing ? 'bg-gray-300 cursor-not-allowed' : 'bg-[#00aa6c] hover:bg-[#008a57]'
-            } text-white`}
-            disabled={isProcessing}
+            className={`bg-[#00aa6c] hover:bg-[#008a57] text-white p-3 rounded-r-lg ${loading ? 'opacity-50 cursor-not-allowed' : ''}`}
+            onClick={handleSendMessage}
+            disabled={loading || !inputValue.trim()}
           >
-            🚀
+            <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8"></path>
+            </svg>
           </button>
-        </form>
-        <p className="mt-2 text-xs text-gray-500 text-center">
-          Ask about destinations, accommodations, activities, or specific travel preferences
-        </p>
+        </div>
       </div>
     </div>
   );

@@ -1,5 +1,7 @@
 import uvicorn
 import os
+from fastapi import FastAPI
+
 from pathlib import Path
 
 if __name__ == "__main__":

@@ -1,14 +1,58 @@
-# Add these new imports at the top
+# src/api/app.py
+
+# Add these imports and define project_root at the top of the file
+import os
+import sys
+import json
+import logging
+from pathlib import Path
+from fastapi import FastAPI, HTTPException, Request
+from fastapi.middleware.cors import CORSMiddleware
+
+# Define project_root
+project_root = Path(__file__).resolve().parent.parent.parent  # Go up three levels from app.py
+
+# Set up logging
+logging.basicConfig(
+    level=logging.INFO,
+    format='%(asctime)s - %(name)s - %(levelname)s - %(message)s',
+    handlers=[logging.StreamHandler(sys.stdout)]
+)
+logger = logging.getLogger(__name__)
+
+# Import components
+from src.generation.llm_wrapper import OllamaWrapper
+from src.email_processing.extractor import EmailExtractor
+from src.retrieval.retriever import Retriever
+
+# Enhanced components
 from enhanced_proposal_generator import ProposalGenerator
 from optimized_vector_store import OptimizedVectorStore 
 from response_caching_system import ResponseCache, DestinationCache
 from rag_evaluation_metrics import RAGEvaluator
 import time
 
-# Add these before the app definition
+# Initialize global variables
+_vector_store = None
+_retriever = None
+_proposal_generator = None
+
+# Initialize caching and evaluation
 response_cache = ResponseCache(cache_dir=str(project_root / "cache" / "responses"))
 destination_cache = DestinationCache(cache_dir=str(project_root / "cache" / "destinations"))
 evaluator = RAGEvaluator(metrics_dir=str(project_root / "metrics"))
+
+# Create FastAPI app
+app = FastAPI(title="Travel RAG API")
+
+# Add CORS middleware to allow requests from your frontend
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["*"],  # In production, specify your frontend domain
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
 
 # Replace the startup_event function with this enhanced version
 @app.on_event("startup")
@@ -65,8 +109,13 @@ async def startup_event():
         logger.error(f"Error initializing Travel RAG API: {e}")
         logger.error("Will attempt to initialize components on-demand when endpoints are called")
 
+# Add a simple home route
+@app.get("/")
+async def root():
+    return {"message": "Welcome to Travel RAG API", "status": "online"}
+
 # Replace the process_email endpoint with this enhanced version
-@app.post("/process-email")
+@app.post("/api/process-email")
 async def process_email(request: Request):
     try:
         # Parse request body
@@ -192,7 +241,7 @@ async def process_email(request: Request):
         raise HTTPException(status_code=500, detail=str(e))
 
 # Add this new endpoint for stats
-@app.get("/stats")
+@app.get("/api/stats")
 async def get_stats():
     try:
         # Get statistics about the system
@@ -217,3 +266,69 @@ async def get_stats():
     except Exception as e:
         logger.error(f"Error getting stats: {e}")
         return {"status": "error", "message": str(e)}
+
+# Add an endpoint to get destinations (needed for your frontend)
+@app.get("/api/destinations")
+async def get_destinations():
+    try:
+        destinations = []
+        
+        # If we have cached destinations, use those
+        if destination_cache and destination_cache.destinations:
+            destinations = destination_cache.get_all_destinations()
+        
+        # If we don't have cached destinations but have the vector store
+        elif _vector_store:
+            # Extract unique destinations from packages
+            packages = _vector_store.get_documents()
+            unique_destinations = set()
+            
+            for package in packages:
+                location = package.get('location') or package.get('destination')
+                if location:
+                    unique_destinations.add(location)
+            
+            destinations = list(unique_destinations)
+        
+        return {"destinations": destinations}
+    except Exception as e:
+        logger.error(f"Error getting destinations: {e}")
+        return {"status": "error", "message": str(e)}
+
+# Add an endpoint to get a single destination
+@app.get("/api/destinations/{destination_id}")
+async def get_destination(destination_id: str):
+    try:
+        # Try to get from destination cache
+        destination_data = None
+        
+        if destination_cache:
+            destination_data = destination_cache.get_destination_data(destination_id)
+        
+        if destination_data:
+            return {"destination": destination_data}
+        else:
+            # Try to find in vector store
+            if _vector_store:
+                packages = _vector_store.get_documents()
+                matching_packages = []
+                
+                for package in packages:
+                    location = package.get('location') or package.get('destination')
+                    if location and location.lower() == destination_id.lower():
+                        matching_packages.append(package)
+                
+                if matching_packages:
+                    return {
+                        "destination": {
+                            "name": destination_id,
+                            "packages": matching_packages
+                        }
+                    }
+            
+            raise HTTPException(status_code=404, detail="Destination not found")
+    except Exception as e:
+        logger.error(f"Error getting destination {destination_id}: {e}")
+        if isinstance(e, HTTPException):
+            raise e
+        raise HTTPException(status_code=500, detail=str(e))

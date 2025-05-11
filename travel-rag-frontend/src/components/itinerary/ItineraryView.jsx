@@ -1,25 +1,95 @@
 // src/components/itinerary/ItineraryView.jsx
 import React, { useState } from 'react';
+import ReactMarkdown from 'react-markdown'; // Install with: npm install react-markdown
 
 export default function ItineraryView({ content, extractedInfo, packages }) {
-  const [activeDay, setActiveDay] = useState(1);
+  const [activeTab, setActiveTab] = useState('overview');
   const [showInfo, setShowInfo] = useState(true);
 
-  // This is simplified for the example
-  // In a real app, you would parse the markdown content properly
-  const destination = extractedInfo?.destination || (packages?.[0]?.location || 'Your Destination');
-  const daysCount = 3; // This would be parsed from the content
+  // Get destination information
+  const destination = extractedInfo?.destination || 
+                     (packages && packages.length > 0 ? packages[0]?.location : 'Your Destination');
+  
+  // Parse markdown sections
+  const extractSection = (sectionTitle) => {
+    if (!content) return '';
+    
+    // Look for section headers (## Section Title)
+    const regex = new RegExp(`## ${sectionTitle}[\\s\\S]*?(?=## |$)`, 'i');
+    const match = content.match(regex);
+    return match ? match[0] : '';
+  };
+  
+  const overviewSection = content ? content.split('## Day')[0] : '';
+  const daysSection = content ? content.match(/## Day[\s\S]*?(?=## Practical|$)/i)?.[0] || '' : '';
+  const practicalSection = extractSection('Practical Information');
+  const weatherSection = extractSection('Weather Forecast');
+  const tipsSection = extractSection('Travel Tips');
+  
+  // Extract day count
+  const dayRegex = /## Day (\d+)/g;
+  let match;
+  let maxDay = 0;
+  while ((match = dayRegex.exec(content)) !== null) {
+    const day = parseInt(match[1]);
+    if (day > maxDay) maxDay = day;
+  }
+  const daysCount = maxDay || 3; // Default to 3 if no days found
+  
+  const [activeDay, setActiveDay] = useState(1);
   
   const handleDayClick = (day) => {
     setActiveDay(day);
   };
+  
+  const getDayContent = (day) => {
+    const dayRegex = new RegExp(`## Day ${day}[\\s\\S]*?(?=## Day|## Practical|$)`, 'i');
+    const match = content.match(dayRegex);
+    return match ? match[0] : '';
+  };
 
   return (
     <div className="bg-white rounded-lg overflow-hidden border border-gray-200">
+      {/* Tabs */}
+      <div className="bg-white border-b border-gray-200">
+        <div className="flex overflow-x-auto">
+          <button 
+            onClick={() => setActiveTab('overview')}
+            className={`px-4 py-2 ${activeTab === 'overview' ? 'border-b-2 border-[#00aa6c] text-[#00aa6c]' : 'text-gray-500'}`}
+          >
+            Overview
+          </button>
+          <button 
+            onClick={() => setActiveTab('itinerary')}
+            className={`px-4 py-2 ${activeTab === 'itinerary' ? 'border-b-2 border-[#00aa6c] text-[#00aa6c]' : 'text-gray-500'}`}
+          >
+            Day by Day
+          </button>
+          <button 
+            onClick={() => setActiveTab('practical')}
+            className={`px-4 py-2 ${activeTab === 'practical' ? 'border-b-2 border-[#00aa6c] text-[#00aa6c]' : 'text-gray-500'}`}
+          >
+            Practical Info
+          </button>
+          <button 
+            onClick={() => setActiveTab('weather')}
+            className={`px-4 py-2 ${activeTab === 'weather' ? 'border-b-2 border-[#00aa6c] text-[#00aa6c]' : 'text-gray-500'}`}
+          >
+            Weather
+          </button>
+          <button 
+            onClick={() => setActiveTab('tips')}
+            className={`px-4 py-2 ${activeTab === 'tips' ? 'border-b-2 border-[#00aa6c] text-[#00aa6c]' : 'text-gray-500'}`}
+          >
+            Travel Tips
+          </button>
+        </div>
+      </div>
+      
       {/* Header with destination info */}
       <div className="relative h-40 overflow-hidden">
         <img 
-          src={`https://source.unsplash.com/featured/?${destination.split(',')[0]},travel`} 
+          src={`https://source.unsplash.com/featured/?${destination?.split(',')[0]},travel`} 
           alt={destination}
           className="w-full h-full object-cover"
         />
@@ -70,133 +140,61 @@ export default function ItineraryView({ content, extractedInfo, packages }) {
               <span key={star} className="text-white">★</span>
             ))}
           </div>
-          <span className="text-sm font-medium">324 Reviews</span>
+          <span className="text-sm font-medium">AI Generated</span>
         </div>
-        <span className="text-xs font-medium bg-white px-2 py-1 rounded-full">Travelers' Choice</span>
+        <span className="text-xs font-medium bg-white px-2 py-1 rounded-full">Personalized Itinerary</span>
       </div>
       
-      {/* Day selector - TripAdvisor style */}
-      <div className="border-b border-gray-200 bg-white">
-        <div className="px-4 py-2 overflow-x-auto flex space-x-2">
-          {Array.from({ length: daysCount }, (_, i) => i + 1).map((day) => (
-            <button
-              key={day}
-              onClick={() => handleDayClick(day)}
-              className={`flex flex-col items-center justify-center min-w-[60px] py-2 px-1 rounded-md text-xs font-medium transition-colors ${
-                activeDay === day
-                  ? 'bg-[#00aa6c] text-white'
-                  : 'bg-gray-100 text-gray-600 hover:bg-gray-200'
-              }`}
-            >
-              <span className="text-xs uppercase">Day</span>
-              <span className="text-lg font-bold">{day}</span>
-            </button>
-          ))}
-        </div>
-      </div>
-      
-      {/* Content area */}
+      {/* Content based on active tab */}
       <div className="p-4">
-        {/* Example day content - in a real app this would come from parsing the markdown */}
-        {activeDay === 1 && (
-          <div>
-            <h3 className="text-lg font-medium text-gray-800 mb-2">Arrival & Exploration</h3>
-            <ul className="space-y-2 text-gray-600">
-              <li className="flex items-start">
-                <div className="bg-blue-100 p-1 rounded-full mr-2 mt-1">
-                  <span className="text-blue-600 text-xs font-bold">AM</span>
-                </div>
-                <span>Arrive at your hotel and check in</span>
-              </li>
-              <li className="flex items-start">
-                <div className="bg-blue-100 p-1 rounded-full mr-2 mt-1">
-                  <span className="text-blue-600 text-xs font-bold">PM</span>
-                </div>
-                <span>Explore the local neighborhood and enjoy dinner at a recommended restaurant</span>
-              </li>
-            </ul>
+        {activeTab === 'overview' && (
+          <div className="prose prose-sm max-w-none">
+            <ReactMarkdown>{overviewSection}</ReactMarkdown>
           </div>
         )}
         
-        {activeDay === 2 && (
+        {activeTab === 'itinerary' && (
           <div>
-            <h3 className="text-lg font-medium text-gray-800 mb-2">Cultural Immersion</h3>
-            <ul className="space-y-2 text-gray-600">
-              <li className="flex items-start">
-                <div className="bg-blue-100 p-1 rounded-full mr-2 mt-1">
-                  <span className="text-blue-600 text-xs font-bold">AM</span>
-                </div>
-                <span>Visit the main cultural attractions and museums</span>
-              </li>
-              <li className="flex items-start">
-                <div className="bg-blue-100 p-1 rounded-full mr-2 mt-1">
-                  <span className="text-blue-600 text-xs font-bold">PM</span>
-                </div>
-                <span>Take a guided walking tour of historical sites</span>
-              </li>
-            </ul>
-          </div>
-        )}
-        
-        {activeDay === 3 && (
-          <div>
-            <h3 className="text-lg font-medium text-gray-800 mb-2">Relaxation & Departure</h3>
-            <ul className="space-y-2 text-gray-600">
-              <li className="flex items-start">
-                <div className="bg-blue-100 p-1 rounded-full mr-2 mt-1">
-                  <span className="text-blue-600 text-xs font-bold">AM</span>
-                </div>
-                <span>Free time for shopping or relaxation</span>
-              </li>
-              <li className="flex items-start">
-                <div className="bg-blue-100 p-1 rounded-full mr-2 mt-1">
-                  <span className="text-blue-600 text-xs font-bold">PM</span>
-                </div>
-                <span>Check out and departure</span>
-              </li>
-            </ul>
-          </div>
-        )}
-      </div>
-      
-      {/* Practical information */}
-      <div className="border-t border-gray-200">
-        <button
-          onClick={() => setShowInfo(!showInfo)}
-          className="w-full p-4 flex justify-between items-center bg-gray-50 hover:bg-gray-100 transition-colors"
-        >
-          <h3 className="font-medium text-gray-800">Practical Information</h3>
-          {showInfo ? <span>▲</span> : <span>▼</span>}
-        </button>
-        
-        {showInfo && (
-          <div className="p-4">
-            <div className="mb-4">
-              <h4 className="font-medium text-gray-800 mb-2">Recommended Accommodations</h4>
-              <ul className="list-disc list-inside text-gray-600 text-sm">
-                <li>Luxury Hotel - City Center</li>
-                <li>Boutique Hotel - Historic District</li>
-                <li>Budget Hostel - Near Public Transportation</li>
-              </ul>
+            {/* Day selector */}
+            <div className="overflow-x-auto flex space-x-2 mb-4">
+              {Array.from({ length: daysCount }, (_, i) => i + 1).map((day) => (
+                <button
+                  key={day}
+                  onClick={() => handleDayClick(day)}
+                  className={`flex flex-col items-center justify-center min-w-[60px] py-2 px-1 rounded-md text-xs font-medium transition-colors ${
+                    activeDay === day
+                      ? 'bg-[#00aa6c] text-white'
+                      : 'bg-gray-100 text-gray-600 hover:bg-gray-200'
+                  }`}
+                >
+                  <span className="text-xs uppercase">Day</span>
+                  <span className="text-lg font-bold">{day}</span>
+                </button>
+              ))}
             </div>
             
-            <div className="mb-4">
-              <h4 className="font-medium text-gray-800 mb-2">Transportation Options</h4>
-              <ul className="list-disc list-inside text-gray-600 text-sm">
-                <li>Public Transit - Affordable and convenient</li>
-                <li>Taxi Services - Available throughout the city</li>
-                <li>Rental Car - Recommended for exploring the outskirts</li>
-              </ul>
+            {/* Day content */}
+            <div className="prose prose-sm max-w-none">
+              <ReactMarkdown>{getDayContent(activeDay)}</ReactMarkdown>
             </div>
-            
-            <div>
-              <h4 className="font-medium text-gray-800 mb-2">Estimated Costs</h4>
-              <ul className="list-disc list-inside text-gray-600 text-sm">
-                <li>Accommodations: $100-300 per night</li>
-                <li>Meals: $30-80 per day</li>
-                <li>Activities: $20-50 per activity</li>
-              </ul>
-            </div>
+          </div>
+        )}
+        
+        {activeTab === 'practical' && (
+          <div className="prose prose-sm max-w-none">
+            <ReactMarkdown>{practicalSection}</ReactMarkdown>
+          </div>
+        )}
+        
+        {activeTab === 'weather' && (
+          <div className="prose prose-sm max-w-none">
+            <ReactMarkdown>{weatherSection}</ReactMarkdown>
+          </div>
+        )}
+        
+        {activeTab === 'tips' && (
+          <div className="prose prose-sm max-w-none">
+            <ReactMarkdown>{tipsSection}</ReactMarkdown>
           </div>
         )}
       </div>

@@ -1,4 +1,4 @@
-// hooks/useRagApi.js
+// src/hooks/useRagApi.js
 import { useState, useCallback } from 'react';
 import apiService from '../services/apiService';
 
@@ -10,7 +10,7 @@ export function useEmailProcessor() {
   const [error, setError] = useState(null);
   const [result, setResult] = useState(null);
   const [processingTime, setProcessingTime] = useState(null);
-
+  
   const processEmail = useCallback(async (email) => {
     setLoading(true);
     setError(null);
@@ -29,7 +29,7 @@ export function useEmailProcessor() {
       setLoading(false);
     }
   }, []);
-
+  
   return {
     processEmail,
     loading,
@@ -46,7 +46,7 @@ export function useSystemStats() {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
   const [stats, setStats] = useState(null);
-
+  
   const fetchStats = useCallback(async () => {
     setLoading(true);
     setError(null);
@@ -62,7 +62,7 @@ export function useSystemStats() {
       setLoading(false);
     }
   }, []);
-
+  
   return {
     fetchStats,
     loading,
@@ -78,7 +78,7 @@ export function useDestinations() {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
   const [destinations, setDestinations] = useState([]);
-
+  
   const fetchDestinations = useCallback(async (filters = {}) => {
     setLoading(true);
     setError(null);
@@ -94,7 +94,7 @@ export function useDestinations() {
       setLoading(false);
     }
   }, []);
-
+  
   const fetchDestination = useCallback(async (id) => {
     setLoading(true);
     setError(null);
@@ -108,7 +108,7 @@ export function useDestinations() {
       setLoading(false);
     }
   }, []);
-
+  
   return {
     fetchDestinations,
     fetchDestination,

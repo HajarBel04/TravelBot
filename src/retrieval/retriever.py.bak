@@ -65,7 +65,7 @@ class Retriever:
         if not query:
             query = "travel package"
             
-        return query    
+        return query
     
     def retrieve_relevant_packages(self, query, top_k=3):
         """
@@ -139,7 +139,8 @@ class Retriever:
             # Just take top results without reranking
             packages = [doc for doc, _ in doc_score_pairs[:top_k]]
         
-        return packages    
+        return packages
+    
     def get_packages_from_email(self, email_text, top_k=3):
         """
         Process an email and retrieve relevant packages.

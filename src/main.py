@@ -313,11 +313,7 @@ def main():
     if emails and emails[0].get('subject') == "Looking for a family vacation":
         # The original email asks for beach destinations but doesn't emphasize it enough
         # Let's make it clearer for testing
-        enhanced_email = """
-        Hi, I'm planning a family beach vacation for next summer. We want to enjoy sun, sand, and
-        beautiful beaches. We are interested in beach destinations that include activities for kids.
-        Our budget is around $3000. Please send me some beach vacation options.
-        """
+        enhanced_email = """I am planning a trip to Paris for 7 days in July with my family of 4. Our budget is $5000. We enjoy museums, historical sites, and good food."""
         
         logger.info("Using enhanced beach vacation email for testing")
         example_email = enhanced_email

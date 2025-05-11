@@ -23,17 +23,17 @@
         {
           "name": "Snorkeling",
           "description": "Enjoy Snorkeling on the beautiful beaches of Maldives",
-          "duration": "2 hours",
+          "duration": "1 hours",
           "included_in_package": true
         },
         {
           "name": "Sunset cruise",
           "description": "Enjoy Sunset cruise on the beautiful beaches of Maldives",
-          "duration": "1 hours",
+          "duration": "2 hours",
           "included_in_package": true
         }
       ],
-      "last_updated": "2025-05-08T21:07:09.001675",
+      "last_updated": "2025-05-10T21:47:30.620783",
       "coordinates": {
         "latitude": 3.7203503,
         "longitude": 73.2244152
@@ -115,7 +115,7 @@
         {
           "name": "Hiking",
           "description": "Enjoy Hiking in Swiss Alps",
-          "duration": "4 hours",
+          "duration": "1 hours",
           "included_in_package": true
         },
         {
@@ -127,7 +127,7 @@
         {
           "name": "Camping",
           "description": "Enjoy Camping in Swiss Alps",
-          "duration": "1 hours",
+          "duration": "3 hours",
           "included_in_package": true
         },
         {
@@ -141,7 +141,7 @@
           }
         }
       ],
-      "last_updated": "2025-05-08T21:07:11.226405",
+      "last_updated": "2025-05-10T21:47:32.898848",
       "coordinates": {
         "latitude": 42.6031914,
         "longitude": -89.6608875
@@ -149,7 +149,7 @@
       "weather_data": {
         "latitude": 42.59193,
         "longitude": -89.67574,
-        "generationtime_ms": 0.09691715240478516,
+        "generationtime_ms": 0.24127960205078125,
         "utc_offset_seconds": -18000,
         "timezone": "America/Chicago",
         "timezone_abbreviation": "GMT-5",
@@ -162,40 +162,40 @@
         },
         "daily": {
           "time": [
-            "2025-05-08",
-            "2025-05-09",
             "2025-05-10",
             "2025-05-11",
             "2025-05-12",
             "2025-05-13",
-            "2025-05-14"
+            "2025-05-14",
+            "2025-05-15",
+            "2025-05-16"
           ],
           "temperature_2m_max": [
-            18.0,
-            21.9,
-            22.0,
-            22.2,
-            23.9,
-            22.1,
-            25.6
+            24.4,
+            25.2,
+            27.2,
+            23.0,
+            25.5,
+            28.8,
+            21.2
           ],
           "temperature_2m_min": [
-            6.2,
-            3.5,
-            8.3,
-            6.1,
-            11.3,
-            13.3,
-            14.1
+            11.4,
+            6.4,
+            12.1,
+            13.0,
+            14.2,
+            14.2,
+            10.6
           ],
           "precipitation_sum": [
             0.0,
             0.0,
+            0.0,
+            3.0,
             0.1,
-            0.0,
-            0.0,
-            0.6,
-            0.0
+            1.7,
+            1.8
           ]
         }
       },
@@ -221,13 +221,13 @@
         {
           "name": "Museum tours",
           "description": "Enjoy Museum tours in Rome, Italy",
-          "duration": "2 hours",
+          "duration": "4 hours",
           "included_in_package": true
         },
         {
           "name": "Culinary classes",
           "description": "Enjoy Culinary classes in Rome, Italy",
-          "duration": "2 hours",
+          "duration": "4 hours",
           "included_in_package": true
         },
         {
@@ -287,7 +287,7 @@
           }
         }
       ],
-      "last_updated": "2025-05-08T21:07:13.371581",
+      "last_updated": "2025-05-10T21:47:35.171737",
       "coordinates": {
         "latitude": 41.8933203,
         "longitude": 12.4829321
@@ -295,7 +295,7 @@
       "weather_data": {
         "latitude": 41.875,
         "longitude": 12.5,
-        "generationtime_ms": 0.06687641143798828,
+        "generationtime_ms": 0.050187110900878906,
         "utc_offset_seconds": 7200,
         "timezone": "Europe/Rome",
         "timezone_abbreviation": "GMT+2",
@@ -308,40 +308,40 @@
         },
         "daily": {
           "time": [
-            "2025-05-08",
-            "2025-05-09",
             "2025-05-10",
             "2025-05-11",
             "2025-05-12",
             "2025-05-13",
-            "2025-05-14"
+            "2025-05-14",
+            "2025-05-15",
+            "2025-05-16"
           ],
           "temperature_2m_max": [
-            20.5,
-            23.5,
-            24.9,
-            21.4,
-            22.5,
-            23.6,
-            22.7
+            24.1,
+            23.8,
+            23.3,
+            23.2,
+            22.2,
+            24.1,
+            25.0
           ],
           "temperature_2m_min": [
-            13.2,
-            10.7,
-            12.3,
-            14.1,
-            15.2,
-            15.4,
-            13.8
+            11.2,
+            13.7,
+            13.7,
+            13.8,
+            14.0,
+            13.5,
+            10.2
           ],
           "precipitation_sum": [
             0.0,
-            0.0,
+            0.1,
             0.2,
-            1.3,
-            0.6,
-            0.6,
-            1.8
+            0.7,
+            0.9,
+            0.0,
+            0.0
           ]
         }
       }
@@ -363,23 +363,23 @@
         {
           "name": "Wildlife watching",
           "description": "Enjoy Wildlife watching in Kenya",
-          "duration": "3 hours",
+          "duration": "2 hours",
           "included_in_package": true
         },
         {
           "name": "Guided tours",
           "description": "Enjoy Guided tours in Kenya",
-          "duration": "1 hours",
+          "duration": "4 hours",
           "included_in_package": true
         },
         {
           "name": "Photography sessions",
           "description": "Enjoy Photography sessions in Kenya",
-          "duration": "4 hours",
+          "duration": "3 hours",
           "included_in_package": true
         }
       ],
-      "last_updated": "2025-05-08T21:07:16.571113",
+      "last_updated": "2025-05-10T21:47:38.333933",
       "coordinates": {
         "latitude": 1.4419683,
         "longitude": 38.4313975
@@ -387,7 +387,7 @@
       "weather_data": {
         "latitude": 1.5,
         "longitude": 38.375,
-        "generationtime_ms": 0.03600120544433594,
+        "generationtime_ms": 0.6095170974731445,
         "utc_offset_seconds": 10800,
         "timezone": "Africa/Nairobi",
         "timezone_abbreviation": "GMT+3",
@@ -400,34 +400,34 @@
         },
         "daily": {
           "time": [
-            "2025-05-08",
-            "2025-05-09",
             "2025-05-10",
             "2025-05-11",
             "2025-05-12",
             "2025-05-13",
-            "2025-05-14"
+            "2025-05-14",
+            "2025-05-15",
+            "2025-05-16"
           ],
           "temperature_2m_max": [
-            33.3,
-            33.5,
-            34.2,
-            35.4,
-            36.0,
-            35.7,
-            35.6
+            34.4,
+            34.3,
+            35.3,
+            35.9,
+            35.9,
+            35.6,
+            35.5
           ],
           "temperature_2m_min": [
-            24.0,
-            23.6,
-            24.4,
-            24.0,
+            24.5,
+            24.7,
+            25.1,
+            25.1,
+            25.3,
             25.0,
-            25.6,
-            25.5
+            25.1
           ],
           "precipitation_sum": [
-            2.4,
+            0.0,
             0.0,
             0.0,
             0.0,
@@ -471,7 +471,7 @@
         {
           "name": "Dining",
           "description": "Enjoy Dining in New York City",
-          "duration": "3 hours",
+          "duration": "2 hours",
           "included_in_package": true
         },
         {
@@ -525,7 +525,7 @@
           }
         }
       ],
-      "last_updated": "2025-05-08T21:07:18.976395",
+      "last_updated": "2025-05-10T21:47:40.768770",
       "coordinates": {
         "latitude": 40.7127281,
         "longitude": -74.0060152
@@ -533,7 +533,7 @@
       "weather_data": {
         "latitude": 40.710335,
         "longitude": -73.99309,
-        "generationtime_ms": 0.08976459503173828,
+        "generationtime_ms": 0.09560585021972656,
         "utc_offset_seconds": -14400,
         "timezone": "America/New_York",
         "timezone_abbreviation": "GMT-4",
@@ -546,40 +546,40 @@
         },
         "daily": {
           "time": [
-            "2025-05-08",
-            "2025-05-09",
             "2025-05-10",
             "2025-05-11",
             "2025-05-12",
             "2025-05-13",
-            "2025-05-14"
+            "2025-05-14",
+            "2025-05-15",
+            "2025-05-16"
           ],
           "temperature_2m_max": [
-            25.3,
-            14.7,
-            19.9,
-            22.0,
-            18.5,
-            18.8,
-            21.8
+            22.4,
+            22.3,
+            19.0,
+            16.8,
+            16.3,
+            20.0,
+            23.8
           ],
           "temperature_2m_min": [
-            14.8,
-            10.7,
-            8.1,
-            12.7,
-            12.9,
-            14.7,
-            15.7
+            9.5,
+            11.2,
+            7.9,
+            14.9,
+            14.3,
+            15.2,
+            16.0
           ],
           "precipitation_sum": [
-            1.2,
-            13.8,
             0.0,
             0.0,
             0.0,
-            1.2,
-            3.3
+            23.3,
+            35.3,
+            0.4,
+            0.6
           ]
         }
       },
