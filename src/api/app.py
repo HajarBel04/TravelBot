@@ -54,6 +54,7 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
+
 # Replace the startup_event function with this enhanced version
 @app.on_event("startup")
 async def startup_event():

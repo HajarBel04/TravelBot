@@ -39,10 +39,19 @@ class ProposalGenerator:
             duration_days = 5  # Default to 5 days if not specified
             if customer_info.get('duration') and customer_info['duration'] not in [None, 'None']:
                 try:
-                    duration_str = customer_info['duration'].split()[0]  # Extract just the number
-                    duration_days = int(duration_str)
-                except (ValueError, IndexError):
-                    pass
+                    duration_str = customer_info['duration'].lower()
+                    if 'week' in duration_str:
+                        # Extract the number before "week" or "weeks"
+                        week_count = int(''.join(filter(str.isdigit, duration_str.split('week')[0])))
+                        duration_days = week_count * 7  # Convert weeks to days
+                    else:
+                        # Handle days directly
+                        duration_days = int(''.join(filter(str.isdigit, duration_str)))
+                except (ValueError, IndexError) as e:
+                    logger.warning(f"Error parsing duration '{duration_str}': {e}")
+            
+                
+            
             
             travel_type = customer_info.get('travel_type') or "vacation"
             travelers = customer_info.get('travelers') or "2"
@@ -286,141 +295,11 @@ class ProposalGenerator:
         No introduction or conclusion paragraphs - focus on the itinerary itself.
         """
         
-        # Add weather awareness
-        if enriched_data['weather_data']:
-            system_prompt += "\nConsider the weather conditions mentioned when planning outdoor activities. "
-            system_prompt += "Suggest appropriate clothing and gear based on the temperature and precipitation forecast."
-        
-        # Add cultural context
-        if enriched_data['country_info']:
-            system_prompt += "\nIncorporate cultural context and local customs of the destination when appropriate. "
-            if isinstance(enriched_data['country_info'], dict) and 'languages' in enriched_data['country_info']:
-                system_prompt += f"Include a few key phrases in the local language ({enriched_data['country_info'].get('languages')}). "
-            if isinstance(enriched_data['country_info'], dict) and 'currency' in enriched_data['country_info']:
-                system_prompt += f"Mention currency ({enriched_data['country_info'].get('currency')}) when discussing costs."
-                
-        # Add destination-specific guidance
-        if enriched_data['has_beach']:
-            system_prompt += "\nFor this beach destination, recommend specific beaches for different activities (swimming, snorkeling, surfing, etc). "
-            system_prompt += "Include water temperature, tide information, and best times to visit each beach. "
-            system_prompt += "Suggest water activities and beach-appropriate dining options."
-            
-        if enriched_data['has_mountain']:
-            system_prompt += "\nFor this mountain destination, incorporate hiking trail difficulties, elevation gains, and estimated times. "
-            system_prompt += "Suggest appropriate gear and clothing for mountain activities. "
-            system_prompt += "Include information about altitude and acclimatization if relevant."
-            
-        if enriched_data['has_city']:
-            system_prompt += "\nFor this urban destination, include information about public transportation, walking distances, and city districts. "
-            system_prompt += "Recommend specific cultural institutions with their opening hours and ticket prices. "
-            system_prompt += "Include urban dining experiences and shopping opportunities."
-        
         return system_prompt
     
     def _format_enriched_data_for_appendix(self, enriched_data):
         """Format enriched data as appendix sections to add after the main itinerary."""
-        appendix = ""
-        
-        # Add country and destination information
-        if enriched_data['country_info'] and isinstance(enriched_data['country_info'], dict):
-            appendix += f"\n\n## Destination Information\n"
-            if 'name' in enriched_data['country_info']:
-                appendix += f"Country: {enriched_data['country_info']['name']}\n"
-            if 'continent' in enriched_data['country_info']:
-                appendix += f"Continent: {enriched_data['country_info']['continent']}\n"
-            if 'currency' in enriched_data['country_info']:
-                appendix += f"Currency: {enriched_data['country_info']['currency']}\n"
-            if 'languages' in enriched_data['country_info']:
-                appendix += f"Languages: {enriched_data['country_info']['languages']}\n"
-            if 'capital' in enriched_data['country_info']:
-                appendix += f"Capital: {enriched_data['country_info']['capital']}\n"
-        
-        # Add weather forecast
-        if enriched_data['weather_data'] and isinstance(enriched_data['weather_data'], dict) and 'daily' in enriched_data['weather_data']:
-            try:
-                daily = enriched_data['weather_data']['daily']
-                if 'time' in daily and 'temperature_2m_max' in daily and 'temperature_2m_min' in daily:
-                    appendix += f"\n\n## Weather Forecast\n"
-                    days = min(5, len(daily['time']))
-                    for i in range(days):
-                        date = daily['time'][i] if i < len(daily['time']) else "Unknown"
-                        max_temp = daily['temperature_2m_max'][i] if i < len(daily['temperature_2m_max']) else "N/A"
-                        min_temp = daily['temperature_2m_min'][i] if i < len(daily['temperature_2m_min']) else "N/A"
-                        precip = daily['precipitation_sum'][i] if 'precipitation_sum' in daily and i < len(daily['precipitation_sum']) else "N/A"
-                        
-                        appendix += f"- {date}: {min_temp}°C to {max_temp}°C, Precipitation: {precip}mm\n"
-                        
-                    # Add packing suggestions based on weather
-                    appendix += "\n### Packing Suggestions Based on Weather\n"
-                    avg_max = sum(daily['temperature_2m_max'][:days]) / days
-                    avg_min = sum(daily['temperature_2m_min'][:days]) / days
-                    
-                    if avg_max > 28:
-                        appendix += "- Light, breathable clothing\n- Sun hat and sunglasses\n- Strong sunscreen (SPF 30+)\n- Swimming attire\n- Light rain jacket\n"
-                    elif avg_max > 20:
-                        appendix += "- Light layers for daytime\n- Light jacket for evenings\n- Sun protection\n- Comfortable walking shoes\n- Light rain jacket\n"
-                    elif avg_max > 10:
-                        appendix += "- Sweaters and light jackets\n- Long pants\n- Comfortable walking shoes\n- Rain jacket\n- Light scarf\n"
-                    else:
-                        appendix += "- Warm coat or jacket\n- Layers for warmth\n- Hat, gloves, and scarf\n- Waterproof boots\n- Thermal undergarments if very cold\n"
-            except Exception as e:
-                logger.warning(f"Error formatting weather forecast: {e}")
-        
-        # Add local attractions
-        if enriched_data['local_attractions']:
-            appendix += "\n\n## Local Attractions\n"
-            for i, attraction in enumerate(enriched_data['local_attractions'], 1):
-                if isinstance(attraction, dict):
-                    name = attraction.get('name', 'Local attraction')
-                    desc = attraction.get('description', '')
-                    duration = attraction.get('duration', '')
-                    included = "Included in package" if attraction.get('included_in_package', False) else "Additional cost"
-                    
-                    appendix += f"### {i}. {name}\n"
-                    appendix += f"Description: {desc}\n"
-                    if duration:
-                        appendix += f"Duration: {duration}\n"
-                    appendix += f"Note: {included}\n\n"
-                else:
-                    appendix += f"### {i}. {attraction}\n\n"
-        
-        # Add travel tips based on destination type
-        appendix += "\n\n## Travel Tips\n"
-        
-        if enriched_data['has_beach']:
-            appendix += "\n### Beach Destination Tips\n"
-            appendix += "- Apply sunscreen regularly, even on cloudy days\n"
-            appendix += "- Stay hydrated with bottled or filtered water\n"
-            appendix += "- Check tide schedules for water activities\n"
-            appendix += "- Inquire about water safety and any dangerous marine life\n"
-            appendix += "- Respect marine environments and wildlife\n"
-            
-        if enriched_data['has_mountain']:
-            appendix += "\n### Mountain Destination Tips\n"
-            appendix += "- Check weather forecasts before hiking\n"
-            appendix += "- Bring layers even in warm weather as temperatures vary with altitude\n"
-            appendix += "- Stay on marked trails\n"
-            appendix += "- Bring sufficient water and snacks\n"
-            appendix += "- Inform someone of your hiking plans\n"
-            
-        if enriched_data['has_city']:
-            appendix += "\n### City Destination Tips\n"
-            appendix += "- Use public transportation for efficiency\n"
-            appendix += "- Be aware of pickpocketing in tourist areas\n"
-            appendix += "- Check museum and attraction hours in advance\n"
-            appendix += "- Look for city passes that bundle attractions\n"
-            appendix += "- Try local specialties at authentic restaurants\n"
-        
-        # Add cultural tips if country info available
-        if enriched_data['country_info']:
-            appendix += "\n### Cultural Tips\n"
-            appendix += "- Learn a few basic phrases in the local language\n"
-            appendix += "- Research and respect local customs and etiquette\n"
-            appendix += "- Dress appropriately for religious or cultural sites\n"
-            appendix += "- Ask permission before photographing people\n"
-            appendix += "- Respect local traditions and practices\n"
-        
-        return appendix
+        return ""
     
     def _clean_itinerary_format(self, itinerary):
         """
@@ -477,8 +356,6 @@ class ProposalGenerator:
         - Local restaurant suggestions
         - Transportation options
         - Estimated costs
-        - Weather forecast and local conditions
-        - Cultural information and travel tips
         
         Your complete itinerary will be ready shortly.
         """

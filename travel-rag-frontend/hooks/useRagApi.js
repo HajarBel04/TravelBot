@@ -3,117 +3,85 @@ import { useState, useCallback } from 'react';
 import apiService from '../services/apiService';
 
 /**
- * Custom hook for processing email with the RAG system
+ * Hook for processing email through the RAG system
  */
 export function useEmailProcessor() {
   const [loading, setLoading] = useState(false);
-  const [error, setError] = useState(null);
   const [result, setResult] = useState(null);
-  const [processingTime, setProcessingTime] = useState(null);
-  
+  const [error, setError] = useState(null);
+
   const processEmail = useCallback(async (email) => {
     setLoading(true);
     setError(null);
     
-    const startTime = Date.now();
-    
     try {
-      const data = await apiService.processEmail(email);
-      setResult(data);
-      setProcessingTime(Date.now() - startTime);
-      return data;
+      const response = await apiService.processEmail(email);
+      setResult(response);
+      return response;
     } catch (err) {
-      setError(err.message || 'An error occurred while processing the email');
+      setError(err.message || 'Failed to process email');
+      console.error('Error in useEmailProcessor:', err);
       return null;
     } finally {
       setLoading(false);
     }
   }, []);
-  
-  return {
-    processEmail,
-    loading,
-    error,
-    result,
-    processingTime
-  };
+
+  return { processEmail, loading, result, error };
 }
 
 /**
- * Custom hook for fetching system statistics
+ * Hook for fetching system statistics
  */
 export function useSystemStats() {
+  const [stats, setStats] = useState(null);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
-  const [stats, setStats] = useState(null);
-  
+
   const fetchStats = useCallback(async () => {
     setLoading(true);
     setError(null);
     
     try {
-      const data = await apiService.getStats();
-      setStats(data);
-      return data;
+      const response = await apiService.getStats();
+      setStats(response);
+      return response;
     } catch (err) {
-      setError(err.message || 'An error occurred while fetching stats');
+      setError(err.message || 'Failed to fetch stats');
+      console.error('Error in useSystemStats:', err);
       return null;
     } finally {
       setLoading(false);
     }
   }, []);
-  
-  return {
-    fetchStats,
-    loading,
-    error,
-    stats
-  };
+
+  return { fetchStats, stats, loading, error };
 }
 
 /**
- * Custom hook for fetching destinations
+ * Hook for fetching destinations
  */
 export function useDestinations() {
+  const [destinations, setDestinations] = useState([]);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
-  const [destinations, setDestinations] = useState([]);
-  
+
   const fetchDestinations = useCallback(async (filters = {}) => {
     setLoading(true);
     setError(null);
     
     try {
-      const data = await apiService.getDestinations(filters);
-      setDestinations(data);
-      return data;
+      const response = await apiService.getDestinations(filters);
+      setDestinations(response);
+      return response;
     } catch (err) {
-      setError(err.message || 'An error occurred while fetching destinations');
+      setError(err.message || 'Failed to fetch destinations');
+      console.error('Error in useDestinations:', err);
       return [];
     } finally {
       setLoading(false);
     }
   }, []);
-  
-  const fetchDestination = useCallback(async (id) => {
-    setLoading(true);
-    setError(null);
-    
-    try {
-      return await apiService.getDestination(id);
-    } catch (err) {
-      setError(err.message || 'An error occurred while fetching the destination');
-      return null;
-    } finally {
-      setLoading(false);
-    }
-  }, []);
-  
-  return {
-    fetchDestinations,
-    fetchDestination,
-    loading,
-    error,
-    destinations
-  };
+
+  return { fetchDestinations, destinations, loading, error };
 }
